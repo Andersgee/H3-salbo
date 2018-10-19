@@ -1,0 +1,3928 @@
+DEBUG:root:recieved: {"CAPTURE_ENABLED":false,"CAPTURE_RADIUS":3,"DEFAULT_MAP_HEIGHT":32,"DEFAULT_MAP_WIDTH":32,"DROPOFF_COST":4000,"DROPOFF_PENALTY_RATIO":4,"EXTRACT_RATIO":4,"FACTOR_EXP_1":2.0,"FACTOR_EXP_2":2.0,"INITIAL_ENERGY":5000,"INSPIRATION_ENABLED":true,"INSPIRATION_RADIUS":4,"INSPIRATION_SHIP_COUNT":2,"INSPIRED_BONUS_MULTIPLIER":2.0,"INSPIRED_EXTRACT_RATIO":4,"INSPIRED_MOVE_COST_RATIO":10,"MAX_CELL_PRODUCTION":1000,"MAX_ENERGY":1000,"MAX_PLAYERS":16,"MAX_TURNS":400,"MAX_TURN_THRESHOLD":64,"MIN_CELL_PRODUCTION":900,"MIN_TURNS":400,"MIN_TURN_THRESHOLD":32,"MOVE_COST_RATIO":10,"NEW_ENTITY_ENERGY_COST":1000,"PERSISTENCE":0.7,"SHIPS_ABOVE_FOR_CAPTURE":3,"STRICT_ERRORS":false,"game_seed":1539853891}
+DEBUG:root:recieved: 2 0
+DEBUG:root:recieved: 0 8 16
+DEBUG:root:recieved: 1 23 16
+DEBUG:root:recieved: 32 32
+DEBUG:root:recieved: 1 17 3 12 37 86 21 35 5 160 439 101 9 166 116 150 150 116 166 9 101 439 160 5 35 21 86 37 12 3 17 1 
+DEBUG:root:recieved: 37 30 17 12 110 31 154 168 10 214 214 82 60 30 29 12 12 29 30 60 82 214 214 10 168 154 31 110 12 17 30 37 
+DEBUG:root:recieved: 9 16 8 38 15 126 147 201 29 22 22 79 274 79 13 88 88 13 79 274 79 22 22 29 201 147 126 15 38 8 16 9 
+DEBUG:root:recieved: 27 35 268 39 260 66 115 66 104 43 135 168 409 212 85 23 23 85 212 409 168 135 43 104 66 115 66 260 39 268 35 27 
+DEBUG:root:recieved: 71 229 339 91 113 151 602 180 96 71 77 139 425 270 70 58 58 70 270 425 139 77 71 96 180 602 151 113 91 339 229 71 
+DEBUG:root:recieved: 111 298 112 119 95 472 217 138 136 261 63 448 174 102 47 31 31 47 102 174 448 63 261 136 138 217 472 95 119 112 298 111 
+DEBUG:root:recieved: 24 52 287 324 92 376 700 105 22 54 98 333 254 130 30 54 54 30 130 254 333 98 54 22 105 700 376 92 324 287 52 24 
+DEBUG:root:recieved: 149 147 134 230 264 252 275 476 271 45 92 279 193 120 64 17 17 64 120 193 279 92 45 271 476 275 252 264 230 134 147 149 
+DEBUG:root:recieved: 0 37 245 308 876 330 636 220 47 242 111 272 489 139 125 16 16 125 139 489 272 111 242 47 220 636 330 876 308 245 37 0 
+DEBUG:root:recieved: 129 56 312 497 474 296 116 385 306 71 140 267 273 154 75 192 192 75 154 273 267 140 71 306 385 116 296 474 497 312 56 129 
+DEBUG:root:recieved: 45 27 53 70 234 66 31 69 122 102 105 147 491 176 124 212 212 124 176 491 147 105 102 122 69 31 66 234 70 53 27 45 
+DEBUG:root:recieved: 21 34 107 106 140 270 45 174 78 67 237 239 358 351 487 53 53 487 351 358 239 237 67 78 174 45 270 140 106 107 34 21 
+DEBUG:root:recieved: 7 49 492 240 4 42 27 68 4 98 661 503 701 657 450 212 212 450 657 701 503 661 98 4 68 27 42 4 240 492 49 7 
+DEBUG:root:recieved: 26 70 281 56 46 34 23 26 43 205 170 352 524 386 169 89 89 169 386 524 352 170 205 43 26 23 34 46 56 281 70 26 
+DEBUG:root:recieved: 57 150 73 259 155 98 13 249 246 171 232 165 229 187 90 141 141 90 187 229 165 232 171 246 249 13 98 155 259 73 150 57 
+DEBUG:root:recieved: 329 241 87 129 419 104 29 21 24 55 137 281 324 294 202 139 139 202 294 324 281 137 55 24 21 29 104 419 129 87 241 329 
+DEBUG:root:recieved: 213 162 185 205 515 289 57 89 0 20 93 647 988 382 508 229 229 508 382 988 647 93 20 0 89 57 289 515 205 185 162 213 
+DEBUG:root:recieved: 465 143 148 302 454 80 271 14 36 20 62 161 387 221 458 200 200 458 221 387 161 62 20 36 14 271 80 454 302 148 143 465 
+DEBUG:root:recieved: 340 434 210 197 85 135 22 17 6 36 34 142 217 108 95 277 277 95 108 217 142 34 36 6 17 22 135 85 197 210 434 340 
+DEBUG:root:recieved: 186 197 391 201 55 187 168 162 11 135 76 136 133 83 296 140 140 296 83 133 136 76 135 11 162 168 187 55 201 391 197 186 
+DEBUG:root:recieved: 299 234 106 93 46 145 335 135 11 221 478 68 19 31 54 148 148 54 31 19 68 478 221 11 135 335 145 46 93 106 234 299 
+DEBUG:root:recieved: 363 94 58 71 100 258 237 84 186 127 105 126 96 90 46 95 95 46 90 96 126 105 127 186 84 237 258 100 71 58 94 363 
+DEBUG:root:recieved: 28 104 37 60 158 219 352 309 50 63 133 389 684 265 48 111 111 48 265 684 389 133 63 50 309 352 219 158 60 37 104 28 
+DEBUG:root:recieved: 32 123 80 209 142 149 217 242 145 347 94 158 212 132 394 172 172 394 132 212 158 94 347 145 242 217 149 142 209 80 123 32 
+DEBUG:root:recieved: 7 129 192 138 211 158 257 393 311 152 158 218 153 132 442 119 119 442 132 153 218 158 152 311 393 257 158 211 138 192 129 7 
+DEBUG:root:recieved: 141 43 85 396 140 245 93 109 383 135 232 121 101 193 189 86 86 189 193 101 121 232 135 383 109 93 245 140 396 85 43 141 
+DEBUG:root:recieved: 262 209 34 167 444 372 44 57 105 211 285 259 258 132 381 198 198 381 132 258 259 285 211 105 57 44 372 444 167 34 209 262 
+DEBUG:root:recieved: 405 165 59 81 227 112 276 113 72 287 81 84 158 272 312 231 231 312 272 158 84 81 287 72 113 276 112 227 81 59 165 405 
+DEBUG:root:recieved: 302 180 126 42 12 76 496 61 14 25 84 107 45 131 416 210 210 416 131 45 107 84 25 14 61 496 76 12 42 126 180 302 
+DEBUG:root:recieved: 122 145 50 37 28 122 173 83 26 151 218 57 94 323 183 165 165 183 323 94 57 218 151 26 83 173 122 28 37 50 145 122 
+DEBUG:root:recieved: 315 182 34 62 177 90 422 72 7 8 8 130 27 191 214 88 88 214 191 27 130 8 8 7 72 422 90 177 62 34 182 315 
+DEBUG:root:recieved: 34 166 30 27 232 213 241 50 98 91 43 113 12 27 293 205 205 293 27 12 113 43 91 98 50 241 213 232 27 30 166 34 
+DEBUG:root:sent: MyPythonBot
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 0 0 5000
+DEBUG:root:recieved: 1 0 0 5000
+DEBUG:root:recieved: 0
+DEBUG:root:sent: g
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 0 1 0 4000
+DEBUG:root:recieved: 1 8 16 0
+DEBUG:root:recieved: 1 1 0 4000
+DEBUG:root:recieved: 0 23 16 0
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 1 e
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 0 1 0 4000
+DEBUG:root:recieved: 1 9 16 0
+DEBUG:root:recieved: 1 1 0 4000
+DEBUG:root:recieved: 0 23 17 0
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 1 n g
+DEBUG:root:recieved: 4
+DEBUG:root:recieved: 0 2 0 3000
+DEBUG:root:recieved: 3 8 16 0
+DEBUG:root:recieved: 1 9 16 5
+DEBUG:root:recieved: 1 2 0 3000
+DEBUG:root:recieved: 2 23 16 0
+DEBUG:root:recieved: 0 23 17 9
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 9 16 15
+DEBUG:root:recieved: 23 17 27
+DEBUG:root:sent: m 1 n m 3 n
+DEBUG:root:recieved: 5
+DEBUG:root:recieved: 0 2 0 3000
+DEBUG:root:recieved: 1 9 15 4
+DEBUG:root:recieved: 3 8 15 0
+DEBUG:root:recieved: 1 2 0 3000
+DEBUG:root:recieved: 2 22 16 0
+DEBUG:root:recieved: 0 22 17 7
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 1 n m 3 e g
+DEBUG:root:recieved: 6
+DEBUG:root:recieved: 0 3 0 2000
+DEBUG:root:recieved: 5 8 16 0
+DEBUG:root:recieved: 3 8 15 6
+DEBUG:root:recieved: 1 9 15 18
+DEBUG:root:recieved: 1 3 0 2000
+DEBUG:root:recieved: 4 23 16 0
+DEBUG:root:recieved: 2 22 16 5
+DEBUG:root:recieved: 0 22 18 5
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 9 15 41
+DEBUG:root:recieved: 8 15 18
+DEBUG:root:recieved: 22 16 15
+DEBUG:root:sent: m 1 e m 3 w m 5 w
+DEBUG:root:recieved: 7
+DEBUG:root:recieved: 0 3 0 2000
+DEBUG:root:recieved: 5 7 16 0
+DEBUG:root:recieved: 3 7 15 5
+DEBUG:root:recieved: 1 10 15 14
+DEBUG:root:recieved: 1 3 0 2000
+DEBUG:root:recieved: 2 21 16 4
+DEBUG:root:recieved: 0 21 18 2
+DEBUG:root:recieved: 4 23 15 0
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 1 o m 3 w m 5 n g
+DEBUG:root:recieved: 8
+DEBUG:root:recieved: 0 4 0 1000
+DEBUG:root:recieved: 7 8 16 0
+DEBUG:root:recieved: 3 6 15 3
+DEBUG:root:recieved: 5 7 16 23
+DEBUG:root:recieved: 1 10 15 49
+DEBUG:root:recieved: 1 4 0 1000
+DEBUG:root:recieved: 6 23 16 0
+DEBUG:root:recieved: 2 21 16 28
+DEBUG:root:recieved: 0 21 18 11
+DEBUG:root:recieved: 4 23 15 6
+DEBUG:root:recieved: 5
+DEBUG:root:recieved: 23 15 18
+DEBUG:root:recieved: 7 16 66
+DEBUG:root:recieved: 21 16 69
+DEBUG:root:recieved: 21 18 25
+DEBUG:root:recieved: 10 15 102
+DEBUG:root:sent: m 1 o m 3 s m 5 w m 7 e
+DEBUG:root:recieved: 9
+DEBUG:root:recieved: 0 2 0 1000
+DEBUG:root:recieved: 7 9 16 0
+DEBUG:root:recieved: 1 10 15 75
+DEBUG:root:recieved: 1 4 0 1005
+DEBUG:root:recieved: 2 21 15 22
+DEBUG:root:recieved: 0 22 18 9
+DEBUG:root:recieved: 4 23 16 0
+DEBUG:root:recieved: 6 23 17 0
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 10 15 76
+DEBUG:root:recieved: 23 16 0
+DEBUG:root:recieved: 6 16 75
+DEBUG:root:sent: m 1 n m 7 n g
+DEBUG:root:recieved: 10
+DEBUG:root:recieved: 0 3 0 0
+DEBUG:root:recieved: 8 8 16 0
+DEBUG:root:recieved: 1 10 14 68
+DEBUG:root:recieved: 7 9 16 4
+DEBUG:root:recieved: 1 2 0 1005
+DEBUG:root:recieved: 0 22 19 6
+DEBUG:root:recieved: 2 21 15 57
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 21 15 102
+DEBUG:root:recieved: 9 16 11
+DEBUG:root:recieved: 23 17 27
+DEBUG:root:sent: m 8 e m 1 o m 7 s
+DEBUG:root:recieved: 11
+DEBUG:root:recieved: 0 3 0 0
+DEBUG:root:recieved: 7 9 17 3
+DEBUG:root:recieved: 8 9 16 0
+DEBUG:root:recieved: 1 10 14 126
+DEBUG:root:recieved: 1 3 0 5
+DEBUG:root:recieved: 0 22 19 40
+DEBUG:root:recieved: 9 23 16 0
+DEBUG:root:recieved: 2 21 15 83
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 21 15 76
+DEBUG:root:recieved: 22 19 101
+DEBUG:root:recieved: 10 14 174
+DEBUG:root:sent: m 8 s m 1 o m 7 s
+DEBUG:root:recieved: 12
+DEBUG:root:recieved: 0 3 0 0
+DEBUG:root:recieved: 7 9 18 1
+DEBUG:root:recieved: 8 9 16 3
+DEBUG:root:recieved: 1 10 14 170
+DEBUG:root:recieved: 1 3 0 5
+DEBUG:root:recieved: 2 20 15 76
+DEBUG:root:recieved: 9 23 17 0
+DEBUG:root:recieved: 0 22 19 66
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 22 19 75
+DEBUG:root:recieved: 10 14 130
+DEBUG:root:recieved: 9 16 8
+DEBUG:root:sent: m 8 w m 1 o m 7 e
+DEBUG:root:recieved: 13
+DEBUG:root:recieved: 0 3 0 3
+DEBUG:root:recieved: 7 9 18 10
+DEBUG:root:recieved: 8 8 16 0
+DEBUG:root:recieved: 1 10 14 203
+DEBUG:root:recieved: 1 3 0 5
+DEBUG:root:recieved: 0 23 19 59
+DEBUG:root:recieved: 2 20 15 147
+DEBUG:root:recieved: 9 23 17 7
+DEBUG:root:recieved: 5
+DEBUG:root:recieved: 20 15 210
+DEBUG:root:recieved: 10 14 97
+DEBUG:root:recieved: 9 18 27
+DEBUG:root:recieved: 23 17 20
+DEBUG:root:recieved: 8 16 0
+DEBUG:root:sent: m 8 e m 1 s m 7 w
+DEBUG:root:recieved: 14
+DEBUG:root:recieved: 0 3 0 3
+DEBUG:root:recieved: 8 9 16 0
+DEBUG:root:recieved: 1 10 15 194
+DEBUG:root:recieved: 7 8 18 8
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 15 200
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 20 15 157
+DEBUG:root:recieved: 23 18 69
+DEBUG:root:sent: m 8 n m 1 s m 7 n
+DEBUG:root:recieved: 15
+DEBUG:root:recieved: 0 3 0 3
+DEBUG:root:recieved: 1 10 16 187
+DEBUG:root:recieved: 8 9 15 0
+DEBUG:root:recieved: 7 8 17 8
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 15 240
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 20 15 117
+DEBUG:root:sent: m 8 s m 1 w m 7 n
+DEBUG:root:recieved: 16
+DEBUG:root:recieved: 0 3 0 8
+DEBUG:root:recieved: 7 8 16 0
+DEBUG:root:recieved: 1 9 16 178
+DEBUG:root:recieved: 8 9 15 11
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 15 270
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 20 15 87
+DEBUG:root:recieved: 9 15 30
+DEBUG:root:recieved: 8 16 0
+DEBUG:root:sent: m 8 w m 1 s m 7 w
+DEBUG:root:recieved: 17
+DEBUG:root:recieved: 0 3 0 8
+DEBUG:root:recieved: 8 8 15 8
+DEBUG:root:recieved: 1 9 17 178
+DEBUG:root:recieved: 7 7 16 0
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 19 15 262
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 e m 1 s m 7 s
+DEBUG:root:recieved: 18
+DEBUG:root:recieved: 0 3 0 8
+DEBUG:root:recieved: 8 9 15 7
+DEBUG:root:recieved: 1 9 18 176
+DEBUG:root:recieved: 7 7 16 17
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 19 15 343
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 19 15 243
+DEBUG:root:recieved: 7 16 49
+DEBUG:root:sent: m 8 n m 1 n m 7 n
+DEBUG:root:recieved: 19
+DEBUG:root:recieved: 0 3 0 8
+DEBUG:root:recieved: 7 7 15 13
+DEBUG:root:recieved: 1 9 17 174
+DEBUG:root:recieved: 8 9 14 4
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 19 15 404
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 19 15 182
+DEBUG:root:sent: m 8 o m 1 n m 7 n
+DEBUG:root:recieved: 20
+DEBUG:root:recieved: 0 3 0 8
+DEBUG:root:recieved: 7 7 14 11
+DEBUG:root:recieved: 1 9 16 172
+DEBUG:root:recieved: 8 9 14 47
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 19 15 450
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 19 15 136
+DEBUG:root:recieved: 9 14 128
+DEBUG:root:sent: m 8 o m 1 w m 7 o
+DEBUG:root:recieved: 21
+DEBUG:root:recieved: 0 3 0 180
+DEBUG:root:recieved: 7 7 14 74
+DEBUG:root:recieved: 1 8 16 0
+DEBUG:root:recieved: 8 9 14 79
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 19 15 484
+DEBUG:root:recieved: 4
+DEBUG:root:recieved: 19 15 102
+DEBUG:root:recieved: 7 14 186
+DEBUG:root:recieved: 9 14 96
+DEBUG:root:recieved: 8 16 0
+DEBUG:root:sent: m 8 e m 1 e m 7 o
+DEBUG:root:recieved: 22
+DEBUG:root:recieved: 0 3 0 180
+DEBUG:root:recieved: 8 10 14 70
+DEBUG:root:recieved: 1 9 16 0
+DEBUG:root:recieved: 7 7 14 121
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 19 15 510
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 19 15 76
+DEBUG:root:recieved: 7 14 139
+DEBUG:root:sent: m 8 s m 1 w m 7 o
+DEBUG:root:recieved: 23
+DEBUG:root:recieved: 0 3 0 180
+DEBUG:root:recieved: 8 10 15 61
+DEBUG:root:recieved: 1 8 16 0
+DEBUG:root:recieved: 7 7 14 156
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 18 15 503
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 7 14 104
+DEBUG:root:recieved: 8 16 0
+DEBUG:root:sent: m 8 e m 1 n m 7 o
+DEBUG:root:recieved: 24
+DEBUG:root:recieved: 0 3 0 180
+DEBUG:root:recieved: 8 11 15 54
+DEBUG:root:recieved: 1 8 15 0
+DEBUG:root:recieved: 7 7 14 182
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 18 15 577
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 18 15 220
+DEBUG:root:recieved: 7 14 78
+DEBUG:root:sent: m 8 o m 1 e m 7 w
+DEBUG:root:recieved: 25
+DEBUG:root:recieved: 0 3 0 180
+DEBUG:root:recieved: 7 6 14 175
+DEBUG:root:recieved: 8 11 15 125
+DEBUG:root:recieved: 1 8 15 5
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 18 15 632
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 18 15 165
+DEBUG:root:recieved: 8 15 13
+DEBUG:root:recieved: 11 15 210
+DEBUG:root:sent: m 8 o m 1 e m 7 n
+DEBUG:root:recieved: 26
+DEBUG:root:recieved: 0 3 0 180
+DEBUG:root:recieved: 7 6 13 174
+DEBUG:root:recieved: 1 9 15 4
+DEBUG:root:recieved: 8 11 15 178
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 18 15 674
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 18 15 123
+DEBUG:root:recieved: 11 15 157
+DEBUG:root:sent: m 8 o m 1 s m 7 n
+DEBUG:root:recieved: 27
+DEBUG:root:recieved: 0 3 0 180
+DEBUG:root:recieved: 7 6 12 172
+DEBUG:root:recieved: 1 9 16 1
+DEBUG:root:recieved: 8 11 15 218
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 18 15 705
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 18 15 92
+DEBUG:root:recieved: 11 15 117
+DEBUG:root:sent: m 8 o m 1 w m 7 s
+DEBUG:root:recieved: 28
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 6 13 170
+DEBUG:root:recieved: 1 8 16 0
+DEBUG:root:recieved: 8 11 15 248
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 19 15 696
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 11 15 87
+DEBUG:root:recieved: 8 16 0
+DEBUG:root:sent: m 8 n m 1 s m 7 w
+DEBUG:root:recieved: 29
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 11 14 240
+DEBUG:root:recieved: 1 8 17 0
+DEBUG:root:recieved: 7 5 13 168
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 15 689
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 n m 7 n
+DEBUG:root:recieved: 30
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 5 12 165
+DEBUG:root:recieved: 8 11 14 282
+DEBUG:root:recieved: 1 8 17 9
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 15 681
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 8 17 27
+DEBUG:root:recieved: 11 14 123
+DEBUG:root:sent: m 8 o m 1 e m 7 e
+DEBUG:root:recieved: 31
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 6 12 161
+DEBUG:root:recieved: 1 9 17 7
+DEBUG:root:recieved: 8 11 14 313
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 22 15 674
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 11 14 92
+DEBUG:root:sent: m 8 w m 1 s m 7 w
+DEBUG:root:recieved: 32
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 10 14 304
+DEBUG:root:recieved: 1 9 18 5
+DEBUG:root:recieved: 7 5 12 159
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 15 669
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 n m 7 n
+DEBUG:root:recieved: 33
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 9 14 295
+DEBUG:root:recieved: 1 9 17 3
+DEBUG:root:recieved: 7 5 11 155
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 15 662
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 n m 7 o
+DEBUG:root:recieved: 34
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 14 286
+DEBUG:root:recieved: 1 9 16 1
+DEBUG:root:recieved: 7 5 11 223
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 14 654
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 5 11 202
+DEBUG:root:sent: m 8 o m 1 s m 7 o
+DEBUG:root:recieved: 35
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 9 17 1
+DEBUG:root:recieved: 8 8 14 348
+DEBUG:root:recieved: 7 5 11 274
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 14 696
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 5 11 151
+DEBUG:root:recieved: 20 14 123
+DEBUG:root:recieved: 8 14 184
+DEBUG:root:sent: m 8 o m 1 n m 7 o
+DEBUG:root:recieved: 36
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 9 17 6
+DEBUG:root:recieved: 8 8 14 394
+DEBUG:root:recieved: 7 5 11 312
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 14 727
+DEBUG:root:recieved: 4
+DEBUG:root:recieved: 9 17 15
+DEBUG:root:recieved: 5 11 113
+DEBUG:root:recieved: 20 14 92
+DEBUG:root:recieved: 8 14 138
+DEBUG:root:sent: m 8 o m 1 s m 7 o
+DEBUG:root:recieved: 37
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 9 18 5
+DEBUG:root:recieved: 8 8 14 429
+DEBUG:root:recieved: 7 5 11 341
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 14 718
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 5 11 84
+DEBUG:root:recieved: 8 14 103
+DEBUG:root:sent: m 8 o m 1 w m 7 s
+DEBUG:root:recieved: 38
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 5 12 333
+DEBUG:root:recieved: 1 8 18 3
+DEBUG:root:recieved: 8 8 14 455
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 14 776
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 21 14 174
+DEBUG:root:recieved: 8 14 77
+DEBUG:root:sent: m 8 n m 1 e m 7 s
+DEBUG:root:recieved: 39
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 9 18 3
+DEBUG:root:recieved: 8 8 13 448
+DEBUG:root:recieved: 7 5 13 329
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 14 820
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 21 14 130
+DEBUG:root:sent: m 8 n m 1 w m 7 s
+DEBUG:root:recieved: 40
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 8 18 1
+DEBUG:root:recieved: 8 8 12 444
+DEBUG:root:recieved: 7 5 14 326
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 14 853
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 21 14 97
+DEBUG:root:sent: m 8 s m 1 n m 7 n
+DEBUG:root:recieved: 41
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 13 444
+DEBUG:root:recieved: 1 8 17 1
+DEBUG:root:recieved: 7 5 13 317
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 15 844
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 e m 7 s
+DEBUG:root:recieved: 42
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 5 14 314
+DEBUG:root:recieved: 8 7 13 440
+DEBUG:root:recieved: 1 8 17 8
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 15 837
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 8 17 20
+DEBUG:root:sent: m 8 e m 1 e m 7 w
+DEBUG:root:recieved: 43
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 13 438
+DEBUG:root:recieved: 1 9 17 6
+DEBUG:root:recieved: 7 4 14 305
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 15 829
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 w m 7 o
+DEBUG:root:recieved: 44
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 14 434
+DEBUG:root:recieved: 1 8 17 5
+DEBUG:root:recieved: 7 4 14 344
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 16 822
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 4 14 116
+DEBUG:root:sent: m 8 n m 1 w m 7 o
+DEBUG:root:recieved: 45
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 13 427
+DEBUG:root:recieved: 1 7 17 3
+DEBUG:root:recieved: 7 4 14 373
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 16 816
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 4 14 87
+DEBUG:root:sent: m 8 s m 1 n m 7 w
+DEBUG:root:recieved: 46
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 7 16 2
+DEBUG:root:recieved: 8 8 14 423
+DEBUG:root:recieved: 7 3 14 365
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 16 978
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 20 16 485
+DEBUG:root:sent: m 8 s m 1 n m 7 o
+DEBUG:root:recieved: 47
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 15 416
+DEBUG:root:recieved: 1 7 16 15
+DEBUG:root:recieved: 7 3 14 430
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 20 16 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 20 16 463
+DEBUG:root:recieved: 7 16 36
+DEBUG:root:recieved: 3 14 194
+DEBUG:root:sent: m 8 e m 1 n m 7 o
+DEBUG:root:recieved: 48
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 9 15 415
+DEBUG:root:recieved: 1 7 15 12
+DEBUG:root:recieved: 7 3 14 479
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 16 954
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 3 14 145
+DEBUG:root:sent: m 8 n m 1 s m 7 o
+DEBUG:root:recieved: 49
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 9 14 412
+DEBUG:root:recieved: 1 7 16 10
+DEBUG:root:recieved: 7 3 14 516
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 22 16 948
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 3 14 108
+DEBUG:root:sent: m 8 n m 1 w m 7 o
+DEBUG:root:recieved: 50
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 9 13 403
+DEBUG:root:recieved: 1 6 16 7
+DEBUG:root:recieved: 7 3 14 543
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 16 947
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 3 14 81
+DEBUG:root:sent: m 8 o m 1 e m 7 n
+DEBUG:root:recieved: 51
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 3 13 535
+DEBUG:root:recieved: 1 7 16 0
+DEBUG:root:recieved: 8 9 13 455
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 15 941
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 9 13 153
+DEBUG:root:sent: m 8 o m 1 e m 7 e
+DEBUG:root:recieved: 52
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 13 530
+DEBUG:root:recieved: 1 7 16 9
+DEBUG:root:recieved: 8 9 13 494
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 14 934
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 7 16 27
+DEBUG:root:recieved: 9 13 114
+DEBUG:root:sent: m 8 o m 1 n m 7 n
+DEBUG:root:recieved: 53
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 12 526
+DEBUG:root:recieved: 1 7 15 7
+DEBUG:root:recieved: 8 9 13 523
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 21 15 925
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 9 13 85
+DEBUG:root:sent: m 8 e m 1 w m 7 w
+DEBUG:root:recieved: 54
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 10 13 515
+DEBUG:root:recieved: 1 6 15 5
+DEBUG:root:recieved: 7 3 12 526
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 22 15 918
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 w m 7 o
+DEBUG:root:recieved: 55
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 5 15 3
+DEBUG:root:recieved: 8 10 13 558
+DEBUG:root:recieved: 7 3 12 586
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 22 14 913
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 3 12 180
+DEBUG:root:recieved: 10 13 127
+DEBUG:root:sent: m 8 o m 1 o m 7 o
+DEBUG:root:recieved: 56
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 5 15 29
+DEBUG:root:recieved: 8 10 13 590
+DEBUG:root:recieved: 7 3 12 631
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 22 14 956
+DEBUG:root:recieved: 4
+DEBUG:root:recieved: 22 14 128
+DEBUG:root:recieved: 5 15 78
+DEBUG:root:recieved: 3 12 135
+DEBUG:root:recieved: 10 13 95
+DEBUG:root:sent: m 8 e m 1 e m 7 o
+DEBUG:root:recieved: 57
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 11 13 581
+DEBUG:root:recieved: 1 6 15 22
+DEBUG:root:recieved: 7 3 12 665
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 22 14 988
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 22 14 96
+DEBUG:root:recieved: 3 12 101
+DEBUG:root:sent: m 8 o m 1 e m 7 o
+DEBUG:root:recieved: 58
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 7 15 20
+DEBUG:root:recieved: 8 11 13 669
+DEBUG:root:recieved: 7 3 12 691
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 23 14 979
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 3 12 75
+DEBUG:root:recieved: 11 13 264
+DEBUG:root:sent: m 8 o m 1 s m 7 w
+DEBUG:root:recieved: 59
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 2 12 684
+DEBUG:root:recieved: 1 7 16 18
+DEBUG:root:recieved: 8 11 13 735
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 23 14 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 23 14 225
+DEBUG:root:recieved: 11 13 198
+DEBUG:root:sent: m 8 o m 1 s m 7 o
+DEBUG:root:recieved: 60
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 2 12 807
+DEBUG:root:recieved: 1 7 17 16
+DEBUG:root:recieved: 8 11 13 785
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 22 14 978
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 2 12 369
+DEBUG:root:recieved: 11 13 148
+DEBUG:root:sent: m 8 o m 1 s m 7 o
+DEBUG:root:recieved: 61
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 2 12 900
+DEBUG:root:recieved: 1 7 18 15
+DEBUG:root:recieved: 8 11 13 822
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 22 13 969
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 2 12 276
+DEBUG:root:recieved: 11 13 111
+DEBUG:root:sent: m 8 o m 1 n m 7 o
+DEBUG:root:recieved: 62
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 2 12 969
+DEBUG:root:recieved: 1 7 17 14
+DEBUG:root:recieved: 8 11 13 850
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 22 13 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 22 13 174
+DEBUG:root:recieved: 2 12 207
+DEBUG:root:recieved: 11 13 83
+DEBUG:root:sent: m 8 s m 1 n m 7 o
+DEBUG:root:recieved: 63
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 11 14 842
+DEBUG:root:recieved: 1 7 16 13
+DEBUG:root:recieved: 7 2 12 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 23 13 983
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 2 12 176
+DEBUG:root:sent: m 8 e m 1 s m 7 w
+DEBUG:root:recieved: 64
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 12 14 833
+DEBUG:root:recieved: 1 7 17 11
+DEBUG:root:recieved: 7 1 12 983
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 13 979
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s m 7 w
+DEBUG:root:recieved: 65
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 12 979
+DEBUG:root:recieved: 1 7 18 10
+DEBUG:root:recieved: 8 12 14 891
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 14 977
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 12 14 171
+DEBUG:root:sent: m 8 o m 1 n m 7 w
+DEBUG:root:recieved: 66
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 31 12 979
+DEBUG:root:recieved: 1 7 17 9
+DEBUG:root:recieved: 8 12 14 934
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 14 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 24 14 226
+DEBUG:root:recieved: 12 14 128
+DEBUG:root:sent: m 8 o m 1 s m 7 s
+DEBUG:root:recieved: 67
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 31 13 979
+DEBUG:root:recieved: 1 7 18 8
+DEBUG:root:recieved: 8 12 14 966
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 14 978
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 12 14 96
+DEBUG:root:sent: m 8 w m 1 w m 7 n
+DEBUG:root:recieved: 68
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 11 14 957
+DEBUG:root:recieved: 1 6 18 7
+DEBUG:root:recieved: 7 31 12 977
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 14 977
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 s m 7 e
+DEBUG:root:recieved: 69
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 6 19 5
+DEBUG:root:recieved: 8 11 13 948
+DEBUG:root:recieved: 7 0 12 977
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 14 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 24 14 203
+DEBUG:root:sent: m 8 e m 1 o m 7 w
+DEBUG:root:recieved: 70
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 31 12 977
+DEBUG:root:recieved: 8 12 13 940
+DEBUG:root:recieved: 1 6 19 47
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 13 980
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 6 19 126
+DEBUG:root:sent: m 8 o m 1 o m 7 n
+DEBUG:root:recieved: 71
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 31 11 977
+DEBUG:root:recieved: 8 12 13 1000
+DEBUG:root:recieved: 1 6 19 79
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 13 978
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 6 19 94
+DEBUG:root:recieved: 12 13 464
+DEBUG:root:sent: m 8 s m 1 s m 7 e
+DEBUG:root:recieved: 72
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 11 975
+DEBUG:root:recieved: 8 12 14 954
+DEBUG:root:recieved: 1 6 20 70
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 12 976
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 o m 7 s
+DEBUG:root:recieved: 73
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 12 973
+DEBUG:root:recieved: 8 12 13 945
+DEBUG:root:recieved: 1 6 20 154
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 13 974
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 6 20 251
+DEBUG:root:sent: m 8 o m 1 o m 7 s
+DEBUG:root:recieved: 74
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 13 973
+DEBUG:root:recieved: 8 12 13 1000
+DEBUG:root:recieved: 1 6 20 217
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 13 972
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 6 20 188
+DEBUG:root:recieved: 12 13 409
+DEBUG:root:sent: m 8 w m 1 o m 7 n
+DEBUG:root:recieved: 75
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 12 971
+DEBUG:root:recieved: 8 11 13 960
+DEBUG:root:recieved: 1 6 20 264
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 13 970
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 6 20 141
+DEBUG:root:sent: m 8 w m 1 o m 7 s
+DEBUG:root:recieved: 76
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 13 971
+DEBUG:root:recieved: 8 10 13 952
+DEBUG:root:recieved: 1 6 20 300
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 13 968
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 6 20 105
+DEBUG:root:sent: m 8 s m 1 o m 7 n
+DEBUG:root:recieved: 77
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 12 969
+DEBUG:root:recieved: 8 10 14 943
+DEBUG:root:recieved: 1 6 20 327
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 23 13 966
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 6 20 78
+DEBUG:root:sent: m 8 n m 1 e m 7 e
+DEBUG:root:recieved: 78
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 1 12 969
+DEBUG:root:recieved: 8 10 13 934
+DEBUG:root:recieved: 1 7 20 320
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 13 962
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 o m 7 n
+DEBUG:root:recieved: 79
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 1 11 965
+DEBUG:root:recieved: 8 10 12 925
+DEBUG:root:recieved: 1 7 20 354
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 14 960
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 7 20 101
+DEBUG:root:sent: m 8 o m 1 o m 7 n
+DEBUG:root:recieved: 80
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 1 10 962
+DEBUG:root:recieved: 8 10 12 1000
+DEBUG:root:recieved: 1 7 20 380
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 14 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 24 14 163
+DEBUG:root:recieved: 7 20 75
+DEBUG:root:recieved: 10 12 586
+DEBUG:root:sent: m 8 w m 1 n m 7 s
+DEBUG:root:recieved: 81
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 9 12 942
+DEBUG:root:recieved: 1 7 19 373
+DEBUG:root:recieved: 7 1 11 960
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 13 984
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 o m 7 s
+DEBUG:root:recieved: 82
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 1 12 957
+DEBUG:root:recieved: 8 8 12 933
+DEBUG:root:recieved: 1 7 19 414
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 13 982
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 7 19 121
+DEBUG:root:sent: m 8 s m 1 o m 7 n
+DEBUG:root:recieved: 83
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 1 11 953
+DEBUG:root:recieved: 8 8 13 933
+DEBUG:root:recieved: 1 7 19 445
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 13 980
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 7 19 90
+DEBUG:root:sent: m 8 s m 1 e m 7 n
+DEBUG:root:recieved: 84
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 14 929
+DEBUG:root:recieved: 1 8 19 436
+DEBUG:root:recieved: 7 1 10 950
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 977
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 w m 7 e
+DEBUG:root:recieved: 85
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 15 922
+DEBUG:root:recieved: 1 7 19 435
+DEBUG:root:recieved: 7 2 10 948
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 12 973
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 n m 7 n
+DEBUG:root:recieved: 86
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 7 15 921
+DEBUG:root:recieved: 1 7 18 426
+DEBUG:root:recieved: 7 2 9 943
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 12 973
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 s m 7 o
+DEBUG:root:recieved: 87
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 6 15 919
+DEBUG:root:recieved: 1 7 19 425
+DEBUG:root:recieved: 7 2 9 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 12 969
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 2 9 255
+DEBUG:root:sent: m 8 w m 1 w m 7 n
+DEBUG:root:recieved: 88
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 5 15 917
+DEBUG:root:recieved: 1 6 19 416
+DEBUG:root:recieved: 7 2 8 975
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 969
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 w m 7 o
+DEBUG:root:recieved: 89
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 5 14 910
+DEBUG:root:recieved: 1 5 19 407
+DEBUG:root:recieved: 7 2 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 13 965
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 2 8 220
+DEBUG:root:sent: m 8 s m 1 o m 7 n
+DEBUG:root:recieved: 90
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 2 7 978
+DEBUG:root:recieved: 8 5 15 901
+DEBUG:root:recieved: 1 5 19 454
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 960
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 5 19 140
+DEBUG:root:sent: m 8 e m 1 o m 7 o
+DEBUG:root:recieved: 91
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 2 7 1000
+DEBUG:root:recieved: 8 6 15 894
+DEBUG:root:recieved: 1 5 19 489
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 12 956
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 5 19 105
+DEBUG:root:recieved: 2 7 112
+DEBUG:root:sent: m 8 w m 1 o m 7 w
+DEBUG:root:recieved: 92
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 1 7 989
+DEBUG:root:recieved: 8 5 15 892
+DEBUG:root:recieved: 1 5 19 516
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 956
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 5 19 78
+DEBUG:root:sent: m 8 e m 1 w m 7 o
+DEBUG:root:recieved: 93
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 6 15 885
+DEBUG:root:recieved: 1 4 19 509
+DEBUG:root:recieved: 7 1 7 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 13 952
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 1 7 136
+DEBUG:root:sent: m 8 e m 1 n m 7 w
+DEBUG:root:recieved: 94
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 7 987
+DEBUG:root:recieved: 8 7 15 883
+DEBUG:root:recieved: 1 4 18 504
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 947
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 w m 7 o
+DEBUG:root:recieved: 95
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 7 14 881
+DEBUG:root:recieved: 1 3 18 496
+DEBUG:root:recieved: 7 0 7 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 13 943
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 7 136
+DEBUG:root:sent: m 8 n m 1 o m 7 s
+DEBUG:root:recieved: 96
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 8 987
+DEBUG:root:recieved: 8 7 13 874
+DEBUG:root:recieved: 1 3 18 546
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 938
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 3 18 147
+DEBUG:root:sent: m 8 n m 1 o m 7 w
+DEBUG:root:recieved: 97
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 31 8 987
+DEBUG:root:recieved: 8 7 12 872
+DEBUG:root:recieved: 1 3 18 583
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 14 934
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 3 18 110
+DEBUG:root:sent: m 8 s m 1 o m 7 n
+DEBUG:root:recieved: 98
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 31 7 987
+DEBUG:root:recieved: 8 7 13 866
+DEBUG:root:recieved: 1 3 18 611
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 14 973
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 27 14 116
+DEBUG:root:recieved: 3 18 82
+DEBUG:root:sent: m 8 w m 1 s m 7 o
+DEBUG:root:recieved: 99
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 6 13 864
+DEBUG:root:recieved: 1 3 19 603
+DEBUG:root:recieved: 7 31 7 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 14 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 27 14 89
+DEBUG:root:recieved: 31 7 136
+DEBUG:root:sent: m 8 w m 1 o m 7 w
+DEBUG:root:recieved: 100
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 30 7 987
+DEBUG:root:recieved: 8 5 13 862
+DEBUG:root:recieved: 1 3 19 654
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 14 992
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 3 19 150
+DEBUG:root:sent: m 8 n m 1 o m 7 o
+DEBUG:root:recieved: 101
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 30 7 1000
+DEBUG:root:recieved: 8 5 12 859
+DEBUG:root:recieved: 1 3 19 692
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 15 983
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 3 19 112
+DEBUG:root:recieved: 30 7 134
+DEBUG:root:sent: m 8 e m 1 o m 7 s
+DEBUG:root:recieved: 102
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 30 8 987
+DEBUG:root:recieved: 8 6 12 855
+DEBUG:root:recieved: 1 3 19 720
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 15 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 26 15 87
+DEBUG:root:recieved: 3 19 84
+DEBUG:root:sent: m 8 w m 1 s m 7 e
+DEBUG:root:recieved: 103
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 31 8 984
+DEBUG:root:recieved: 8 5 12 853
+DEBUG:root:recieved: 1 3 20 712
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 992
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 e m 1 s m 7 w
+DEBUG:root:recieved: 104
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 3 21 703
+DEBUG:root:recieved: 8 6 12 849
+DEBUG:root:recieved: 7 30 8 984
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 26 16 281
+DEBUG:root:sent: m 8 e m 1 n m 7 e
+DEBUG:root:recieved: 105
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 7 12 847
+DEBUG:root:recieved: 1 3 20 696
+DEBUG:root:recieved: 7 31 8 981
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 15 972
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 e m 1 n m 7 s
+DEBUG:root:recieved: 106
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 12 841
+DEBUG:root:recieved: 1 3 19 687
+DEBUG:root:recieved: 7 31 9 981
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 14 964
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 s m 7 o
+DEBUG:root:recieved: 107
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 7 12 841
+DEBUG:root:recieved: 1 3 20 679
+DEBUG:root:recieved: 7 31 9 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 14 955
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 31 9 110
+DEBUG:root:sent: m 8 e m 1 s m 7 e
+DEBUG:root:recieved: 108
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 12 835
+DEBUG:root:recieved: 1 3 21 670
+DEBUG:root:recieved: 7 0 9 989
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 14 954
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 s m 7 o
+DEBUG:root:recieved: 109
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 11 835
+DEBUG:root:recieved: 1 3 22 663
+DEBUG:root:recieved: 7 0 9 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 15 945
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 9 118
+DEBUG:root:sent: m 8 w m 1 s m 7 n
+DEBUG:root:recieved: 110
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 7 11 828
+DEBUG:root:recieved: 1 3 23 657
+DEBUG:root:recieved: 7 0 8 989
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 937
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o m 7 s
+DEBUG:root:recieved: 111
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 9 989
+DEBUG:root:recieved: 8 7 11 872
+DEBUG:root:recieved: 1 3 23 710
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 26 16 218
+DEBUG:root:recieved: 3 23 156
+DEBUG:root:recieved: 7 11 130
+DEBUG:root:sent: m 8 o m 1 o m 7 o
+DEBUG:root:recieved: 112
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 0 9 1000
+DEBUG:root:recieved: 8 7 11 905
+DEBUG:root:recieved: 1 3 23 749
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 16 979
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 3 23 117
+DEBUG:root:recieved: 0 9 107
+DEBUG:root:recieved: 7 11 97
+DEBUG:root:sent: m 8 e m 1 o m 7 e
+DEBUG:root:recieved: 113
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 1 9 990
+DEBUG:root:recieved: 8 8 11 896
+DEBUG:root:recieved: 1 3 23 779
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 974
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 3 23 87
+DEBUG:root:sent: m 8 n m 1 n m 7 n
+DEBUG:root:recieved: 114
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 1 8 985
+DEBUG:root:recieved: 1 3 22 771
+DEBUG:root:recieved: 8 8 10 889
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 26 16 192
+DEBUG:root:sent: m 8 o m 1 s m 7 s
+DEBUG:root:recieved: 115
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 1 9 982
+DEBUG:root:recieved: 1 3 23 765
+DEBUG:root:recieved: 8 8 10 920
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 16 981
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 8 10 91
+DEBUG:root:sent: m 8 w m 1 n m 7 s
+DEBUG:root:recieved: 116
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 3 22 757
+DEBUG:root:recieved: 8 7 10 911
+DEBUG:root:recieved: 7 1 10 977
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 16 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 27 16 496
+DEBUG:root:sent: m 8 e m 1 s m 7 e
+DEBUG:root:recieved: 117
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 8 10 905
+DEBUG:root:recieved: 1 3 23 751
+DEBUG:root:recieved: 7 2 10 975
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 15 951
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 s m 7 n
+DEBUG:root:recieved: 118
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 3 24 743
+DEBUG:root:recieved: 8 8 11 896
+DEBUG:root:recieved: 7 2 9 970
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 15 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 27 15 370
+DEBUG:root:sent: m 8 e m 1 o m 7 o
+DEBUG:root:recieved: 119
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 9 11 889
+DEBUG:root:recieved: 1 3 24 778
+DEBUG:root:recieved: 7 2 9 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 15 963
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 3 24 103
+DEBUG:root:recieved: 2 9 225
+DEBUG:root:sent: m 8 s m 1 o m 7 s
+DEBUG:root:recieved: 120
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 2 10 978
+DEBUG:root:recieved: 8 9 12 883
+DEBUG:root:recieved: 1 3 24 804
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 15 996
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 28 15 96
+DEBUG:root:recieved: 3 24 77
+DEBUG:root:sent: m 8 n m 1 w m 7 e
+DEBUG:root:recieved: 121
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 3 10 973
+DEBUG:root:recieved: 8 9 11 874
+DEBUG:root:recieved: 1 2 24 797
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 14 987
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 o m 7 e
+DEBUG:root:recieved: 122
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 10 966
+DEBUG:root:recieved: 8 8 11 868
+DEBUG:root:recieved: 1 2 24 845
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 14 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 28 14 246
+DEBUG:root:recieved: 2 24 144
+DEBUG:root:sent: m 8 e m 1 o m 7 o
+DEBUG:root:recieved: 123
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 10 1000
+DEBUG:root:recieved: 8 9 11 861
+DEBUG:root:recieved: 1 2 24 881
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 14 976
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 2 24 108
+DEBUG:root:recieved: 4 10 200
+DEBUG:root:sent: m 8 e m 1 o m 7 s
+DEBUG:root:recieved: 124
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 11 980
+DEBUG:root:recieved: 8 10 11 855
+DEBUG:root:recieved: 1 2 24 908
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 968
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 2 24 81
+DEBUG:root:sent: m 8 o m 1 s m 7 o
+DEBUG:root:recieved: 125
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 11 1000
+DEBUG:root:recieved: 1 2 25 900
+DEBUG:root:recieved: 8 10 11 915
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 14 964
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 4 11 120
+DEBUG:root:recieved: 10 11 177
+DEBUG:root:sent: m 8 o m 1 e m 7 n
+DEBUG:root:recieved: 126
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 10 988
+DEBUG:root:recieved: 1 3 25 892
+DEBUG:root:recieved: 8 10 11 960
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 14 956
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 10 11 132
+DEBUG:root:sent: m 8 o m 1 o m 7 o
+DEBUG:root:recieved: 127
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 10 1000
+DEBUG:root:recieved: 1 3 25 991
+DEBUG:root:recieved: 8 10 11 993
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 15 947
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 3 25 297
+DEBUG:root:recieved: 4 10 188
+DEBUG:root:recieved: 10 11 99
+DEBUG:root:sent: m 8 e m 1 o m 7 e
+DEBUG:root:recieved: 128
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 5 10 982
+DEBUG:root:recieved: 8 11 11 984
+DEBUG:root:recieved: 1 3 25 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 15 939
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 3 25 288
+DEBUG:root:sent: m 8 o m 1 e m 7 w
+DEBUG:root:recieved: 129
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 10 976
+DEBUG:root:recieved: 1 4 25 972
+DEBUG:root:recieved: 8 11 11 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 14 937
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 11 11 223
+DEBUG:root:sent: m 8 n m 1 o m 7 o
+DEBUG:root:recieved: 130
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 10 1000
+DEBUG:root:recieved: 8 11 10 978
+DEBUG:root:recieved: 1 4 25 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 14 936
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 4 25 112
+DEBUG:root:recieved: 4 10 164
+DEBUG:root:sent: m 8 o m 1 n m 7 s
+DEBUG:root:recieved: 131
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 11 984
+DEBUG:root:recieved: 1 4 24 989
+DEBUG:root:recieved: 8 11 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 14 977
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 24 14 122
+DEBUG:root:recieved: 11 10 125
+DEBUG:root:sent: m 8 w m 1 o m 7 o
+DEBUG:root:recieved: 132
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 11 1000
+DEBUG:root:recieved: 8 10 10 988
+DEBUG:root:recieved: 1 4 24 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 14 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 24 14 99
+DEBUG:root:recieved: 4 24 200
+DEBUG:root:recieved: 4 11 104
+DEBUG:root:sent: m 8 o m 1 w m 7 s
+DEBUG:root:recieved: 133
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 12 990
+DEBUG:root:recieved: 1 3 24 980
+DEBUG:root:recieved: 8 10 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 14 991
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 10 10 93
+DEBUG:root:sent: m 8 n m 1 s m 7 s
+DEBUG:root:recieved: 134
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 10 9 991
+DEBUG:root:recieved: 1 3 25 973
+DEBUG:root:recieved: 7 4 13 990
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 14 990
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o m 7 s
+DEBUG:root:recieved: 135
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 14 986
+DEBUG:root:recieved: 8 10 9 1000
+DEBUG:root:recieved: 1 3 25 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 14 981
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 3 25 261
+DEBUG:root:recieved: 10 9 131
+DEBUG:root:sent: m 8 e m 1 n m 7 w
+DEBUG:root:recieved: 136
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 11 9 987
+DEBUG:root:recieved: 1 3 24 974
+DEBUG:root:recieved: 7 3 14 978
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 15 980
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 w m 7 e
+DEBUG:root:recieved: 137
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 14 970
+DEBUG:root:recieved: 1 2 24 967
+DEBUG:root:recieved: 8 11 9 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 15 978
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 11 9 254
+DEBUG:root:sent: m 8 e m 1 n m 7 s
+DEBUG:root:recieved: 138
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 12 9 975
+DEBUG:root:recieved: 1 2 23 959
+DEBUG:root:recieved: 7 4 15 962
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 970
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 w m 7 o
+DEBUG:root:recieved: 139
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 1 1 23 951
+DEBUG:root:recieved: 8 12 9 1000
+DEBUG:root:recieved: 7 4 15 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 26 16 162
+DEBUG:root:recieved: 4 15 381
+DEBUG:root:recieved: 12 9 248
+DEBUG:root:sent: m 8 n m 1 o m 7 s
+DEBUG:root:recieved: 140
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 16 962
+DEBUG:root:recieved: 8 12 8 976
+DEBUG:root:recieved: 1 1 23 982
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 16 984
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 1 23 92
+DEBUG:root:sent: m 8 o m 1 s m 7 o
+DEBUG:root:recieved: 141
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 16 1000
+DEBUG:root:recieved: 1 1 24 973
+DEBUG:root:recieved: 8 12 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 16 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 27 16 480
+DEBUG:root:recieved: 4 16 477
+DEBUG:root:recieved: 12 8 465
+DEBUG:root:sent: m 8 w m 1 o m 7 s
+DEBUG:root:recieved: 142
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 17 953
+DEBUG:root:recieved: 8 11 8 954
+DEBUG:root:recieved: 1 1 24 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 15 952
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 1 24 102
+DEBUG:root:sent: m 8 o m 1 e m 7 o
+DEBUG:root:recieved: 143
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 17 1000
+DEBUG:root:recieved: 1 2 24 990
+DEBUG:root:recieved: 8 11 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 15 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 27 15 322
+DEBUG:root:recieved: 4 17 407
+DEBUG:root:recieved: 11 8 226
+DEBUG:root:sent: m 8 w m 1 e m 7 w
+DEBUG:root:recieved: 144
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 3 17 960
+DEBUG:root:recieved: 8 10 8 978
+DEBUG:root:recieved: 1 3 24 982
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 14 968
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s m 7 o
+DEBUG:root:recieved: 145
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 3 17 1000
+DEBUG:root:recieved: 1 3 25 975
+DEBUG:root:recieved: 8 10 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 960
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 3 17 262
+DEBUG:root:recieved: 10 8 89
+DEBUG:root:sent: m 8 n m 1 o m 7 e
+DEBUG:root:recieved: 146
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 4 17 974
+DEBUG:root:recieved: 8 10 7 992
+DEBUG:root:recieved: 1 3 25 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 13 956
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 3 25 236
+DEBUG:root:sent: m 8 e m 1 n m 7 o
+DEBUG:root:recieved: 147
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 11 7 983
+DEBUG:root:recieved: 1 3 24 977
+DEBUG:root:recieved: 7 4 17 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 14 951
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 4 17 381
+DEBUG:root:sent: m 8 o m 1 s m 7 e
+DEBUG:root:recieved: 148
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 5 17 962
+DEBUG:root:recieved: 1 3 25 970
+DEBUG:root:recieved: 8 11 7 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 14 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 28 14 197
+DEBUG:root:recieved: 11 7 262
+DEBUG:root:sent: m 8 s m 1 o m 7 e
+DEBUG:root:recieved: 149
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 6 17 954
+DEBUG:root:recieved: 8 11 8 974
+DEBUG:root:recieved: 1 3 25 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 14 981
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 3 25 206
+DEBUG:root:sent: m 8 o m 1 n m 7 o
+DEBUG:root:recieved: 150
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 6 17 1000
+DEBUG:root:recieved: 1 3 24 980
+DEBUG:root:recieved: 8 11 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 14 973
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 6 17 225
+DEBUG:root:recieved: 11 8 200
+DEBUG:root:sent: m 8 e m 1 s m 7 w
+DEBUG:root:recieved: 151
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 12 8 980
+DEBUG:root:recieved: 1 3 25 973
+DEBUG:root:recieved: 7 5 17 978
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 13 964
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o m 7 n
+DEBUG:root:recieved: 152
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 5 16 970
+DEBUG:root:recieved: 8 12 8 1000
+DEBUG:root:recieved: 1 3 25 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 961
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 3 25 179
+DEBUG:root:recieved: 12 8 445
+DEBUG:root:sent: m 8 e m 1 w m 7 o
+DEBUG:root:recieved: 153
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 8 13 8 956
+DEBUG:root:recieved: 1 2 25 983
+DEBUG:root:recieved: 7 5 16 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 14 957
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 5 16 259
+DEBUG:root:sent: m 8 o m 1 s m 7 s
+DEBUG:root:recieved: 154
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 5 17 975
+DEBUG:root:recieved: 1 2 26 975
+DEBUG:root:recieved: 8 13 8 991
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 949
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 8 104
+DEBUG:root:sent: m 8 o m 1 w m 7 n
+DEBUG:root:recieved: 155
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 5 16 967
+DEBUG:root:recieved: 1 1 26 972
+DEBUG:root:recieved: 8 13 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 13 945
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 8 95
+DEBUG:root:sent: m 8 n m 1 o m 7 o
+DEBUG:root:recieved: 156
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 5 16 1000
+DEBUG:root:recieved: 8 13 7 991
+DEBUG:root:recieved: 1 1 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 14 942
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 1 26 181
+DEBUG:root:recieved: 5 16 226
+DEBUG:root:sent: m 8 o m 1 s m 7 e
+DEBUG:root:recieved: 157
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 6 16 978
+DEBUG:root:recieved: 1 1 27 982
+DEBUG:root:recieved: 8 13 7 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 13 933
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 7 111
+DEBUG:root:sent: m 8 n m 1 o m 7 e
+DEBUG:root:recieved: 158
+DEBUG:root:recieved: 0 3 0 181
+DEBUG:root:recieved: 7 7 16 971
+DEBUG:root:recieved: 8 13 6 989
+DEBUG:root:recieved: 1 1 27 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 13 930
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 1 27 147
+DEBUG:root:sent: m 8 o m 1 w m 7 e
+DEBUG:root:recieved: 159
+DEBUG:root:recieved: 0 3 0 1150
+DEBUG:root:recieved: 7 8 16 0
+DEBUG:root:recieved: 1 0 27 986
+DEBUG:root:recieved: 8 13 6 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 12 928
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 13 6 119
+DEBUG:root:recieved: 8 16 0
+DEBUG:root:sent: m 8 n m 1 o m 7 e
+DEBUG:root:recieved: 160
+DEBUG:root:recieved: 0 3 0 1150
+DEBUG:root:recieved: 7 9 16 0
+DEBUG:root:recieved: 8 13 5 989
+DEBUG:root:recieved: 1 0 27 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 11 926
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 27 391
+DEBUG:root:sent: m 8 o m 1 e m 7 e g
+DEBUG:root:recieved: 161
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 10 8 16 0
+DEBUG:root:recieved: 7 10 16 0
+DEBUG:root:recieved: 1 1 27 961
+DEBUG:root:recieved: 8 13 5 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 10 922
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 5 91
+DEBUG:root:sent: m 8 s m 1 o m 10 s m 7 e
+DEBUG:root:recieved: 162
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 10 8 17 0
+DEBUG:root:recieved: 7 10 16 24
+DEBUG:root:recieved: 8 13 6 991
+DEBUG:root:recieved: 1 1 27 998
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 10 919
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 1 27 110
+DEBUG:root:recieved: 10 16 69
+DEBUG:root:sent: m 8 o m 1 o m 10 s m 7 e
+DEBUG:root:recieved: 163
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 7 11 16 18
+DEBUG:root:recieved: 10 8 17 5
+DEBUG:root:recieved: 8 13 6 1000
+DEBUG:root:recieved: 1 1 27 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 10 913
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 1 27 108
+DEBUG:root:recieved: 13 6 110
+DEBUG:root:recieved: 8 17 15
+DEBUG:root:sent: m 8 e m 1 n m 10 s m 7 o
+DEBUG:root:recieved: 164
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 8 14 6 989
+DEBUG:root:recieved: 1 1 26 990
+DEBUG:root:recieved: 10 8 18 4
+DEBUG:root:recieved: 7 11 16 180
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 10 910
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 11 16 485
+DEBUG:root:sent: m 8 e m 1 o m 10 e m 7 o
+DEBUG:root:recieved: 165
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 10 9 18 4
+DEBUG:root:recieved: 8 15 6 986
+DEBUG:root:recieved: 1 1 26 1000
+DEBUG:root:recieved: 7 11 16 302
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 9 904
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 1 26 171
+DEBUG:root:recieved: 11 16 363
+DEBUG:root:sent: m 8 w m 1 n m 10 e m 7 o
+DEBUG:root:recieved: 166
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 1 1 25 983
+DEBUG:root:recieved: 8 14 6 981
+DEBUG:root:recieved: 10 10 18 2
+DEBUG:root:recieved: 7 11 16 393
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 9 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 24 9 289
+DEBUG:root:recieved: 11 16 272
+DEBUG:root:sent: m 8 e m 1 n m 10 w m 7 o
+DEBUG:root:recieved: 167
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 8 15 6 978
+DEBUG:root:recieved: 1 1 24 979
+DEBUG:root:recieved: 10 10 18 11
+DEBUG:root:recieved: 7 11 16 461
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 23 9 972
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 11 16 204
+DEBUG:root:recieved: 10 18 25
+DEBUG:root:sent: m 8 n m 1 o m 10 s m 7 o
+DEBUG:root:recieved: 168
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 10 10 19 9
+DEBUG:root:recieved: 8 15 5 973
+DEBUG:root:recieved: 1 1 24 1000
+DEBUG:root:recieved: 7 11 16 512
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 23 9 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 1 24 81
+DEBUG:root:recieved: 23 9 278
+DEBUG:root:recieved: 11 16 153
+DEBUG:root:sent: m 8 s m 1 e m 10 w m 7 o
+DEBUG:root:recieved: 169
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 8 15 6 970
+DEBUG:root:recieved: 1 2 24 992
+DEBUG:root:recieved: 10 9 19 2
+DEBUG:root:recieved: 7 11 16 551
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 9 973
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 11 16 114
+DEBUG:root:sent: m 8 e m 1 w m 10 o m 7 o
+DEBUG:root:recieved: 170
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 8 16 6 965
+DEBUG:root:recieved: 1 1 24 984
+DEBUG:root:recieved: 10 9 19 36
+DEBUG:root:recieved: 7 11 16 580
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 9 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 24 9 262
+DEBUG:root:recieved: 11 16 85
+DEBUG:root:recieved: 9 19 101
+DEBUG:root:sent: m 8 s m 1 w m 10 o m 7 s
+DEBUG:root:recieved: 171
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 8 16 7 960
+DEBUG:root:recieved: 1 0 24 976
+DEBUG:root:recieved: 7 11 17 572
+DEBUG:root:recieved: 10 9 19 62
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 9 974
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 9 19 75
+DEBUG:root:sent: m 8 s m 1 n m 10 e m 7 o
+DEBUG:root:recieved: 172
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 1 0 23 976
+DEBUG:root:recieved: 8 16 8 959
+DEBUG:root:recieved: 10 10 19 55
+DEBUG:root:recieved: 7 11 17 613
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 9 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 25 9 90
+DEBUG:root:recieved: 11 17 120
+DEBUG:root:sent: m 8 e m 1 n m 10 n m 7 o
+DEBUG:root:recieved: 173
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 8 17 8 958
+DEBUG:root:recieved: 1 0 22 973
+DEBUG:root:recieved: 10 10 18 48
+DEBUG:root:recieved: 7 11 17 643
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 10 991
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 11 17 90
+DEBUG:root:sent: m 8 o m 1 e m 10 s m 7 w
+DEBUG:root:recieved: 174
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 7 10 17 634
+DEBUG:root:recieved: 10 10 19 46
+DEBUG:root:recieved: 1 1 22 971
+DEBUG:root:recieved: 8 17 8 990
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 11 988
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 17 8 93
+DEBUG:root:sent: m 8 w m 1 o m 10 n m 7 n
+DEBUG:root:recieved: 175
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 10 10 18 39
+DEBUG:root:recieved: 7 10 16 628
+DEBUG:root:recieved: 8 16 8 981
+DEBUG:root:recieved: 1 1 22 997
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 12 984
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 1 22 78
+DEBUG:root:sent: m 8 e m 1 w m 10 n m 7 e
+DEBUG:root:recieved: 176
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 10 10 17 37
+DEBUG:root:recieved: 8 17 8 980
+DEBUG:root:recieved: 1 0 22 990
+DEBUG:root:recieved: 7 11 16 622
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 12 982
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 e m 1 w m 10 w m 7 w
+DEBUG:root:recieved: 177
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 8 18 8 971
+DEBUG:root:recieved: 1 31 22 988
+DEBUG:root:recieved: 10 9 17 31
+DEBUG:root:recieved: 7 10 16 614
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 12 978
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 n m 10 s m 7 n
+DEBUG:root:recieved: 178
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 10 9 18 30
+DEBUG:root:recieved: 7 10 15 608
+DEBUG:root:recieved: 1 31 21 986
+DEBUG:root:recieved: 8 18 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 12 978
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 18 8 110
+DEBUG:root:sent: m 8 e m 1 o m 10 e m 7 s
+DEBUG:root:recieved: 179
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 10 10 18 28
+DEBUG:root:recieved: 7 10 16 601
+DEBUG:root:recieved: 8 19 8 989
+DEBUG:root:recieved: 1 31 21 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 12 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 28 12 218
+DEBUG:root:recieved: 31 21 349
+DEBUG:root:sent: m 8 o m 1 e m 10 w m 7 s
+DEBUG:root:recieved: 180
+DEBUG:root:recieved: 0 4 0 150
+DEBUG:root:recieved: 10 9 18 26
+DEBUG:root:recieved: 7 10 17 595
+DEBUG:root:recieved: 1 0 21 966
+DEBUG:root:recieved: 8 19 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 13 979
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 19 8 478
+DEBUG:root:sent: m 8 s m 1 o m 10 e m 7 s
+DEBUG:root:recieved: 181
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 9 953
+DEBUG:root:recieved: 1 0 21 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 13 974
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 0 21 329
+DEBUG:root:recieved: 10 18 638
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 182
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 0 22 968
+DEBUG:root:recieved: 8 19 9 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 14 970
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 19 9 226
+DEBUG:root:sent: m 8 n m 1 n
+DEBUG:root:recieved: 183
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 8 978
+DEBUG:root:recieved: 1 0 21 966
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 14 962
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 184
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 8 1000
+DEBUG:root:recieved: 1 0 21 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 14 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 28 14 159
+DEBUG:root:recieved: 0 21 295
+DEBUG:root:recieved: 19 8 456
+DEBUG:root:sent: m 8 n m 1 n
+DEBUG:root:recieved: 185
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 7 955
+DEBUG:root:recieved: 1 0 20 971
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 15 985
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 186
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 7 1000
+DEBUG:root:recieved: 1 0 20 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 14 976
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 0 20 270
+DEBUG:root:recieved: 19 7 148
+DEBUG:root:sent: m 8 w m 1 e
+DEBUG:root:recieved: 187
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 7 986
+DEBUG:root:recieved: 1 1 20 973
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 14 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 28 14 135
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 188
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 7 1000
+DEBUG:root:recieved: 1 1 20 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 14 987
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 1 20 207
+DEBUG:root:recieved: 18 7 106
+DEBUG:root:sent: m 8 w m 1 w
+DEBUG:root:recieved: 189
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 17 7 990
+DEBUG:root:recieved: 1 0 20 980
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 14 979
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 o
+DEBUG:root:recieved: 190
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 17 6 984
+DEBUG:root:recieved: 1 0 20 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 13 970
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 20 250
+DEBUG:root:sent: m 8 w m 1 s
+DEBUG:root:recieved: 191
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 6 981
+DEBUG:root:recieved: 1 0 21 975
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 14 967
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 o
+DEBUG:root:recieved: 192
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 7 976
+DEBUG:root:recieved: 1 0 21 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 15 958
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 21 270
+DEBUG:root:sent: m 8 n m 1 w
+DEBUG:root:recieved: 193
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 6 975
+DEBUG:root:recieved: 1 31 21 973
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 950
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 o
+DEBUG:root:recieved: 194
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 5 970
+DEBUG:root:recieved: 1 31 21 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 991
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 26 16 121
+DEBUG:root:recieved: 31 21 322
+DEBUG:root:sent: m 8 w m 1 s
+DEBUG:root:recieved: 195
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 5 967
+DEBUG:root:recieved: 1 31 22 968
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 16 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 26 16 112
+DEBUG:root:sent: m 8 s m 1 e
+DEBUG:root:recieved: 196
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 6 964
+DEBUG:root:recieved: 1 0 22 966
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 17 989
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 s
+DEBUG:root:recieved: 197
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 7 959
+DEBUG:root:recieved: 1 0 23 964
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 18 981
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 s
+DEBUG:root:recieved: 198
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 6 958
+DEBUG:root:recieved: 1 0 24 961
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 18 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 26 18 116
+DEBUG:root:sent: m 8 s m 1 s
+DEBUG:root:recieved: 199
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 7 953
+DEBUG:root:recieved: 1 0 25 961
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 18 989
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 e m 1 o
+DEBUG:root:recieved: 200
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 7 952
+DEBUG:root:recieved: 1 0 25 997
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 18 987
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 25 105
+DEBUG:root:sent: m 8 s m 1 o
+DEBUG:root:recieved: 201
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 8 951
+DEBUG:root:recieved: 1 0 25 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 18 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 26 18 103
+DEBUG:root:recieved: 0 25 102
+DEBUG:root:sent: m 8 s m 1 e
+DEBUG:root:recieved: 202
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 9 950
+DEBUG:root:recieved: 1 1 25 990
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 19 990
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 203
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 0 25 986
+DEBUG:root:recieved: 8 16 9 998
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 19 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 26 19 177
+DEBUG:root:recieved: 16 9 144
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 204
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 0 25 1000
+DEBUG:root:recieved: 8 16 9 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 19 983
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 0 25 88
+DEBUG:root:recieved: 16 9 142
+DEBUG:root:sent: m 8 e m 1 n
+DEBUG:root:recieved: 205
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 17 9 986
+DEBUG:root:recieved: 1 0 24 992
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 18 978
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 e
+DEBUG:root:recieved: 206
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 17 10 979
+DEBUG:root:recieved: 1 1 24 992
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 18 970
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 207
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 0 24 984
+DEBUG:root:recieved: 8 17 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 18 996
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 26 18 77
+DEBUG:root:recieved: 17 10 103
+DEBUG:root:sent: m 8 e m 1 n
+DEBUG:root:recieved: 208
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 10 990
+DEBUG:root:recieved: 1 0 23 984
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 18 989
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 209
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 0 24 981
+DEBUG:root:recieved: 8 18 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 19 987
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 18 10 166
+DEBUG:root:sent: m 8 e m 1 e
+DEBUG:root:recieved: 210
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 10 984
+DEBUG:root:recieved: 1 1 24 981
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 19 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 25 19 155
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 211
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 0 24 973
+DEBUG:root:recieved: 8 19 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 18 985
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 19 10 475
+DEBUG:root:sent: m 8 w m 1 s
+DEBUG:root:recieved: 212
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 10 953
+DEBUG:root:recieved: 1 0 25 973
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 18 983
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 e
+DEBUG:root:recieved: 213
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 1 25 965
+DEBUG:root:recieved: 8 18 10 995
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 18 976
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 18 10 124
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 214
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 1 26 961
+DEBUG:root:recieved: 8 18 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 19 968
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 18 10 119
+DEBUG:root:sent: m 8 e m 1 o
+DEBUG:root:recieved: 215
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 10 989
+DEBUG:root:recieved: 1 1 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 19 963
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 1 26 132
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 216
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 0 26 987
+DEBUG:root:recieved: 8 19 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 19 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 28 19 164
+DEBUG:root:recieved: 19 10 464
+DEBUG:root:sent: m 8 e m 1 o
+DEBUG:root:recieved: 217
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 20 10 954
+DEBUG:root:recieved: 1 0 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 19 984
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 26 249
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 218
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 31 26 976
+DEBUG:root:recieved: 8 20 10 991
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 19 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 29 19 375
+DEBUG:root:recieved: 20 10 110
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 219
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 31 26 1000
+DEBUG:root:recieved: 8 20 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 18 963
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 31 26 238
+DEBUG:root:recieved: 20 10 101
+DEBUG:root:sent: m 8 s m 1 w
+DEBUG:root:recieved: 220
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 20 11 990
+DEBUG:root:recieved: 1 30 26 977
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 18 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 29 18 173
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 221
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 20 11 1000
+DEBUG:root:recieved: 1 30 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 18 983
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 30 26 186
+DEBUG:root:recieved: 20 11 229
+DEBUG:root:sent: m 8 w m 1 n
+DEBUG:root:recieved: 222
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 11 978
+DEBUG:root:recieved: 1 30 25 982
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 18 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 28 18 180
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 223
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 30 26 978
+DEBUG:root:recieved: 8 19 11 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 18 982
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 19 11 336
+DEBUG:root:sent: m 8 n m 1 o
+DEBUG:root:recieved: 224
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 10 967
+DEBUG:root:recieved: 1 30 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 18 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 29 18 155
+DEBUG:root:recieved: 30 26 164
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 225
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 30 27 984
+DEBUG:root:recieved: 8 19 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 19 985
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 19 10 431
+DEBUG:root:sent: m 8 s m 1 o
+DEBUG:root:recieved: 226
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 11 957
+DEBUG:root:recieved: 1 30 27 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 19 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 29 19 360
+DEBUG:root:recieved: 30 27 149
+DEBUG:root:sent: m 8 o m 1 e
+DEBUG:root:recieved: 227
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 31 27 986
+DEBUG:root:recieved: 8 19 11 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 19 964
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 19 11 293
+DEBUG:root:sent: m 8 w m 1 o
+DEBUG:root:recieved: 228
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 11 971
+DEBUG:root:recieved: 1 31 27 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 19 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 28 19 128
+DEBUG:root:recieved: 31 27 391
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 229
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 31 26 961
+DEBUG:root:recieved: 8 18 11 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 19 988
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 18 11 322
+DEBUG:root:sent: m 8 n m 1 o
+DEBUG:root:recieved: 230
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 10 968
+DEBUG:root:recieved: 1 31 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 20 983
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 31 26 199
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 231
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 31 27 981
+DEBUG:root:recieved: 8 18 10 998
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 20 979
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 18 10 89
+DEBUG:root:sent: m 8 w m 1 o
+DEBUG:root:recieved: 232
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 17 10 990
+DEBUG:root:recieved: 1 31 27 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 20 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 26 20 124
+DEBUG:root:recieved: 31 27 372
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 233
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 31 26 963
+DEBUG:root:recieved: 8 17 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 20 988
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 17 10 93
+DEBUG:root:sent: m 8 e m 1 o
+DEBUG:root:recieved: 234
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 10 991
+DEBUG:root:recieved: 1 31 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 20 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 25 20 323
+DEBUG:root:recieved: 31 26 162
+DEBUG:root:sent: m 8 s m 1 e
+DEBUG:root:recieved: 235
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 11 983
+DEBUG:root:recieved: 1 0 26 984
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 21 968
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 236
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 11 1000
+DEBUG:root:recieved: 1 0 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 21 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 25 21 205
+DEBUG:root:recieved: 0 26 233
+DEBUG:root:recieved: 18 11 305
+DEBUG:root:sent: m 8 s m 1 s
+DEBUG:root:recieved: 237
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 12 970
+DEBUG:root:recieved: 1 0 27 977
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 21 980
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 238
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 12 1000
+DEBUG:root:recieved: 1 0 27 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 21 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 26 21 238
+DEBUG:root:recieved: 0 27 368
+DEBUG:root:recieved: 18 12 627
+DEBUG:root:sent: m 8 e m 1 w
+DEBUG:root:recieved: 239
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 12 938
+DEBUG:root:recieved: 1 31 27 964
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 21 977
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 240
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 12 1000
+DEBUG:root:recieved: 1 31 27 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 21 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 27 21 77
+DEBUG:root:recieved: 31 27 336
+DEBUG:root:recieved: 19 12 639
+DEBUG:root:sent: m 8 n m 1 n
+DEBUG:root:recieved: 241
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 11 937
+DEBUG:root:recieved: 1 31 26 967
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 21 993
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 242
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 11 1000
+DEBUG:root:recieved: 1 31 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 21 986
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 31 26 129
+DEBUG:root:recieved: 19 11 230
+DEBUG:root:sent: m 8 s m 1 s
+DEBUG:root:recieved: 243
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 12 977
+DEBUG:root:recieved: 1 31 27 988
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 22 979
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 244
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 12 1000
+DEBUG:root:recieved: 1 31 27 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 22 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 27 22 137
+DEBUG:root:recieved: 31 27 324
+DEBUG:root:recieved: 19 12 616
+DEBUG:root:sent: m 8 s m 1 n
+DEBUG:root:recieved: 245
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 13 939
+DEBUG:root:recieved: 1 31 26 968
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 22 987
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 246
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 13 1000
+DEBUG:root:recieved: 1 31 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 22 981
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 31 26 97
+DEBUG:root:recieved: 19 13 463
+DEBUG:root:sent: m 8 n m 1 n
+DEBUG:root:recieved: 247
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 12 954
+DEBUG:root:recieved: 1 31 25 991
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 22 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 27 22 118
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 248
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 12 1000
+DEBUG:root:recieved: 1 31 25 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 23 989
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 31 25 132
+DEBUG:root:recieved: 19 12 570
+DEBUG:root:sent: m 8 n m 1 e
+DEBUG:root:recieved: 249
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 11 943
+DEBUG:root:recieved: 1 0 25 987
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 23 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 27 23 131
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 250
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 0 26 979
+DEBUG:root:recieved: 8 19 11 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 22 987
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 19 11 173
+DEBUG:root:sent: m 8 n m 1 o
+DEBUG:root:recieved: 251
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 10 983
+DEBUG:root:recieved: 1 0 26 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 22 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 27 22 105
+DEBUG:root:recieved: 0 26 212
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 252
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 0 25 979
+DEBUG:root:recieved: 8 19 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 21 990
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 19 10 414
+DEBUG:root:sent: m 8 n m 1 w
+DEBUG:root:recieved: 253
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 9 959
+DEBUG:root:recieved: 1 31 25 971
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 21 983
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 254
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 19 9 1000
+DEBUG:root:recieved: 1 31 25 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 21 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 31 25 103
+DEBUG:root:recieved: 26 21 221
+DEBUG:root:recieved: 19 9 185
+DEBUG:root:sent: m 8 w m 1 n
+DEBUG:root:recieved: 255
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 9 982
+DEBUG:root:recieved: 1 31 24 990
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 21 978
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 256
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 31 25 990
+DEBUG:root:recieved: 8 18 9 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 21 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 25 21 183
+DEBUG:root:recieved: 18 9 136
+DEBUG:root:sent: m 8 n m 1 o
+DEBUG:root:recieved: 257
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 18 8 987
+DEBUG:root:recieved: 1 31 25 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 21 982
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 31 25 93
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 258
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 30 25 991
+DEBUG:root:recieved: 8 18 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 20 974
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 18 8 97
+DEBUG:root:sent: m 8 w m 1 w
+DEBUG:root:recieved: 259
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 17 8 991
+DEBUG:root:recieved: 1 29 25 987
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 20 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 24 20 109
+DEBUG:root:sent: m 8 w m 1 n
+DEBUG:root:recieved: 260
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 8 982
+DEBUG:root:recieved: 1 29 24 979
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 21 990
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 o
+DEBUG:root:recieved: 261
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 8 981
+DEBUG:root:recieved: 1 29 24 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 20 982
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 29 24 171
+DEBUG:root:sent: m 8 w m 1 n
+DEBUG:root:recieved: 262
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 14 8 980
+DEBUG:root:recieved: 1 29 23 983
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 24 20 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 24 20 91
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 263
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 29 22 975
+DEBUG:root:recieved: 8 14 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 20 991
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 14 8 105
+DEBUG:root:sent: m 8 s m 1 e
+DEBUG:root:recieved: 264
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 14 9 990
+DEBUG:root:recieved: 1 30 22 972
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 20 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 25 20 314
+DEBUG:root:sent: m 8 s m 1 o
+DEBUG:root:recieved: 265
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 14 10 983
+DEBUG:root:recieved: 1 30 22 998
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 19 969
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 30 22 78
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 266
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 30 21 991
+DEBUG:root:recieved: 8 14 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 19 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 25 19 124
+DEBUG:root:recieved: 14 10 107
+DEBUG:root:sent: m 8 n m 1 e
+DEBUG:root:recieved: 267
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 14 9 990
+DEBUG:root:recieved: 1 31 21 982
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 25 18 988
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 o
+DEBUG:root:recieved: 268
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 14 8 983
+DEBUG:root:recieved: 1 31 21 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 26 18 986
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 31 21 304
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 269
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 30 21 970
+DEBUG:root:recieved: 8 14 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 27 18 979
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 14 8 88
+DEBUG:root:sent: m 8 e m 1 s
+DEBUG:root:recieved: 270
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 8 992
+DEBUG:root:recieved: 1 30 22 961
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 18 971
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 n
+DEBUG:root:recieved: 271
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 14 8 991
+DEBUG:root:recieved: 1 30 21 954
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 18 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 28 18 151
+DEBUG:root:sent: m 8 e m 1 n
+DEBUG:root:recieved: 272
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 8 983
+DEBUG:root:recieved: 1 30 20 945
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 18 985
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 o
+DEBUG:root:recieved: 273
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 7 982
+DEBUG:root:recieved: 1 30 20 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 18 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 29 18 140
+DEBUG:root:recieved: 30 20 179
+DEBUG:root:sent: m 8 e m 1 n
+DEBUG:root:recieved: 274
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 7 981
+DEBUG:root:recieved: 1 30 19 983
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 18 986
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 o
+DEBUG:root:recieved: 275
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 8 980
+DEBUG:root:recieved: 1 30 19 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 18 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 30 18 420
+DEBUG:root:recieved: 30 19 180
+DEBUG:root:sent: m 8 s m 1 e
+DEBUG:root:recieved: 276
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 9 979
+DEBUG:root:recieved: 1 31 19 982
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 18 958
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 277
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 9 1000
+DEBUG:root:recieved: 1 31 19 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 18 993
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 29 18 105
+DEBUG:root:recieved: 31 19 168
+DEBUG:root:recieved: 16 9 121
+DEBUG:root:sent: m 8 n m 1 s
+DEBUG:root:recieved: 278
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 8 988
+DEBUG:root:recieved: 1 31 20 984
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 18 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 29 18 98
+DEBUG:root:sent: m 8 n m 1 o
+DEBUG:root:recieved: 279
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 16 7 987
+DEBUG:root:recieved: 1 31 20 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 18 991
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 31 20 283
+DEBUG:root:sent: m 8 w m 1 e
+DEBUG:root:recieved: 280
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 7 986
+DEBUG:root:recieved: 1 0 20 972
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 18 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 30 18 411
+DEBUG:root:sent: m 8 n m 1 o
+DEBUG:root:recieved: 281
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 15 6 985
+DEBUG:root:recieved: 1 0 20 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 18 959
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 20 222
+DEBUG:root:sent: m 8 w m 1 n
+DEBUG:root:recieved: 282
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 14 6 980
+DEBUG:root:recieved: 1 0 19 978
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 18 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 31 18 299
+DEBUG:root:sent: m 8 s m 1 o
+DEBUG:root:recieved: 283
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 14 7 977
+DEBUG:root:recieved: 1 0 19 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 18 971
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 19 164
+DEBUG:root:sent: m 8 w m 1 e
+DEBUG:root:recieved: 284
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 7 971
+DEBUG:root:recieved: 1 1 19 984
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 18 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 30 18 382
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 285
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 7 999
+DEBUG:root:recieved: 1 1 19 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 19 962
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 1 19 181
+DEBUG:root:recieved: 13 7 83
+DEBUG:root:sent: m 8 s m 1 w
+DEBUG:root:recieved: 286
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 8 991
+DEBUG:root:recieved: 1 0 19 982
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 19 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 30 19 142
+DEBUG:root:sent: m 8 w m 1 o
+DEBUG:root:recieved: 287
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 12 8 982
+DEBUG:root:recieved: 1 0 19 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 19 986
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 19 146
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 288
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 31 19 986
+DEBUG:root:recieved: 8 12 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 19 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 29 19 346
+DEBUG:root:recieved: 12 8 427
+DEBUG:root:sent: m 8 w m 1 o
+DEBUG:root:recieved: 289
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 8 958
+DEBUG:root:recieved: 1 31 19 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 19 966
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 31 19 154
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 290
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 31 18 985
+DEBUG:root:recieved: 8 11 8 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 19 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 30 19 108
+DEBUG:root:recieved: 11 8 158
+DEBUG:root:sent: m 8 w m 1 o
+DEBUG:root:recieved: 291
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 10 8 985
+DEBUG:root:recieved: 1 31 18 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 20 990
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 31 18 284
+DEBUG:root:sent: m 8 e m 1 n
+DEBUG:root:recieved: 292
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 8 977
+DEBUG:root:recieved: 1 31 17 972
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 20 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 30 20 169
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 293
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 8 1000
+DEBUG:root:recieved: 1 31 17 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 21 984
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 31 17 437
+DEBUG:root:recieved: 11 8 135
+DEBUG:root:sent: m 8 n m 1 n
+DEBUG:root:recieved: 294
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 7 987
+DEBUG:root:recieved: 1 31 16 957
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 22 975
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 295
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 7 1000
+DEBUG:root:recieved: 1 31 16 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 22 968
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 31 16 170
+DEBUG:root:recieved: 11 7 249
+DEBUG:root:sent: m 8 n m 1 n
+DEBUG:root:recieved: 296
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 6 976
+DEBUG:root:recieved: 1 31 15 983
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 23 965
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 297
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 6 1000
+DEBUG:root:recieved: 1 31 15 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 23 957
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 31 15 312
+DEBUG:root:recieved: 11 6 309
+DEBUG:root:sent: m 8 s m 1 e
+DEBUG:root:recieved: 298
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 7 970
+DEBUG:root:recieved: 1 0 15 969
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 23 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 28 23 166
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 299
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 7 1000
+DEBUG:root:recieved: 1 0 15 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 24 984
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 0 15 298
+DEBUG:root:recieved: 11 7 219
+DEBUG:root:sent: m 8 n m 1 e
+DEBUG:root:recieved: 300
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 6 979
+DEBUG:root:recieved: 1 1 15 971
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 24 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 28 24 122
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 301
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 11 6 1000
+DEBUG:root:recieved: 1 1 15 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 23 988
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 1 15 212
+DEBUG:root:recieved: 11 6 288
+DEBUG:root:sent: m 8 e m 1 s
+DEBUG:root:recieved: 302
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 12 6 972
+DEBUG:root:recieved: 1 1 16 979
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 23 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 28 23 154
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 303
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 12 6 1000
+DEBUG:root:recieved: 1 1 16 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 22 985
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 1 16 141
+DEBUG:root:recieved: 12 6 226
+DEBUG:root:sent: m 8 e m 1 e
+DEBUG:root:recieved: 304
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 6 978
+DEBUG:root:recieved: 1 2 16 986
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 23 979
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 305
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 6 1000
+DEBUG:root:recieved: 1 2 16 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 23 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 28 23 133
+DEBUG:root:recieved: 2 16 171
+DEBUG:root:recieved: 13 6 88
+DEBUG:root:sent: m 8 n m 1 e
+DEBUG:root:recieved: 306
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 5 992
+DEBUG:root:recieved: 1 3 16 983
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 24 987
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 o
+DEBUG:root:recieved: 307
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 6 983
+DEBUG:root:recieved: 1 3 16 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 24 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 28 24 109
+DEBUG:root:recieved: 3 16 188
+DEBUG:root:sent: m 8 e m 1 n
+DEBUG:root:recieved: 308
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 14 6 975
+DEBUG:root:recieved: 1 3 15 982
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 23 990
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 o
+DEBUG:root:recieved: 309
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 6 972
+DEBUG:root:recieved: 1 3 15 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 23 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 28 23 123
+DEBUG:root:recieved: 3 15 111
+DEBUG:root:sent: m 8 w m 1 w
+DEBUG:root:recieved: 310
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 12 6 964
+DEBUG:root:recieved: 1 2 15 989
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 24 988
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 311
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 2 14 981
+DEBUG:root:recieved: 8 12 6 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 24 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 28 24 97
+DEBUG:root:recieved: 12 6 190
+DEBUG:root:sent: m 8 n m 1 e
+DEBUG:root:recieved: 312
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 12 5 981
+DEBUG:root:recieved: 1 3 14 974
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 25 991
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 e
+DEBUG:root:recieved: 313
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 4 14 966
+DEBUG:root:recieved: 8 12 5 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 25 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 28 25 387
+DEBUG:root:recieved: 12 5 155
+DEBUG:root:sent: m 8 e m 1 e
+DEBUG:root:recieved: 314
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 5 985
+DEBUG:root:recieved: 1 5 14 958
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 26 962
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 e
+DEBUG:root:recieved: 315
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 4 976
+DEBUG:root:recieved: 1 6 14 949
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 28 26 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 28 26 129
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 316
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 6 13 948
+DEBUG:root:recieved: 8 13 4 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 29 26 988
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 4 246
+DEBUG:root:sent: m 8 n m 1 n
+DEBUG:root:recieved: 317
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 3 976
+DEBUG:root:recieved: 1 6 12 946
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 26 985
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 318
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 5 12 944
+DEBUG:root:recieved: 8 13 3 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 26 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 30 26 149
+DEBUG:root:recieved: 13 3 188
+DEBUG:root:sent: m 8 w m 1 n
+DEBUG:root:recieved: 319
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 12 3 982
+DEBUG:root:recieved: 1 5 11 940
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 26 986
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 e
+DEBUG:root:recieved: 320
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 6 11 932
+DEBUG:root:recieved: 8 12 3 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 26 977
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 12 3 391
+DEBUG:root:sent: m 8 e m 1 n
+DEBUG:root:recieved: 321
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 3 961
+DEBUG:root:recieved: 1 6 10 928
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 26 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 26 189
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 322
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 6 11 925
+DEBUG:root:recieved: 8 13 3 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 25 982
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 3 149
+DEBUG:root:sent: m 8 s m 1 n
+DEBUG:root:recieved: 323
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 4 986
+DEBUG:root:recieved: 1 6 10 921
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 25 974
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 324
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 6 11 918
+DEBUG:root:recieved: 8 13 4 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 25 965
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 4 232
+DEBUG:root:sent: m 8 n m 1 s
+DEBUG:root:recieved: 325
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 3 977
+DEBUG:root:recieved: 1 6 12 914
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 24 961
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 326
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 6 13 912
+DEBUG:root:recieved: 8 13 3 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 24 994
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 30 24 96
+DEBUG:root:recieved: 13 3 126
+DEBUG:root:sent: m 8 e m 1 s
+DEBUG:root:recieved: 327
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 14 3 988
+DEBUG:root:recieved: 1 6 14 910
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 24 985
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 e
+DEBUG:root:recieved: 328
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 3 980
+DEBUG:root:recieved: 1 7 14 909
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 25 985
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 329
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 7 13 902
+DEBUG:root:recieved: 8 13 3 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 24 976
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 3 106
+DEBUG:root:sent: m 8 s m 1 w
+DEBUG:root:recieved: 330
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 4 990
+DEBUG:root:recieved: 1 6 13 900
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 23 976
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 331
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 6 14 898
+DEBUG:root:recieved: 8 13 4 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 23 973
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 4 222
+DEBUG:root:sent: m 8 n m 1 e
+DEBUG:root:recieved: 332
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 3 978
+DEBUG:root:recieved: 1 7 14 897
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 24 970
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 333
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 6 14 890
+DEBUG:root:recieved: 8 13 3 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 24 970
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 3 84
+DEBUG:root:sent: m 8 w m 1 e
+DEBUG:root:recieved: 334
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 12 3 992
+DEBUG:root:recieved: 1 7 14 889
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 23 970
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 e
+DEBUG:root:recieved: 335
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 1 8 14 882
+DEBUG:root:recieved: 8 12 3 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 22 967
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 12 3 383
+DEBUG:root:sent: m 8 e m 1 s
+DEBUG:root:recieved: 336
+DEBUG:root:recieved: 0 2 0 150
+DEBUG:root:recieved: 8 13 3 962
+DEBUG:root:recieved: 1 8 15 875
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 21 965
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 s
+DEBUG:root:recieved: 337
+DEBUG:root:recieved: 0 2 0 1024
+DEBUG:root:recieved: 8 13 4 954
+DEBUG:root:recieved: 1 8 16 0
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 21 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 31 21 269
+DEBUG:root:recieved: 8 16 0
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 338
+DEBUG:root:recieved: 0 2 0 1024
+DEBUG:root:recieved: 1 8 17 0
+DEBUG:root:recieved: 8 13 4 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 21 974
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 4 176
+DEBUG:root:sent: m 8 e m 1 e
+DEBUG:root:recieved: 339
+DEBUG:root:recieved: 0 2 0 1024
+DEBUG:root:recieved: 8 14 4 983
+DEBUG:root:recieved: 1 8 17 4
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 21 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 0 21 244
+DEBUG:root:recieved: 8 17 11
+DEBUG:root:sent: m 8 n m 1 s
+DEBUG:root:recieved: 340
+DEBUG:root:recieved: 0 2 0 1024
+DEBUG:root:recieved: 8 14 3 976
+DEBUG:root:recieved: 1 8 18 3
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 20 976
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 w
+DEBUG:root:recieved: 341
+DEBUG:root:recieved: 0 2 0 1024
+DEBUG:root:recieved: 8 13 3 968
+DEBUG:root:recieved: 1 7 18 3
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 20 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 20 198
+DEBUG:root:sent: m 8 w m 1 e
+DEBUG:root:recieved: 342
+DEBUG:root:recieved: 0 2 0 1024
+DEBUG:root:recieved: 8 12 3 960
+DEBUG:root:recieved: 1 8 18 2
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 20 981
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 343
+DEBUG:root:recieved: 0 2 0 1024
+DEBUG:root:recieved: 1 8 17 2
+DEBUG:root:recieved: 8 12 3 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 20 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 1 20 188
+DEBUG:root:recieved: 12 3 343
+DEBUG:root:sent: m 8 e m 1 n
+DEBUG:root:recieved: 344
+DEBUG:root:recieved: 0 2 0 1025
+DEBUG:root:recieved: 8 13 3 966
+DEBUG:root:recieved: 1 8 16 0
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 20 982
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 8 16 0
+DEBUG:root:sent: m 8 e m 1 e
+DEBUG:root:recieved: 345
+DEBUG:root:recieved: 0 2 0 1025
+DEBUG:root:recieved: 8 14 3 958
+DEBUG:root:recieved: 1 9 16 0
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 20 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 2 20 88
+DEBUG:root:sent: m 8 n m 1 s
+DEBUG:root:recieved: 346
+DEBUG:root:recieved: 0 2 0 1025
+DEBUG:root:recieved: 8 14 2 950
+DEBUG:root:recieved: 1 9 17 0
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 19 992
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 n m 1 w
+DEBUG:root:recieved: 347
+DEBUG:root:recieved: 0 2 0 1025
+DEBUG:root:recieved: 8 14 1 949
+DEBUG:root:recieved: 1 9 17 4
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 19 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 2 19 383
+DEBUG:root:recieved: 9 17 11
+DEBUG:root:sent: m 8 w m 1 s
+DEBUG:root:recieved: 348
+DEBUG:root:recieved: 0 2 0 1025
+DEBUG:root:recieved: 8 13 1 947
+DEBUG:root:recieved: 1 9 18 3
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 18 962
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 w
+DEBUG:root:recieved: 349
+DEBUG:root:recieved: 0 2 0 1025
+DEBUG:root:recieved: 8 13 2 944
+DEBUG:root:recieved: 1 8 18 1
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 18 1000
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 2 18 172
+DEBUG:root:sent: m 8 s m 1 n
+DEBUG:root:recieved: 350
+DEBUG:root:recieved: 0 2 0 1025
+DEBUG:root:recieved: 8 13 3 937
+DEBUG:root:recieved: 1 8 17 1
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 3 18 983
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 e
+DEBUG:root:recieved: 351
+DEBUG:root:recieved: 0 2 0 1025
+DEBUG:root:recieved: 8 13 4 929
+DEBUG:root:recieved: 1 9 17 0
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 3 19 975
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 352
+DEBUG:root:recieved: 0 2 0 1025
+DEBUG:root:recieved: 8 13 4 973
+DEBUG:root:recieved: 1 9 17 3
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 3 20 967
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 9 17 8
+DEBUG:root:recieved: 13 4 132
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 353
+DEBUG:root:recieved: 0 2 0 1025
+DEBUG:root:recieved: 1 8 17 3
+DEBUG:root:recieved: 8 13 4 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 20 958
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 4 105
+DEBUG:root:sent: m 8 e m 1 n
+DEBUG:root:recieved: 354
+DEBUG:root:recieved: 0 2 0 1027
+DEBUG:root:recieved: 8 14 4 990
+DEBUG:root:recieved: 1 8 16 0
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 21 950
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 8 16 0
+DEBUG:root:sent: m 8 w m 1 n
+DEBUG:root:recieved: 355
+DEBUG:root:recieved: 0 2 0 1027
+DEBUG:root:recieved: 8 13 4 983
+DEBUG:root:recieved: 1 8 15 0
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 22 945
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 e
+DEBUG:root:recieved: 356
+DEBUG:root:recieved: 0 2 0 1027
+DEBUG:root:recieved: 8 13 4 1000
+DEBUG:root:recieved: 1 8 15 4
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 22 942
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 8 15 9
+DEBUG:root:recieved: 13 4 88
+DEBUG:root:sent: m 8 s m 1 s
+DEBUG:root:recieved: 357
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 13 5 992
+DEBUG:root:recieved: 1 8 16 0
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 23 935
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 8 16 0
+DEBUG:root:sent: m 8 s m 1 w
+DEBUG:root:recieved: 358
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 13 6 983
+DEBUG:root:recieved: 1 7 16 0
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 22 926
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 s m 1 w
+DEBUG:root:recieved: 359
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 13 7 975
+DEBUG:root:recieved: 1 7 16 7
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 22 919
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 7 16 20
+DEBUG:root:sent: m 8 s m 1 s
+DEBUG:root:recieved: 360
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 13 8 967
+DEBUG:root:recieved: 1 7 17 5
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 21 916
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 w m 1 w
+DEBUG:root:recieved: 361
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 12 8 958
+DEBUG:root:recieved: 1 6 17 4
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 22 911
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 362
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 12 8 1000
+DEBUG:root:recieved: 1 6 17 61
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 3 22 908
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 6 17 168
+DEBUG:root:recieved: 12 8 385
+DEBUG:root:sent: m 8 s m 1 o
+DEBUG:root:recieved: 363
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 12 9 962
+DEBUG:root:recieved: 1 6 17 103
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 3 23 902
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 6 17 126
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 364
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 12 9 1000
+DEBUG:root:recieved: 1 6 17 135
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 23 894
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 6 17 94
+DEBUG:root:recieved: 12 9 210
+DEBUG:root:sent: m 8 s m 1 n
+DEBUG:root:recieved: 365
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 12 10 979
+DEBUG:root:recieved: 1 6 16 126
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 3 23 886
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 366
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 6 17 119
+DEBUG:root:recieved: 8 12 10 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 4 23 878
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 12 10 470
+DEBUG:root:sent: m 8 s m 1 e
+DEBUG:root:recieved: 367
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 12 11 953
+DEBUG:root:recieved: 1 7 17 110
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 4 23 914
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 4 23 106
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 368
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 6 17 109
+DEBUG:root:recieved: 8 12 11 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 4 23 941
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 4 23 79
+DEBUG:root:recieved: 12 11 311
+DEBUG:root:sent: m 8 s m 1 e
+DEBUG:root:recieved: 369
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 12 12 969
+DEBUG:root:recieved: 1 7 17 100
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 3 23 934
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 370
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 6 17 99
+DEBUG:root:recieved: 8 12 12 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 3 22 926
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 12 12 670
+DEBUG:root:sent: m 8 s m 1 s
+DEBUG:root:recieved: 371
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 12 13 933
+DEBUG:root:recieved: 1 6 18 90
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 3 23 920
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 372
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 6 19 88
+DEBUG:root:recieved: 8 12 13 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 23 912
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 12 13 342
+DEBUG:root:sent: m 8 n m 1 n
+DEBUG:root:recieved: 373
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 12 12 966
+DEBUG:root:recieved: 1 6 18 79
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 22 904
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 374
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 6 19 77
+DEBUG:root:recieved: 8 12 12 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 22 901
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 12 12 636
+DEBUG:root:sent: m 8 e m 1 s
+DEBUG:root:recieved: 375
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 13 12 937
+DEBUG:root:recieved: 1 6 20 68
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 23 894
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 376
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 5 20 61
+DEBUG:root:recieved: 8 13 12 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 23 885
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 12 594
+DEBUG:root:sent: m 8 s m 1 o
+DEBUG:root:recieved: 377
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 13 13 941
+DEBUG:root:recieved: 1 5 20 98
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 23 877
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 5 20 108
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 378
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 13 13 1000
+DEBUG:root:recieved: 1 5 20 125
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 23 868
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 5 20 81
+DEBUG:root:recieved: 13 13 327
+DEBUG:root:sent: m 8 n m 1 n
+DEBUG:root:recieved: 379
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 13 12 968
+DEBUG:root:recieved: 1 5 19 117
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 22 860
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 w
+DEBUG:root:recieved: 380
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 4 19 110
+DEBUG:root:recieved: 8 13 12 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 2 21 857
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 13 12 562
+DEBUG:root:sent: m 8 e m 1 n
+DEBUG:root:recieved: 381
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 14 12 944
+DEBUG:root:recieved: 1 4 18 105
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 21 852
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 382
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 4 19 97
+DEBUG:root:recieved: 8 14 12 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 20 843
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 14 12 394
+DEBUG:root:sent: m 8 e m 1 s
+DEBUG:root:recieved: 383
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 15 12 961
+DEBUG:root:recieved: 1 4 20 92
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 20 890
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 1 20 141
+DEBUG:root:sent: m 8 o m 1 e
+DEBUG:root:recieved: 384
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 5 20 88
+DEBUG:root:recieved: 8 15 12 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 20 926
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 1 20 105
+DEBUG:root:recieved: 15 12 173
+DEBUG:root:sent: m 8 w m 1 n
+DEBUG:root:recieved: 385
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 14 12 983
+DEBUG:root:recieved: 1 5 19 80
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 1 20 953
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 1 20 78
+DEBUG:root:sent: m 8 o m 1 s
+DEBUG:root:recieved: 386
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 5 20 73
+DEBUG:root:recieved: 8 14 12 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 20 946
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 14 12 377
+DEBUG:root:sent: m 8 e m 1 s
+DEBUG:root:recieved: 387
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 15 12 963
+DEBUG:root:recieved: 1 5 21 65
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 20 996
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 0 20 148
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 388
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 15 12 1000
+DEBUG:root:recieved: 1 5 21 130
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 20 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 0 20 144
+DEBUG:root:recieved: 5 21 193
+DEBUG:root:recieved: 15 12 136
+DEBUG:root:sent: m 8 e m 1 o
+DEBUG:root:recieved: 389
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 16 12 987
+DEBUG:root:recieved: 1 5 21 179
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 21 986
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 5 21 144
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 390
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 16 12 1000
+DEBUG:root:recieved: 1 5 21 215
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 0 21 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 0 21 230
+DEBUG:root:recieved: 5 21 108
+DEBUG:root:recieved: 16 12 199
+DEBUG:root:sent: m 8 w m 1 o
+DEBUG:root:recieved: 391
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 15 12 981
+DEBUG:root:recieved: 1 5 21 242
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 21 977
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 5 21 81
+DEBUG:root:sent: m 8 o m 1 n
+DEBUG:root:recieved: 392
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 5 20 234
+DEBUG:root:recieved: 8 15 12 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 21 1000
+DEBUG:root:recieved: 2
+DEBUG:root:recieved: 31 21 246
+DEBUG:root:recieved: 15 12 117
+DEBUG:root:sent: m 8 e m 1 w
+DEBUG:root:recieved: 393
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 16 12 989
+DEBUG:root:recieved: 1 4 20 226
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 22 976
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 e
+DEBUG:root:recieved: 394
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 1 5 20 222
+DEBUG:root:recieved: 8 16 12 1000
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 22 974
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 16 12 188
+DEBUG:root:sent: m 8 s m 1 w
+DEBUG:root:recieved: 395
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 16 13 982
+DEBUG:root:recieved: 1 4 20 214
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 21 967
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 e m 1 s
+DEBUG:root:recieved: 396
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 17 13 974
+DEBUG:root:recieved: 1 4 21 210
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 20 958
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 397
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 17 13 1000
+DEBUG:root:recieved: 1 4 21 235
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 30 20 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 30 20 127
+DEBUG:root:recieved: 4 21 75
+DEBUG:root:recieved: 17 13 143
+DEBUG:root:sent: m 8 n m 1 s
+DEBUG:root:recieved: 398
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 17 12 986
+DEBUG:root:recieved: 1 4 22 228
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 20 988
+DEBUG:root:recieved: 0
+DEBUG:root:sent: m 8 o m 1 o
+DEBUG:root:recieved: 399
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 17 12 1000
+DEBUG:root:recieved: 1 4 22 268
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 20 1000
+DEBUG:root:recieved: 3
+DEBUG:root:recieved: 31 20 271
+DEBUG:root:recieved: 4 22 118
+DEBUG:root:recieved: 17 12 436
+DEBUG:root:sent: m 8 w m 1 o
+DEBUG:root:recieved: 400
+DEBUG:root:recieved: 0 2 0 1031
+DEBUG:root:recieved: 8 16 12 957
+DEBUG:root:recieved: 1 4 22 298
+DEBUG:root:recieved: 1 1 0 5
+DEBUG:root:recieved: 2 31 19 973
+DEBUG:root:recieved: 1
+DEBUG:root:recieved: 4 22 88
+DEBUG:root:sent: m 8 o m 1 n
