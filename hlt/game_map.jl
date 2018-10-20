@@ -23,6 +23,8 @@ type Player
     #minerals::Int
 end
 
+Player(id::Int, shipyard::Position) = Player(id, shipyard, 0, Dict{Int,Ship}(), Array{Position}())
+
 parse_player(s::String) = parse_player(str2ints(s))
 parse_player(s::Array{Int}) = Player(s[1], Position(s[2],s[3]))
 
