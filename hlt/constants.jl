@@ -11,8 +11,30 @@ INSPIRED_EXTRACT_RATIO = nothing
 INSPIRED_BONUS_MULTIPLIER = nothing
 INSPIRED_MOVE_COST_RATIO = nothing
 
-function load_constants(constants)
-    
+
+function parseboolorint(s::AbstractString)
+    v = tryparse(Int, s)
+    if v != nothing return v end
+
+    v = tryparse(Float64, s)
+    if v != nothing return v end
+
+    if s == "false" return false end
+    if s == "true" return true end
+
+    error("unknown value \"$s\"")
+end
+
+
+function load_constants(constants::String)
+    constants = constants[2:end-1] # skip { and }
+    c = split(constants, ',')
+    d = Dict(k[2:end-1] => parseboolorint(v) for (k,v) in split.(c, ':'))
+    load_constants(d)
+end
+
+
+function load_constants(constants::Dict)
     global SHIP_COST, DROPOFF_COST, MAX_HALITE, MAX_TURNS
     global EXTRACT_RATIO, MOVE_COST_RATIO
     global INSPIRATION_ENABLED, INSPIRATION_RADIUS, INSPIRATION_SHIP_COUNT
