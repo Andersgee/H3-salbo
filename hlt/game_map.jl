@@ -35,6 +35,8 @@ struct GameMap
 end
 
 
+getindex(a::Matrix{Int}, p::Position) = a[p.y, p.x]
+
 Player(id::Int, shipyard_position::Position) = Player(id, shipyard_position, 0, Ship[], DropOff[])
 GameMap(my_player_id, halite::Matrix{Int}, players::Vector{Player}) = GameMap(my_player_id, halite, Dict(p.id => p for p in players))
 

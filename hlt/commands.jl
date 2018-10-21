@@ -13,9 +13,9 @@ const CONSTRUCT = 'c'
 const MOVE = 'm'
 
 
+make_ship() = "$GENERATE"
 move(s::Ship, dir::Char) = "$MOVE $(s.id) $dir"
 make_dropoff(s::Ship, command::Char) = "$CONSTRUCT $(s.id)"
-make_ship() = "$GENERATE"
 stay_still(s::Ship) = move(s, STAY_STILL)
 
 
