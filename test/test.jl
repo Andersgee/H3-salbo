@@ -53,13 +53,14 @@ halite_map_str = """
     122 145 50 37 28 122 173 83 26 151 218 57 94 323 183 165 165 183 323 94 57 218 151 26 83 173 122 28 37 50 145 122
     315 182 34 62 177 90 422 72 7 8 8 130 27 191 214 88 88 214 191 27 130 8 8 7 72 422 90 177 62 34 182 315
     34 166 30 27 232 213 241 50 98 91 43 113 12 27 293 205 205 293 27 12 113 43 91 98 50 241 213 232 27 30 166 34"""
-parse_map_size
 sz = H.parse_map_size(halite_size_str)
 @test sz == [32, 32]
 
 halite_map_strs = split(halite_map_str, '\n')
 @test length(halite_map_strs) == 32
 m = H.parse_map(halite_map_strs)
+
+m[8, 16]
 
 @test size(m) == (32, 32)
 @test m[31,5] == 177
@@ -80,6 +81,7 @@ H.update_cell!(m, "2 3 99")
 s = "2\n4 2 98\n2 3 10"
 @test m[2,4] == 12
 @test m[3,2] == 99
+
 H.update_halite!(m, IOBuffer(s))
 @test m[2,4] == 98
 @test m[3,2] == 10
@@ -170,3 +172,57 @@ turn = H.update_frame!(g, IOBuffer(s))
 g.players[0].ships[1].id
 
 g.players[0].ships[1]
+
+
+
+
+include("../hlt/halite.jl")
+
+include("../salboai.jl")
+travelcost(0.1*g.halite, [5,5])
+
+M=g.halite
+
+
+for i=0:length(g.players)-1
+    println(g.players[i].shipyard.x, g.players[i].shipyard.y)
+end
+
+#g.halite[p.shipyard.y, p.shipyard.x] = 0
+#g.halite[g.players[0].shipyard.x, g.players[0].shipyard.y]=0
+end
+
+g.halite[g.players[0].shipyard.x, g.players[0].shipyard.y]=0
+
+ship = p2v(g.players[0].ships[1].p)
+shipyard = p2v(g.players[0].shipyard)
+
+threshold = 9 #
+
+include("../salboai.jl")
+S, direction, cost1 = score(m, ship, shipyard, threshold)
+m[5:11,12:18]
+
+S[5:11,12:18]
+
+cost1[5:11,12:18]
+
+g.players[g.my_player_id].halite
+g.players[0].shipyard.x
+
+#turn 9 (there should be changed halite)
+
+s = """9
+    0 2 0 1000
+    7 9 16 0
+    1 10 15 75
+    1 4 0 1005
+    2 21 15 22
+    0 22 18 9
+    4 23 16 0
+    6 23 17 0
+    3
+    10 15 76
+    23 16 0
+    6 16 75"""
+turn = H.update_frame!(g, IOBuffer(s))

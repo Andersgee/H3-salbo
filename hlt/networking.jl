@@ -22,5 +22,10 @@ function init(s::IO)::GameMap
     cols,rows = parse_map_size(readline(s))
     M = parse_map(readnlines(s, rows))
 
+    #manually remove halite from under shipyards.
+    for i=1:nr_of_players
+        M[players[i].shipyard.x, players[i].shipyard.y] = 0
+    end
+
     return GameMap(my_player_id, M, players)
 end

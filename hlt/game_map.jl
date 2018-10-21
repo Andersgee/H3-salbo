@@ -50,13 +50,13 @@ parse_num_players_and_id(s) = str2ints(s)
 
 function parse_ship(owner::Int, s::String)
     id, x, y, halite = str2ints(s)
-    Ship(owner, id, Position(x, y), halite)
+    Ship(owner, id, Position(x+1, y+1), halite)
 end
 
 
 function parse_dropoff(owner::Int, s::String)
     id, x, y = str2ints(s)
-    Ship(owner, id, Position(x, y))
+    Ship(owner, id, Position(x+1, y+1))
 end
 
 
@@ -70,7 +70,7 @@ end
 
 function update_cell!(halite::Matrix{Int}, s::String)
     x, y, h = str2ints(s)
-    halite[y,x] = h
+    halite[y+1,x+1] = h #recieved changed halite cells use zero indexing
 end
 
 
