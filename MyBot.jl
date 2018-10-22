@@ -1,5 +1,5 @@
 include("hlt/halite.jl")
-include("salboai.jl")
+include("salboai/salboai.jl")
 
 miningthreshold = 9 #free to move after that. dont bother mining more?
 
