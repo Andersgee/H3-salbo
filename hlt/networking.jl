@@ -1,5 +1,6 @@
 str2ints(s) = parse.(Int, split(s))
 readnlines(io::IO, n::Int) = (readline(io) for _ in 1:n)
+parse_xy(x::Int, y::Int) = CartesianIndex(y+1, x+1)
 
 function init(io::IO=Base.stdin)::GameMap
     load_constants(readline(io))
@@ -15,10 +16,6 @@ function init(io::IO=Base.stdin)::GameMap
     for p in players
         M[p.shipyard] = 0
     end
-
-    #for i=1:nr_of_players
-    #    M[players[i].shipyard.x, players[i].shipyard.y] = 0
-    #end
 
     return GameMap(my_player_id, M, players)
 end
@@ -36,7 +33,7 @@ end
 
 
 parse_player(s::String) = parse_player(str2ints(s))
-parse_player(s::Array{Int}) = Player(s[1], Position(s[2], s[3]))
+parse_player(s::Array{Int}) = Player(s[1], parse_xy(s[2], s[3]))
 parse_map_size(s) = str2ints(s)
 parse_map(S) = Matrix(hcat(str2ints.(S)...)')
 parse_turnnumber(s) = parse(Int, s)
@@ -45,13 +42,13 @@ parse_num_players_and_id(s) = str2ints(s)
 
 function parse_ship(owner::Int, s::String)
     id, x, y, halite = str2ints(s)
-    Ship(owner, id, Position(x+1, y+1), halite)
+    Ship(owner, id, parse_xy(x, y), halite)
 end
 
 
 function parse_dropoff(owner::Int, s::String)
     id, x, y = str2ints(s)
-    Ship(owner, id, Position(x+1, y+1))
+    Ship(owner, id, parse_xy(x, y))
 end
 
 
@@ -65,7 +62,7 @@ end
 
 function update_cell!(halite::Matrix{Int}, s::String)
     x, y, h = str2ints(s)
-    halite[y+1,x+1] = h #recieved changed halite cells use zero indexing
+    halite[parse_xy(x, y)] = h #recieved changed halite cells use zero indexing
 end
 
 

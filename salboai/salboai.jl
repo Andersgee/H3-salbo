@@ -89,7 +89,7 @@ end
 
 
 
-p2v(p) = [p.x, p.y]
+p2v(p) = [p[1], p[2]]
 
 function pickbestsquare(S)
     v,i = findmax(S)

@@ -1,13 +1,7 @@
-struct Position
-    x::Int
-    y::Int
-end
-
-
 struct Ship
     owner::Int
     id::Int
-    p::Position
+    p::CartesianIndex
     halite::Int
 end
 
@@ -15,13 +9,13 @@ end
 struct DropOff
     owner::Int
     id::Int
-    p::Position
+    p::CartesianIndex
 end
 
 
 mutable struct Player
     id::Int
-    shipyard::Position
+    shipyard::CartesianIndex
     halite::Int
     ships::Vector{Ship}
     dropoffs::Vector{DropOff}
@@ -34,9 +28,6 @@ struct GameMap
     players::Dict{Int,Player}
 end
 
-Base.getindex(a::Matrix{Int}, p::Position) = a[p.y, p.x]
-Base.setindex!(a::Matrix{Int}, v::Int, p::Position) = a[p.y, p.x] = v
-
-Player(id::Int, shipyard_position::Position) = Player(id, shipyard_position, 0, Ship[], DropOff[])
+Player(id::Int, shipyard_position::CartesianIndex) = Player(id, shipyard_position, 0, Ship[], DropOff[])
 GameMap(my_player_id, halite::Matrix{Int}, players::Vector{Player}) = GameMap(my_player_id, halite, Dict(p.id => p for p in players))
 me(g::GameMap) = g.players[g.my_player_id]
