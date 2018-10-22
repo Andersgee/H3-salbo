@@ -12,15 +12,11 @@ const GENERATE = 'g'
 const CONSTRUCT = 'c'
 const MOVE = 'm'
 
+ready(botname, io::IO=Base.stdout) = sendcommands([botname], io)
 
-#make_ship() = "$GENERATE"
-#move(s::Ship, dir::Char) = "$MOVE $(s.id) $dir"
+make_ship() = "$GENERATE"
+move(s::Ship, dir::Char) = "$MOVE $(s.id) $dir"
 make_dropoff(s::Ship, command::Char) = "$CONSTRUCT $(s.id)"
-#stay_still(s::Ship) = move(s, STAY_STILL)
+stay_still(s::Ship) = move(s, STAY_STILL)
 
-make_ship() = "g"
-
-function move(s::Ship, dir::Int)
-	a=['s','e','n','w','o']
-	return "m $(s.id) $(a[dir+1])"
-end
+move(s::Ship, dir::Int) = move(s, ['s','e','n','w','o'][dir+1])
