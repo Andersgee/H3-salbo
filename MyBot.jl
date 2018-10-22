@@ -1,6 +1,8 @@
 include("hlt/halite.jl")
 include("salboai/salboai.jl")
 
+using Main.Salboai
+
 miningthreshold = 9 #free to move after that. dont bother mining more?
 
 g = H.init()
