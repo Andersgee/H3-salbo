@@ -9,8 +9,7 @@ g = H.init()
 me = H.me(g)
 
 # warmup
-p_shipyard = p2v(me.shipyard)
-ms, dir, cost_here2there = mapscore(g.halite, p_shipyard, p_shipyard, miningthreshold)
+ms, dir, cost_here2there = mapscore(g.halite, H.Ship(0, 0, CartesianIndex(1,1), 0), me.shipyard, miningthreshold)
 
 H.ready("salboai")
 
@@ -27,8 +26,7 @@ while true
 
 	#calculate where ships want to move
 	for s in me.ships
-		p_ship = p2v(s.p)
-		ms, dir, cost_here2there = mapscore(g.halite, p_ship, p_shipyard, miningthreshold)
+		ms, dir, cost_here2there = mapscore(g.halite, s, me.shipyard, miningthreshold)
 		ms_within_reach = filterscores(ms, cost_here2there, s.halite)
 		yx = pickbestsquare(ms_within_reach)
 

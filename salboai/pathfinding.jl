@@ -11,14 +11,14 @@ function quadrant_travelcost(m)
     for x=1:X,y=1:Y
         if x>1
             #cost[y,x]=cost[y,x-1]+m[y,x-1]
-            cost[y,x]=cost[y,x-1] + round(Int, m[y,x-1], RoundDown)
-            dir[y,x]  = y==1 ? 1 : dir[y,x-1]
+            cost[y,x] = cost[y,x-1] + round(Int, m[y,x-1], RoundDown)
+            dir[y,x] = y==1 ? 1 : dir[y,x-1]
         end
         if y>1
             #t_cost=cost[y-1,x]+m[y-1,x]
             t_cost = cost[y-1,x] + round(Int, m[y-1,x], RoundDown)
             if t_cost<cost[y,x] || x==1
-                cost[y,x]=t_cost
+                cost[y,x] = t_cost
                 dir[y,x] = x==1 ? 0 : dir[y-1,x]
             end
         end
@@ -53,6 +53,7 @@ function travelcost(m, origin)
 
     D = cat(d1,d2,d3,d4, dims=3)
     C = cat(c1,c2,c3,c4, dims=3)
+
     v, i = findmin(C, dims=3)
 
     cost = ishiftorigin(C[i][:,:,1], origin)
@@ -66,16 +67,17 @@ function mapscore(M, ship, shipyard, threshold)
     #cost (from ship, to some point, and then to shipyard)
 
     reward = max.(M .- threshold, 0)
-    #mining = max.(0, M .- threshold)
     #leftovers = min.(mining, threshold)
-    #ignoreshipyard = M[shipyard...]
-    cost1, direction1 = travelcost(M, ship)
-    cost2, direction2 = travelcost(M, shipyard)
+    M = copy(M)
+    cost2, direction2 = travelcost(M, p2v(shipyard))
+
+    M[shipyard] = ship.halite
+    cost1, direction1 = travelcost(M, p2v(ship.p))
 
     #distcost = manhattandist()
 
-    #cost = cost1 + cost2 + 0.1*leftovers .- 0.1*ignoreshipyard
-    cost = cost1 + cost2 - M
+    #cost = cost1 + cost2 + 0.1*leftovers
+    cost = cost1 + cost2
 
     s = reward - cost
     return s, direction1, cost1
