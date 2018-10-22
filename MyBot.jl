@@ -1,18 +1,20 @@
 include("hlt/halite.jl")
 include("salboai.jl")
 
+miningthreshold = 9 #free to move after that. dont bother mining more?
 
-g = H.init(Base.stdin)
+g = H.init()
+me = H.me(g)
+
+# warmup
+p_shipyard = p2v(me.shipyard)
+ms, dir, cost_here2there = mapscore(g.halite, p_shipyard, p_shipyard, miningthreshold)
 
 H.ready("salboai")
 
-miningthreshold = 9 #free to move after that. dont bother mining more?
-
 while true
 	cmds=String[]
-	turn = H.update_frame!(g, Base.stdin)
-
-	p_shipyard = p2v(g.players[g.my_player_id].shipyard)
+	turn = H.update_frame!(g)
 
 	if turn == 1
 		push!(cmds, H.make_ship())
@@ -22,7 +24,7 @@ while true
 	#end
 
 	#calculate where ships want to move
-	for s in g.players[g.my_player_id].ships
+	for s in me.ships
 		p_ship = p2v(s.p)
 		ms, dir, cost_here2there = mapscore(g.halite, p_ship, p_shipyard, miningthreshold)
 		ms_within_reach = filterscores(ms, cost_here2there, s.halite)
