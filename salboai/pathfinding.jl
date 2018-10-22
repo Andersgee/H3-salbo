@@ -54,11 +54,14 @@ function travelcost(m, origin)
     D = cat(d1,d2,d3,d4, dims=3)
     C = cat(c1,c2,c3,c4, dims=3)
 
+    S = [x + y for y in 1:size(m,1), x in 1:size(m,2)]
+
     v, i = findmin(C, dims=3)
 
     cost = ishiftorigin(C[i][:,:,1], origin)
     first_direction = ishiftorigin(D[i][:,:,1], origin)
-    return cost, first_direction
+    steps = ishiftorigin(S, origin)
+    return cost, first_direction, steps
 end
 
 function mapscore(M, ship, shipyard, threshold)
@@ -69,17 +72,18 @@ function mapscore(M, ship, shipyard, threshold)
     reward = max.(M .- threshold, 0)
     #leftovers = min.(mining, threshold)
     M = copy(M)
-    cost2, direction2 = travelcost(M, p2v(shipyard))
+    cost2, direction2, steps2 = travelcost(M, p2v(shipyard))
 
     M[shipyard] = ship.halite
-    cost1, direction1 = travelcost(M, p2v(ship.p))
+    cost1, direction1, steps1 = travelcost(M, p2v(ship.p))
 
     #distcost = manhattandist()
 
     #cost = cost1 + cost2 + 0.1*leftovers
     cost = cost1 + cost2
+    steps = steps1 + steps2
 
-    s = reward - cost
+    s = (reward - cost) ./ steps
     return s, direction1, cost1
 end
 
