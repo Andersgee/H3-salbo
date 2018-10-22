@@ -27,6 +27,7 @@ while true
 	#	push!(cmds, H.make_ship())
 	#end
 
+
 	#calculate where ships want to move
 	for s in me.ships
 		warn("ship ", s.id, " pos=", Tuple(s.p), " halite=", s.halite)
