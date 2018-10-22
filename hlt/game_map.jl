@@ -34,48 +34,9 @@ struct GameMap
     players::Dict{Int,Player}
 end
 
-
-getindex(a::Matrix{Int}, p::Position) = a[p.y, p.x]
+Base.getindex(a::Matrix{Int}, p::Position) = a[p.y, p.x]
+Base.setindex!(a::Matrix{Int}, v::Int, p::Position) = a[p.y, p.x] = v
 
 Player(id::Int, shipyard_position::Position) = Player(id, shipyard_position, 0, Ship[], DropOff[])
 GameMap(my_player_id, halite::Matrix{Int}, players::Vector{Player}) = GameMap(my_player_id, halite, Dict(p.id => p for p in players))
-
-parse_player(s::String) = parse_player(str2ints(s))
-parse_player(s::Array{Int}) = Player(s[1], Position(s[2], s[3]))
-parse_map_size(s) = str2ints(s)
-parse_map(S) = Matrix(hcat(str2ints.(S)...)')
-parse_turnnumber(s) = parse(Int, s)
-parse_num_players_and_id(s) = str2ints(s)
-
-
-function parse_ship(owner::Int, s::String)
-    id, x, y, halite = str2ints(s)
-    Ship(owner, id, Position(x+1, y+1), halite)
-end
-
-
-function parse_dropoff(owner::Int, s::String)
-    id, x, y = str2ints(s)
-    Ship(owner, id, Position(x+1, y+1))
-end
-
-
-function update_player!(p::Player, s::IO)
-    num_ships, num_dropoffs, p.halite = str2ints(readline(s))
-    p.ships = parse_ship.(p.id, readnlines(s, num_ships))
-    p.dropoffs = parse_dropoff.(p.id, readnlines(s, num_dropoffs))
-    p
-end
-
-
-function update_cell!(halite::Matrix{Int}, s::String)
-    x, y, h = str2ints(s)
-    halite[y+1,x+1] = h #recieved changed halite cells use zero indexing
-end
-
-
-function update_halite!(halite::Matrix{Int}, s::IO)
-    n_updated_cells = parse(Int, readline(s))
-    update_cell!.((halite,), readnlines(s, n_updated_cells))
-    halite
-end
+me(g::GameMap) = g.players[g.my_player_id]

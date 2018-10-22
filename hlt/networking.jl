@@ -1,31 +1,81 @@
-ready(botname) = sendcommands([botname])
-sendcommands(cmds::Vector{String}) = println(join(cmds, " "))
+str2ints(s) = parse.(Int, split(s))
+readnlines(io::IO, n::Int) = (readline(io) for _ in 1:n)
 
-function update_frame!(g::GameMap, s::IO)
-    turn = parse_turnnumber(readline(s))
-    for _ in 1:length(g.players)
-        player_id = parse(Int, readuntil(s, " "))
-        update_player!(g.players[player_id], s)
+function init(io::IO=Base.stdin)::GameMap
+    load_constants(readline(io))
+
+    nr_of_players, my_player_id = parse_num_players_and_id(readline(io))
+
+    players = parse_player.(readnlines(io, nr_of_players))
+
+    cols,rows = parse_map_size(readline(io))
+    M = parse_map(readnlines(io, rows))
+
+    #manually remove halite from under shipyards.
+    for p in players
+        M[p.shipyard] = 0
     end
-    update_halite!(g.halite, s)
+
+    #for i=1:nr_of_players
+    #    M[players[i].shipyard.x, players[i].shipyard.y] = 0
+    #end
+
+    return GameMap(my_player_id, M, players)
+end
+
+
+function update_frame!(g::GameMap, io::IO=Base.stdin)
+    turn = parse_turnnumber(readline(io))
+    for _ in 1:length(g.players)
+        player_id = parse(Int, readuntil(io, " "))
+        update_player!(g.players[player_id], io)
+    end
+    update_halite!(g.halite, io)
     return turn
 end
 
 
-function init(s::IO)::GameMap
-    load_constants(readline(s))
+parse_player(s::String) = parse_player(str2ints(s))
+parse_player(s::Array{Int}) = Player(s[1], Position(s[2], s[3]))
+parse_map_size(s) = str2ints(s)
+parse_map(S) = Matrix(hcat(str2ints.(S)...)')
+parse_turnnumber(s) = parse(Int, s)
+parse_num_players_and_id(s) = str2ints(s)
 
-    nr_of_players, my_player_id = parse_num_players_and_id(readline(s))
 
-    players = parse_player.(readnlines(s, nr_of_players))
+function parse_ship(owner::Int, s::String)
+    id, x, y, halite = str2ints(s)
+    Ship(owner, id, Position(x+1, y+1), halite)
+end
 
-    cols,rows = parse_map_size(readline(s))
-    M = parse_map(readnlines(s, rows))
 
-    #manually remove halite from under shipyards.
-    for i=1:nr_of_players
-        M[players[i].shipyard.x, players[i].shipyard.y] = 0
-    end
+function parse_dropoff(owner::Int, s::String)
+    id, x, y = str2ints(s)
+    Ship(owner, id, Position(x+1, y+1))
+end
 
-    return GameMap(my_player_id, M, players)
+
+function update_player!(p::Player, io::IO)
+    num_ships, num_dropoffs, p.halite = str2ints(readline(io))
+    p.ships = parse_ship.(p.id, readnlines(io, num_ships))
+    p.dropoffs = parse_dropoff.(p.id, readnlines(io, num_dropoffs))
+    p
+end
+
+
+function update_cell!(halite::Matrix{Int}, s::String)
+    x, y, h = str2ints(s)
+    halite[y+1,x+1] = h #recieved changed halite cells use zero indexing
+end
+
+
+function update_halite!(halite::Matrix{Int}, io::IO)
+    n_updated_cells = parse(Int, readline(io))
+    update_cell!.((halite,), readnlines(io, n_updated_cells))
+    halite
+end
+
+function sendcommands(cmds::Vector{String}, io::IO=Base.stdout)
+    println(Base.stderr, join(cmds, " "))
+    println(io, join(cmds, " "))
 end
