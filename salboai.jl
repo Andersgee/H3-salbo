@@ -1,3 +1,5 @@
+max_turns(g::H.GameMap) = 451 * (size(g.halite, 1) - 48)*25/8
+
 function quadrant_travelcost(m)
     # cost: cheapest cost from top left corner to every other square restricted to only South/East moves. (quadrant 4)
     # and
@@ -48,11 +50,11 @@ function travelcost(m, origin)
     c2,d2 = m |> q2 |> quadrant_travelcost |> expand(iq2)
     c3,d3 = m |> q3 |> quadrant_travelcost |> expand(iq3)
     c4,d4 = m |> q4 |> quadrant_travelcost |> expand(iq4)
-    
+
     D = cat(d1,d2,d3,d4, dims=3)
     C = cat(c1,c2,c3,c4, dims=3)
     v, i = findmin(C, dims=3)
-    
+
     cost = ishiftorigin(C[i][:,:,1], origin)
     first_direction = ishiftorigin(D[i][:,:,1], origin)
     return cost, first_direction
@@ -70,11 +72,11 @@ function mapscore(M, ship, shipyard, threshold)
     cost1, direction1 = travelcost(M, ship)
     cost2, direction2 = travelcost(M, shipyard)
 
-    distcost = manhattandist()
-    
+    #distcost = manhattandist()
+
     #cost = cost1 + cost2 + 0.1*leftovers .- 0.1*ignoreshipyard
     cost = cost1 + cost2 - M
-    
+
     s = reward - cost
     return s, direction1, cost1
 end
