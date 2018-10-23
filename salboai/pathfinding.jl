@@ -4,11 +4,11 @@ function quadrant_travelcost(m)
     # cost: cheapest cost from top left corner to every other square restricted to only South/East moves. (quadrant 4)
     # and
     # dir: correct FIRST direction to go in order to take that cheapest path
-    Y=size(m,1)
-    X=size(m,2)
-    dir=ones(Int,(Y,X))
-    cost=zeros(Int,(Y,X))
-    for x=1:X,y=1:Y
+    Y = size(m, 1)
+    X = size(m, 2)
+    dir = ones(Int, (Y,X))
+    cost = zeros(eltype(m), (Y,X))
+    for x=1:X, y=1:Y
         if x>1
             #cost[y,x]=cost[y,x-1]+m[y,x-1]
             cost[y,x] = cost[y,x-1] + m[y,x-1]
@@ -37,8 +37,8 @@ iq2(m,d) = q2(m), replace(d, 0 => 'n', 1 => 'e', 4 => 'o')
 iq3(m,d) = q3(m), replace(d, 0 => 's', 1 => 'e', 4 => 'o')
 iq4(m,d) = q4(m), replace(d, 0 => 's', 1 => 'w', 4 => 'o')
 
-shiftorigin(m, origin) = circshift(m, (1-origin[1], 1-origin[2]))
-ishiftorigin(m, origin) = circshift(m, (origin[1]-1, origin[2]-1))
+shiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(CartesianIndex(1,1) - origin))
+ishiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(origin - CartesianIndex(1,1)))
 
 leavecost(M) = floor(Int, 0.1M)
 
@@ -57,15 +57,17 @@ function travelcost(M, origin)
     D = cat(d1,d2,d3,d4, dims=3)
     C = cat(c1,c2,c3,c4, dims=3)
 
-    S = [x + y for y in 1:size(m,1), x in 1:size(m,2)]
+    s = [x + y - 2 for y in 1:size(m,1), x in 1:size(m,2)]
+    S = cat(q1(s),q2(s),q3(s),q4(s), dims=3)
 
     v, i = findmin(C, dims=3)
 
     cost = ishiftorigin(C[i][:,:,1], origin)
     first_direction = ishiftorigin(D[i][:,:,1], origin)
-    steps = ishiftorigin(S, origin)
+    steps = ishiftorigin(S[i][:,:,1], origin)
     return cost, first_direction, steps
 end
+
 
 function mapscore(M, ship, shipyard, threshold)
     #reward
@@ -75,10 +77,9 @@ function mapscore(M, ship, shipyard, threshold)
     reward = max.(M .- threshold, 0)
     #leftovers = min.(mining, threshold)
     M = copy(M)
-    cost2, direction2, steps2 = travelcost(M, p2v(shipyard))
-
+    cost1, direction1, steps1 = travelcost(M, ship.p)
+    cost2, direction2, steps2 = travelcost(M, shipyard)
     M[shipyard] = ship.halite
-    cost1, direction1, steps1 = travelcost(M, p2v(ship.p))
 
     #distcost = manhattandist()
 
@@ -86,9 +87,13 @@ function mapscore(M, ship, shipyard, threshold)
     cost = cost1 + cost2
     steps = steps1 + steps2
 
-    s = (reward - cost) ./ steps
+    s = (reward - cost) ./ (steps .+ 1)
     return s, direction1, cost1
 end
+
+
+canmove(ship::H.Ship, halite) = leavecost(halite[ship.p]) <= ship.halite
+
 
 function filterscores(S, cost_here2there, ship_available_halite)
     #score of unreachable are zero
@@ -96,9 +101,6 @@ function filterscores(S, cost_here2there, ship_available_halite)
     return S
 end
 
-
-
-p2v(p) = [p[1], p[2]]
 
 function pickbestsquare(S)
     v,i = findmax(S)

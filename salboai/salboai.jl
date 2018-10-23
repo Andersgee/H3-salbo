@@ -1,11 +1,11 @@
 module Salboai
 
-export p2v,
+export canmove,
        mapscore,
        filterscores,
        pickbestsquare
 
-import Main.H
+using Main.H
 
 include("pathfinding.jl")
 
