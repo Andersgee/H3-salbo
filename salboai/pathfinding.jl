@@ -32,10 +32,10 @@ q2(m) = q1(q3(m))
 q3(m) = reverse(circshift(m, (0,-1)), dims=2)
 q4(m) = m
 
-iq1(m,d) = q1(m), replace(d, 0 => 2)
-iq2(m,d) = q2(m), replace(d, 0 => 2, 1 => 3)
-iq3(m,d) = q3(m), replace(d, 1 => 3)
-iq4(m,d) = q4(m), d
+iq1(m,d) = q1(m), replace(d, 0 => 'n', 1 => 'w', 4 => 'o')
+iq2(m,d) = q2(m), replace(d, 0 => 'n', 1 => 'e', 4 => 'o')
+iq3(m,d) = q3(m), replace(d, 0 => 's', 1 => 'e', 4 => 'o')
+iq4(m,d) = q4(m), replace(d, 0 => 's', 1 => 'w', 4 => 'o')
 
 shiftorigin(m, origin) = circshift(m, (1-origin[1], 1-origin[2]))
 ishiftorigin(m, origin) = circshift(m, (origin[1]-1, origin[2]-1))
