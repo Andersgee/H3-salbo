@@ -11,12 +11,12 @@ function quadrant_travelcost(m)
     for x=1:X,y=1:Y
         if x>1
             #cost[y,x]=cost[y,x-1]+m[y,x-1]
-            cost[y,x] = cost[y,x-1] + round(Int, m[y,x-1], RoundDown)
+            cost[y,x] = cost[y,x-1] + m[y,x-1]
             dir[y,x] = y==1 ? 1 : dir[y,x-1]
         end
         if y>1
             #t_cost=cost[y-1,x]+m[y-1,x]
-            t_cost = cost[y-1,x] + round(Int, m[y-1,x], RoundDown)
+            t_cost = cost[y-1,x] + m[y-1,x]
             if t_cost<cost[y,x] || x==1
                 cost[y,x] = t_cost
                 dir[y,x] = x==1 ? 0 : dir[y-1,x]
@@ -40,11 +40,14 @@ iq4(m,d) = q4(m), d
 shiftorigin(m, origin) = circshift(m, (1-origin[1], 1-origin[2]))
 ishiftorigin(m, origin) = circshift(m, (origin[1]-1, origin[2]-1))
 
-function travelcost(m, origin)
+leavecost(M) = floor(Int, 0.1M)
+
+function travelcost(M, origin)
     #Cheapest cost from some point to All Other points,
     #and what direction to go on First step to take that cheapest path.
     #south/east/north/west (in that order 0,1,2,3)
-    m = shiftorigin(m, origin)*0.1
+    m = leavecost.(M)
+    m = shiftorigin(m, origin)
     expand(f) = x -> f(x...)
     c1,d1 = m |> q1 |> quadrant_travelcost |> expand(iq1)
     c2,d2 = m |> q2 |> quadrant_travelcost |> expand(iq2)
