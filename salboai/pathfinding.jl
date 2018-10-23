@@ -1,9 +1,10 @@
 max_turns(g::H.GameMap) = 451 * (size(g.halite, 1) - 48)*25/8
 
-function quadrant_travelcost(m)
+function quadrant_travelcost(M)
     # cost: cheapest cost from top left corner to every other square restricted to only South/East moves. (quadrant 4)
     # and
     # dir: correct FIRST direction to go in order to take that cheapest path
+    m = leavecost.(M)
     Y = size(m, 1)
     X = size(m, 2)
     dir = ones(Int, (Y,X))
@@ -40,11 +41,10 @@ ishiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(origin - CartesianI
 
 leavecost(M) = floor(Int, 0.1M)
 
-function travelcost(M, origin)
+function travelcost(m, origin)
     #Cheapest cost from some point to All Other points,
     #and what direction to go on First step to take that cheapest path.
-    #south/east/north/west (in that order 0,1,2,3)
-    m = leavecost.(M)
+    #south/east/north/west (or stay still)
     m = shiftorigin(m, origin)
     expand(f) = x -> f(x...)
     c1,d1 = m |> q1 |> quadrant_travelcost |> expand(iq1)
@@ -55,52 +55,65 @@ function travelcost(M, origin)
     D = cat(d1, d2, d3, d4, dims=3)
     C = cat(c1, c2, c3, c4, dims=3)
 
-    s = [x + y - 2 for y in 1:size(m,1), x in 1:size(m,2)]
-    S = cat(q1(s), q2(s), q3(s), q4(s), dims=3)
-
     v, i = findmin(C, dims=3)
 
     cost = ishiftorigin(C[i][:,:,1], origin)
     first_direction = ishiftorigin(D[i][:,:,1], origin)
-    steps = ishiftorigin(S[i][:,:,1], origin)
-    return cost, first_direction, steps
+
+    #s = [x + y - 2 for y in 1:size(m,1), x in 1:size(m,2)]
+    #S = cat(q1(s), q2(s), q3(s), q4(s), dims=3)
+    #steps = ishiftorigin(S[i][:,:,1], origin)
+
+    return cost, first_direction
 end
 
 
-function mapscore(M, ship, shipyard, threshold)
-    #reward
+function halite_per_turn(m, ship, shipyard)
+    #mined halite amount (at some point)
     #minus
     #cost (from ship, to some point, and then to shipyard)
+    #divided by
+    #nr turns to travel there and then to shipyard
+    #equals
+    #net halite gained per turn
 
-    reward = max.(M .- threshold, 0)
-    #leftovers = min.(mining, threshold)
-    M = copy(M)
-    cost1, direction1, steps1 = travelcost(M, ship.p)
-    cost2, direction2, steps2 = travelcost(M, shipyard)
-    M[shipyard] = ship.halite
+    m = copy(m)
+    m[shipyard] = 0
 
-    #distcost = manhattandist()
+    mining = ceil.(Int, m .* 0.25)
+    cost1, direction1 = travelcost(m, ship.p)
+    cost2, direction2 = travelcost(m, shipyard)
+    cost2 = cost2 + (m*0.75)*0.1
 
-    #cost = cost1 + cost2 + 0.1*leftovers
     cost = cost1 + cost2
-    steps = steps1 + steps2
+    net_gain = mining - cost
+    net_gain[shipyard] = ship.halite - cost1[shipyard]
 
-    s = (reward - cost) ./ (steps .+ 1)
-    return s, direction1, cost1
+    mhd1 = manhattandistmatrix(m, ship.p)
+    mhd2 = manhattandistmatrix(m, shipyard)
+    mhd = mhd1 .+ mhd2
+    #hpt = net_gain./mhd
+
+    hpt = net_gain ./ (mhd.+1) #plus 1 since we mined one turn
+    hpt[shipyard] = net_gain[shipyard] ./ mhd[shipyard]
+
+    if ship.p == shipyard
+        hpt[shipyard] = 0
+    end
+
+    return hpt, cost1, direction1
 end
 
 
 canmove(ship::H.Ship, halite) = leavecost(halite[ship.p]) <= ship.halite
 
 
-function filterscores(S, cost_here2there, ship_available_halite)
-    #score of unreachable are zero
-    S = S.*(cost_here2there .< ship_available_halite)
-    return S
-end
+within_reach(hpt, cost1, ship_halite) = hpt.*(cost1 .<= ship_halite)
 
 
-function pickbestsquare(S)
-    v,i = findmax(S)
-    return i
+function select_direction(m, ship, shipyard)
+    hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
+    hpt_within_reach = within_reach(hpt, cost1, ship.halite)
+    dir = direction1[findmax(hpt_within_reach)[2]]
+    return dir
 end

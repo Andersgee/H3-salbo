@@ -1,12 +1,11 @@
 module Salboai
 
 export canmove,
-       mapscore,
-       filterscores,
-       pickbestsquare
+       select_direction
 
 using Main.H
 
+include("manhattan.jl")
 include("pathfinding.jl")
 
 end

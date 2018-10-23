@@ -7,7 +7,7 @@ M = [1 2 3
      3 1 2
      2 1 3]
 
-C, D = Salboai.quadrant_travelcost(M);
+C, D = Salboai.quadrant_travelcost(10M);
 @test C == [0 1 3
             1 3 4
             4 4 5]
@@ -35,7 +35,7 @@ Mo = Salboai.shiftorigin(M, CartesianIndex(3,2))
 @test Salboai.q4(M) == M
 
 
-C, D, S = Salboai.travelcost(10M, CartesianIndex(2,2))
+C, D = Salboai.travelcost(10M, CartesianIndex(2,2))
 
 @test C == [3 1 3
             1 0 1
@@ -45,12 +45,8 @@ C, D, S = Salboai.travelcost(10M, CartesianIndex(2,2))
             'e' 'o' 'w'
             's' 's' 's']
 
-@test S == [2 1 2
-            1 0 1
-            2 1 2]
 
-
-C, D, S = Salboai.travelcost(10M, CartesianIndex(3,2))
+C, D = Salboai.travelcost(10M, CartesianIndex(3,2))
 
 @test C == [3 1 3
             2 1 2
@@ -60,6 +56,11 @@ C, D, S = Salboai.travelcost(10M, CartesianIndex(3,2))
             'n' 'n' 'n'
             'e' 'o' 'w']
 
-@test S == [2 1 2
-            2 1 2
-            1 0 1]
+
+M2 = [10 0 0 0
+      0 0 0 0
+      0 0 0 0
+      0 0 0 0]
+
+d = Salboai.select_direction(M2, H.Ship(0, 0, CartesianIndex(2,1), 0), CartesianIndex(2,2))
+@test d == 'n'
