@@ -10,12 +10,10 @@ function quadrant_travelcost(m)
     cost = zeros(eltype(m), (Y,X))
     for x=1:X, y=1:Y
         if x>1
-            #cost[y,x]=cost[y,x-1]+m[y,x-1]
             cost[y,x] = cost[y,x-1] + m[y,x-1]
             dir[y,x] = y==1 ? 1 : dir[y,x-1]
         end
         if y>1
-            #t_cost=cost[y-1,x]+m[y-1,x]
             t_cost = cost[y-1,x] + m[y-1,x]
             if t_cost<cost[y,x] || x==1
                 cost[y,x] = t_cost
@@ -32,10 +30,10 @@ q2(m) = q1(q3(m))
 q3(m) = reverse(circshift(m, (0,-1)), dims=2)
 q4(m) = m
 
-iq1(m,d) = q1(m), replace(d, 0 => 'n', 1 => 'w', 4 => 'o')
-iq2(m,d) = q2(m), replace(d, 0 => 'n', 1 => 'e', 4 => 'o')
-iq3(m,d) = q3(m), replace(d, 0 => 's', 1 => 'e', 4 => 'o')
-iq4(m,d) = q4(m), replace(d, 0 => 's', 1 => 'w', 4 => 'o')
+iq1(m,d) = q1(m), replace(d, 0 => H.NORTH, 1 => H.WEST, 4 => H.STAY_STILL)
+iq2(m,d) = q2(m), replace(d, 0 => H.NORTH, 1 => H.EAST, 4 => H.STAY_STILL)
+iq3(m,d) = q3(m), replace(d, 0 => H.SOUTH, 1 => H.EAST, 4 => H.STAY_STILL)
+iq4(m,d) = q4(m), replace(d, 0 => H.SOUTH, 1 => H.WEST, 4 => H.STAY_STILL)
 
 shiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(CartesianIndex(1,1) - origin))
 ishiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(origin - CartesianIndex(1,1)))
@@ -54,11 +52,11 @@ function travelcost(M, origin)
     c3,d3 = m |> q3 |> quadrant_travelcost |> expand(iq3)
     c4,d4 = m |> q4 |> quadrant_travelcost |> expand(iq4)
 
-    D = cat(d1,d2,d3,d4, dims=3)
-    C = cat(c1,c2,c3,c4, dims=3)
+    D = cat(d1, d2, d3, d4, dims=3)
+    C = cat(c1, c2, c3, c4, dims=3)
 
     s = [x + y - 2 for y in 1:size(m,1), x in 1:size(m,2)]
-    S = cat(q1(s),q2(s),q3(s),q4(s), dims=3)
+    S = cat(q1(s), q2(s), q3(s), q4(s), dims=3)
 
     v, i = findmin(C, dims=3)
 
