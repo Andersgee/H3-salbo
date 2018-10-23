@@ -1,7 +1,7 @@
 struct Ship
     owner::Int
     id::Int
-    p::CartesianIndex
+    p::CartesianIndex{2}
     halite::Int
 end
 
@@ -9,13 +9,13 @@ end
 struct DropOff
     owner::Int
     id::Int
-    p::CartesianIndex
+    p::CartesianIndex{2}
 end
 
 
 mutable struct Player
     id::Int
-    shipyard::CartesianIndex
+    shipyard::CartesianIndex{2}
     halite::Int
     ships::Vector{Ship}
     dropoffs::Vector{DropOff}
@@ -24,10 +24,10 @@ end
 
 struct GameMap
     my_player_id::Int
-    halite::Matrix{Int}
+    halite::WrappedMatrix{Int}
     players::Dict{Int,Player}
 end
 
 Player(id::Int, shipyard_position::CartesianIndex) = Player(id, shipyard_position, 0, Ship[], DropOff[])
-GameMap(my_player_id, halite::Matrix{Int}, players::Vector{Player}) = GameMap(my_player_id, halite, Dict(p.id => p for p in players))
+GameMap(my_player_id, halite::Matrix{Int}, players::Vector{Player}) = GameMap(my_player_id, WrappedMatrix(halite), Dict(p.id => p for p in players))
 me(g::GameMap) = g.players[g.my_player_id]

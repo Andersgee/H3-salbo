@@ -60,13 +60,13 @@ function update_player!(p::Player, io::IO)
 end
 
 
-function update_cell!(halite::Matrix{Int}, s::String)
+function update_cell!(halite::AbstractMatrix{Int}, s::String)
     x, y, h = str2ints(s)
     halite[parse_xy(x, y)] = h #recieved changed halite cells use zero indexing
 end
 
 
-function update_halite!(halite::Matrix{Int}, io::IO)
+function update_halite!(halite::AbstractMatrix{Int}, io::IO)
     n_updated_cells = parse(Int, readline(io))
     update_cell!.((halite,), readnlines(io, n_updated_cells))
     halite
