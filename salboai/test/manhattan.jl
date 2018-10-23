@@ -1,6 +1,8 @@
 include("../../hlt/halite.jl")
 include("../salboai.jl")
 
+using Test
+
 r = zeros(4,4)
 d = Salboai.manhattandistmatrix(r, CartesianIndex(3,2))
 

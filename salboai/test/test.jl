@@ -1,2 +1,2 @@
+include("manhattan.jl")
 include("pathfinding.jl")
-#include("score.jl")
