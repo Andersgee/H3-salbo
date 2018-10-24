@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$(uname)" == "Darwin" ]; then
   JULIA=julia
@@ -10,4 +10,4 @@ fi
 
 mkdir -p replays
 
-$HALITE --replay-directory replays/ -vvv --width 32 --height 32 "$JULIA MyBot.jl" "$JULIA MyBot.jl"
+$HALITE --no-timeout --replay-directory replays/ -vvv --width 32 --height 32 "$JULIA MyBot.jl" "$JULIA MyBot.jl"

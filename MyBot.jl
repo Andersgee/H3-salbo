@@ -4,12 +4,18 @@ include("salboai/salboai.jl")
 warn(s...) = println(Base.stderr, s...)
 
 using Main.Salboai
+using Dates
 
 g = H.init()
 me = H.me(g)
 
 # warmup
 select_direction(g.halite, H.Ship(0, 0, CartesianIndex(1,1), 0), me.shipyard)
+cmds = String[]
+warn("cmds0: ", cmds)
+warn("me: ", me)
+warn("me.ships: ", me.ships)
+H.make_ship()
 
 H.ready("salboai")
 
@@ -23,8 +29,8 @@ function gonorthandmine(cmds)
 	end
 end
 
-
 while true
+	start_t = now()
 	cmds = String[]
 	turn = H.update_frame!(g)
 	warn("turn ", turn)
@@ -42,6 +48,9 @@ while true
 	#end
 
 	#calculate where ships want to move
+	
+	warn("n ships ", length(me.ships))
+
 	for s in me.ships
 		warn("ship ", s.id, " pos=", Tuple(s.p), " halite=", s.halite)
 		if !canmove(s, g.halite)
@@ -57,5 +66,7 @@ while true
 		end
 	end
 
+	warn("cmds: ", cmds)
+	warn("turn ", turn, " took ", now() - start_t)
 	H.sendcommands(cmds)
 end
