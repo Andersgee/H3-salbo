@@ -58,19 +58,19 @@ C1, C2, C3, C4 = splitview(C, dims=3)
 D1, D2, D3, D4 = splitview(D, dims=3)
 
 @test D1 == ['n' 'n' 'n'
-             'w' 'o' 'w'
+             'e' 'o' 'e'
              'n' 'n' 'n']
 
 @test D2 == ['n' 'n' 'n'
-             'e' 'o' 'e'
+             'w' 'o' 'w'
              'n' 'n' 'n']
 
 @test D3 == ['s' 's' 's'
-             'e' 'o' 'e'
+             'w' 'o' 'w'
              's' 's' 's']
 
 @test D4 == ['s' 's' 's'
-             'w' 'o' 'w'
+             'e' 'o' 'e'
              's' 's' 's']
 
 C, D = Salboai.travelcost(10M, CartesianIndex(3,2))
@@ -82,7 +82,7 @@ min_C, min_i = findmin(C, dims=3)
 
 @test D[min_i][:,:,1] == ['s' 's' 's'
                           'n' 'n' 'n'
-                          'e' 'o' 'w']
+                          'w' 'o' 'e']
 
 hpt, cost1, direction1 = Salboai.halite_per_turn(10M, H.Ship(0, 0, CartesianIndex(2,1), 0), CartesianIndex(2,2))
 
@@ -94,9 +94,9 @@ hpt, cost1, direction1 = Salboai.halite_per_turn(10M, H.Ship(0, 0, CartesianInde
                  0  5  3
                  3  3  4 ]
 
-@test direction1 == [ 'n'  'w'  'w'
-                      'o'  'e'  'w'
-                      's'  'w'  'w' ]
+@test direction1 == [ 'n'  'e'  'e'
+                      'o'  'w'  'e'
+                      's'  'e'  'e' ]
 
 M2 = [10 0 0 0
       0 0 0 0
@@ -123,4 +123,4 @@ M2 = [0 0 0 0
 ship = H.Ship(0, 0, CartesianIndex(2,3), 3)
 shipyard = CartesianIndex(2,2)
 d = Salboai.select_direction(M2, ship, shipyard)
-@test_broken d == 'w'
+@test d == 'w'

@@ -1,7 +1,3 @@
-* broken test in pathfinding.jl
-
----
-
 steg 2: planera rutten i två halvor:
  1 mininghalva
  2 snabbaste vägen hem utan mining

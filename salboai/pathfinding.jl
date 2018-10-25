@@ -31,10 +31,10 @@ q2(m) = q1(q3(m))
 q3(m) = reverse(circshift(m, (0,-1)), dims=2)
 q4(m) = m
 
-iq1(m,d) = q1(m), replace(d, 0 => H.NORTH, 1 => H.WEST, 4 => H.STAY_STILL)
-iq2(m,d) = q2(m), replace(d, 0 => H.NORTH, 1 => H.EAST, 4 => H.STAY_STILL)
-iq3(m,d) = q3(m), replace(d, 0 => H.SOUTH, 1 => H.EAST, 4 => H.STAY_STILL)
-iq4(m,d) = q4(m), replace(d, 0 => H.SOUTH, 1 => H.WEST, 4 => H.STAY_STILL)
+iq1(m,d) = q1(m), replace(d, 0 => H.NORTH, 1 => H.EAST, 4 => H.STAY_STILL)
+iq2(m,d) = q2(m), replace(d, 0 => H.NORTH, 1 => H.WEST, 4 => H.STAY_STILL)
+iq3(m,d) = q3(m), replace(d, 0 => H.SOUTH, 1 => H.WEST, 4 => H.STAY_STILL)
+iq4(m,d) = q4(m), replace(d, 0 => H.SOUTH, 1 => H.EAST, 4 => H.STAY_STILL)
 
 shiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(CartesianIndex(1,1) - origin))
 ishiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(origin - CartesianIndex(1,1)))
