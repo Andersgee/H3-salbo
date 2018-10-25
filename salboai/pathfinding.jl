@@ -80,8 +80,7 @@ function halite_per_turn(m, ship, shipyard)
     cost2 = cost2 .+ (m*0.75)*0.1
 
     cost = cost1 + cost2
-    net_gain = mining .- cost
-    net_gain[shipyard, :] = ship.halite .- cost1[shipyard, :]
+    net_gain = ship.halite .+ mining .- cost
 
     mhd1 = manhattandistmatrices(m, ship.p)
     mhd2 = manhattandistmatrices(m, shipyard)

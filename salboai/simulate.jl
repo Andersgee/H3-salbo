@@ -1,4 +1,5 @@
 function simulate1(m, ship, shipyard)
+  dropoffed_halite = 0
   m = copy(m)
   ship = copy(ship)
 
@@ -16,10 +17,15 @@ function simulate1(m, ship, shipyard)
              'w' => CartesianIndex(0, -1),
              'e' => CartesianIndex(0, 1))
     ship.p += d[cmd]
+
+    if ship.p == shipyard
+      dropoffed_halite = ship.halite
+      ship.halite = 0
+    end
   end
 
   ship.p = CartesianIndex(H.mod1.(Tuple(ship.p), size(m)))
-  cmd, m, ship
+  cmd, m, ship, dropoffed_halite
 end
 
 
@@ -27,13 +33,15 @@ function simulate(m, ship, shipyard, n)
   C = []
   M = []
   S = []
+  D = []
 
   for i in 1:n
-    cmd, m, ship = simulate1(m, ship, shipyard)
+    cmd, m, ship, dropoffed_halite = simulate1(m, ship, shipyard)
     push!(C, cmd)
     push!(M, m)
     push!(S, ship)
+    push!(D, dropoffed_halite)
   end
 
-  return C, M, S
+  return C, M, S, D
 end
