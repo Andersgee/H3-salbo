@@ -114,3 +114,13 @@ M2 = [7 0 0 0
 
 d = Salboai.select_direction(M2, H.Ship(0, 0, CartesianIndex(1,1), 3), CartesianIndex(2,2))
 @test d == 's'
+
+M2 = [0 0 0 0
+      0 0 0 0
+      0 0 0 0
+      0 0 10 0]
+
+ship = H.Ship(0, 0, CartesianIndex(2,3), 3)
+shipyard = CartesianIndex(2,2)
+d = Salboai.select_direction(M2, ship, shipyard)
+@test_broken d == 'w'

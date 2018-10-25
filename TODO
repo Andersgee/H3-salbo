@@ -1,5 +1,6 @@
-pathfinding ska returnera bästa möjliga halite/turn.
-steg 1: vore att ta nuvarande pathfinding och dividera med manhattan distance
+* broken test in pathfinding.jl
+
+---
 
 steg 2: planera rutten i två halvor:
  1 mininghalva
@@ -10,5 +11,4 @@ välj den väg som ger högst halite/turn om man skulle åka hem därifrån,
 håll koll på hur mycket halite skeppet har kvar för
 
 
-* kolla när skeppet blir full (vad är fullt?)
-* skulle vilja hantera shipyard som ett specialfall av en bra ruta
+* kolla när skeppet blir fullt (vad är fullt?)
