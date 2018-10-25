@@ -55,16 +55,10 @@ function travelcost(m, origin)
     D = cat(d1, d2, d3, d4, dims=3)
     C = cat(c1, c2, c3, c4, dims=3)
 
-    v, i = findmin(C, dims=3)
+    C = ishiftorigin(C, origin)
+    D = ishiftorigin(D, origin)
 
-    cost = ishiftorigin(C[i][:,:,1], origin)
-    first_direction = ishiftorigin(D[i][:,:,1], origin)
-
-    #s = [x + y - 2 for y in 1:size(m,1), x in 1:size(m,2)]
-    #S = cat(q1(s), q2(s), q3(s), q4(s), dims=3)
-    #steps = ishiftorigin(S[i][:,:,1], origin)
-
-    return cost, first_direction
+    return C, D
 end
 
 
@@ -83,23 +77,29 @@ function halite_per_turn(m, ship, shipyard)
     mining = ceil.(Int, m .* 0.25)
     cost1, direction1 = travelcost(m, ship.p)
     cost2, direction2 = travelcost(m, shipyard)
-    cost2 = cost2 + (m*0.75)*0.1
+    cost2 = cost2 .+ (m*0.75)*0.1
 
     cost = cost1 + cost2
-    net_gain = mining - cost
-    net_gain[shipyard] = ship.halite - cost1[shipyard]
+    net_gain = mining .- cost
+    net_gain[shipyard, :] = ship.halite .- cost1[shipyard, :]
 
-    mhd1 = manhattandistmatrix(m, ship.p)
-    mhd2 = manhattandistmatrix(m, shipyard)
+    mhd1 = manhattandistmatrices(m, ship.p)
+    mhd2 = manhattandistmatrices(m, shipyard)
     mhd = mhd1 .+ mhd2
     #hpt = net_gain./mhd
 
     hpt = net_gain ./ (mhd.+1) #plus 1 since we mined one turn
-    hpt[shipyard] = net_gain[shipyard] ./ mhd[shipyard]
+    hpt[shipyard, :] = net_gain[shipyard, :] ./ mhd[shipyard, :]
 
     if ship.p == shipyard
-        hpt[shipyard] = 0
+        hpt[shipyard, :] .= 0.0
     end
+
+    hpt, i = findmax(hpt, dims=3)
+
+    hpt = hpt[:,:,1]
+    cost1 = cost1[i][:,:,1]
+    direction1 = direction1[i][:,:,1]
 
     return hpt, cost1, direction1
 end
