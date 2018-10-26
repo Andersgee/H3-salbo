@@ -196,18 +196,20 @@ end
 function sort_directions(hpt, dir)
 	#should return all directons with best first and decending 
 	D =Char[]
+    target = CartesianIndex[]
 	for _ = 1:5
 		v, i = findmax(hpt)
 		push!(D, dir[i])
+        push!(target, i)
 		hpt[dir.==dir[i]] .= -Inf #set all values starting with that direction to zero so its not picked again
 	end
-    return D
+    return D, target
 end
 
 
 function candidate_directions(m, ship, shipyard)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
-    hpt = within_reach(hpt, cost1, ship.halite)
-    dir = sort_directions(hpt, direction1)
-    return dir
+    #hpt = within_reach(hpt, cost1, ship.halite)
+    dir, target = sort_directions(hpt, direction1)
+    return dir, target
 end

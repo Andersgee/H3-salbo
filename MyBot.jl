@@ -21,45 +21,23 @@ warn("size(g.halite): ", size(g.halite))
 warn("no_more_ship_turn: ", no_more_ship_turn)
 H.ready("salboai")
 
-function gonorthandmine(cmds)
-	for s in me.ships
-		if turn == 2
-			push!(cmds, H.move(s, H.NORTH))
-		else
-			push!(cmds, H.move(s, H.STAY_STILL))
-		end
-	end
-end
 
 while true
 	start_t = now()
 	cmds = String[]
 	turn = H.update_frame!(g)
 	warn("turn ", turn)
-
-	#if turn == 1
-	#	push!(cmds, H.make_ship())
-	#end
-
-	#gonorthandmine(cmds)
-	#H.sendcommands(cmds)
-	#continue
-
-	#if me.halite > 1000
-	#	push!(cmds, H.make_ship())
-	#end
-
-	#calculate where ships want to move
-	
 	warn("n ships ", length(me.ships))
 
 	moves = Vector{Char}[]
+	targets = Vector{CartesianIndex}[]
 	for s in me.ships
 		if !canmove(s, g.halite)
 			push!(moves, [H.STAY_STILL])
 		else
-			dir = Salboai.candidate_directions(g.halite, s, me.shipyard)
+			dir, target = Salboai.candidate_directions(g.halite, s, me.shipyard)
 			push!(moves, dir)
+			push!(targets, target)
 		end
 		#push!(cmds, H.move(s, dir[1]))
 		#=
