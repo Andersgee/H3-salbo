@@ -1,7 +1,9 @@
 module Salboai
 
 export canmove,
-       select_direction
+       select_direction,
+       warn,
+       initwarn
 
 using Main.H
 

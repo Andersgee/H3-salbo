@@ -27,7 +27,7 @@ function avoidcollision(m, ships_p, moves, shipyard)
             end
         end
         if !foundunoccupied
-            error("!foundunoccupied !foundunoccupied !foundunoccupied")
+            warn("!foundunoccupied !foundunoccupied !foundunoccupied")
             push!(pickedmove, 'o')
         end
     end

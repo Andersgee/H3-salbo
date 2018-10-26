@@ -1,5 +1,6 @@
 *.log
 *.hlt
 *.zip
+warnlog*.txt
 /halite
 .ipynb_checkpoints/

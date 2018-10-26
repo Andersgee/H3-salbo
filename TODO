@@ -1,12 +1,15 @@
-ladda upp nånting som faktiskt spelar. lägg till fler skepp och kollision avoid tex move 1, move 2, check if colliding with move 1
+* !foundunoccupied kan inträffa, det ska inte behövas
+* ta reda på hur många turns som krävs för att få upp 10 skepp för andra på leaderboard
+* ladda upp nånting som faktiskt spelar. lägg till fler skepp och kollision avoid tex move 1, move 2, check if colliding with move 1
 
-steg 2: planera rutten i två halvor:
- 1 mininghalva
- 2 snabbaste vägen hem utan mining
+* annan ide för pathfinindg
+	steg 2: planera rutten i två halvor:
+	 1 mininghalva
+	 2 snabbaste vägen hem utan mining
 
-mininghalvan:
-välj den väg som ger högst halite/turn om man skulle åka hem därifrån,
-håll koll på hur mycket halite skeppet har kvar för
+	mininghalvan:
+	välj den väg som ger högst halite/turn om man skulle åka hem därifrån,
+	håll koll på hur mycket halite skeppet har kvar för
 
 
-* kolla när skeppet blir fullt (vad är fullt?)
+* kolla när skeppet blir fullt och försök inte gruva mer (dvs 1000 halite) (H.MAX_HALITE?)

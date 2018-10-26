@@ -1,5 +1,3 @@
-max_turns(g::H.GameMap) = 451 * (size(g.halite, 1) - 48)*25/8
-
 function quadrant_travelcost(M)
     # cost: cheapest cost from top left corner to every other square restricted to only South/East moves. (quadrant 4)
     # and
@@ -198,7 +196,7 @@ end
 function sort_directions(hpt, dir)
 	#should return all directons with best first and decending 
 	D =Char[]
-	while length(D) < 5
+	for _ = 1:5
 		v, i = findmax(hpt)
 		push!(D, dir[i])
 		hpt[dir.==dir[i]] .= -Inf #set all values starting with that direction to zero so its not picked again

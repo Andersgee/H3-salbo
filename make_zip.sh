@@ -1,3 +1,3 @@
 #!/bin/sh
 
-zip submission.zip MyBot.jl
+zip submission.zip MyBot.jl hlt/* salboai/*

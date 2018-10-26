@@ -1,13 +1,12 @@
 include("hlt/halite.jl")
 include("salboai/salboai.jl")
 
-warn(s...) = println(Base.stderr, s...)
-
 using Main.Salboai
 using Dates
 
 g = H.init()
 me = H.me(g)
+initwarn(string("warnlog-", now(), '_', me.id, ".txt"))
 
 # warmup
 select_direction(g.halite, H.Ship(0, 0, CartesianIndex(1,1), 0), me.shipyard)
@@ -16,7 +15,10 @@ warn("cmds0: ", cmds)
 warn("me: ", me)
 warn("me.ships: ", me.ships)
 H.make_ship()
-
+max_turns = Salboai.max_turns(g)
+no_more_ship_turn = max_turns * 2/3
+warn("size(g.halite): ", size(g.halite))
+warn("no_more_ship_turn: ", no_more_ship_turn)
 H.ready("salboai")
 
 function gonorthandmine(cmds)
@@ -53,8 +55,12 @@ while true
 
 	moves = Vector{Char}[]
 	for s in me.ships
-		dir = Salboai.candidate_directions(g.halite, s, me.shipyard)
-		push!(moves, dir)
+		if !canmove(s, g.halite)
+			push!(moves, [H.STAY_STILL])
+		else
+			dir = Salboai.candidate_directions(g.halite, s, me.shipyard)
+			push!(moves, dir)
+		end
 		#push!(cmds, H.move(s, dir[1]))
 		#=
 		warn("ship ", s.id, " pos=", Tuple(s.p), " halite=", s.halite)
@@ -71,10 +77,16 @@ while true
 		end
 		=#
 	end
+	
+	is_moving = [m[1] != H.STAY_STILL for m in moves]
+	i = sortperm(is_moving)
+	moves = moves[i]
+	me.ships = me.ships[i]
+
 	ships_p = [s.p for s in me.ships]
 	pickedmove, cangenerate = Salboai.avoidcollision(g.halite, ships_p, moves, me.shipyard)
 
-	if (me.halite > 1000) && (cangenerate == true)
+	if (me.halite > 1000) && (cangenerate == true) && (turn < no_more_ship_turn)
 		push!(cmds, H.make_ship())
 	end
 
