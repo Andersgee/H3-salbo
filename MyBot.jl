@@ -35,9 +35,9 @@ while true
 	turn = H.update_frame!(g)
 	warn("turn ", turn)
 
-	if turn == 1
-		push!(cmds, H.make_ship())
-	end
+	#if turn == 1
+	#	push!(cmds, H.make_ship())
+	#end
 
 	#gonorthandmine(cmds)
 	#H.sendcommands(cmds)
@@ -51,7 +51,12 @@ while true
 	
 	warn("n ships ", length(me.ships))
 
+	moves = Vector{Char}[]
 	for s in me.ships
+		dir = Salboai.candidate_directions(g.halite, s, me.shipyard)
+		push!(moves, dir)
+		#push!(cmds, H.move(s, dir[1]))
+		#=
 		warn("ship ", s.id, " pos=", Tuple(s.p), " halite=", s.halite)
 		if !canmove(s, g.halite)
 			push!(cmds, H.move(s, H.STAY_STILL))
@@ -64,7 +69,16 @@ while true
 			#and multiply by something to not just walk away.
 			push!(cmds, H.move(s, dir))
 		end
+		=#
 	end
+	ships_p = [s.p for s in me.ships]
+	pickedmove, cangenerate = Salboai.avoidcollision(g.halite, ships_p, moves, me.shipyard)
+
+	if (me.halite > 1000) && (cangenerate == true)
+		push!(cmds, H.make_ship())
+	end
+
+	cmds = [cmds;H.move.(me.ships, pickedmove)]
 
 	warn("cmds: ", cmds)
 	warn("turn ", turn, " took ", now() - start_t)

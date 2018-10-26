@@ -13,23 +13,24 @@ newship(y,x) = H.Ship(0, 0, CartesianIndex(y,x), 0)
 
 ships = [newship(2,2),newship(3,3),newship(4,4)]
 shipyard = CartesianIndex(4,4)
-isgenerating = true
 
-
-moves = ['e','n','n']
-
-moves = Salboai.avoidcollision!(M, ships, moves, shipyard, isgenerating)
-
-@test moves ==['e', 'o', 'n']
-
-
-
-
-moves = []
+moves = Vector{Char}[]
 for s in ships
-    push!(moves, Salboai.select_direction(M, s, shipyard))
+    dir = Salboai.candidate_directions(M, s, shipyard)
+    push!(moves, dir)
 end
-
 moves
 
-moves = Salboai.avoidcollision!(M, ships, moves, shipyard, isgenerating)
+
+ships_p = [s.p for s in ships]
+pickedmove, cangenerate = Salboai.avoidcollision(M, ships_p, moves, shipyard)
+
+@test pickedmove == ['e', 'w', 'n']
+@test cangenerate == true
+
+
+
+shipyard = CartesianIndex(3,4)
+pickedmove, cangenerate = Salboai.avoidcollision(M, ships_p, moves, shipyard)
+
+@test cangenerate == false

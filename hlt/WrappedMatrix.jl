@@ -3,7 +3,7 @@ mod1(x, y) = 1 .+ mod.(x .- 1, y)
 # Does not support 'end' or ':' because there is no beginning nor end.
 # But it does support i:j.
 struct WrappedMatrix{T} <: AbstractMatrix{T}
-    m::Matrix{T}
+    m::AbstractMatrix{T}
 end
 
 Base.Matrix(w::WrappedMatrix) = w.m

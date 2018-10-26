@@ -184,12 +184,32 @@ end
 canmove(ship::H.Ship, halite) = leavecost(halite[ship.p]) <= ship.halite
 
 
-within_reach(hpt, cost1, ship_halite) = hpt.*(cost1 .<= ship_halite)
+within_reach(hpt, cost1, ship_halite) = ifelse.(cost1 .<= ship_halite, hpt, -Inf)
 
 
 function select_direction(m, ship, shipyard)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
     hpt_within_reach = within_reach(hpt, cost1, ship.halite)
     dir = direction1[findmax(hpt_within_reach)[2]]
+    return dir
+end
+
+
+function sort_directions(hpt, dir)
+	#should return all directons with best first and decending 
+	D =Char[]
+	while length(D) < 5
+		v, i = findmax(hpt)
+		push!(D, dir[i])
+		hpt[dir.==dir[i]] .= -Inf #set all values starting with that direction to zero so its not picked again
+	end
+    return D
+end
+
+
+function candidate_directions(m, ship, shipyard)
+    hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
+    hpt = within_reach(hpt, cost1, ship.halite)
+    dir = sort_directions(hpt, direction1)
     return dir
 end
