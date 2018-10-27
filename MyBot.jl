@@ -1,3 +1,5 @@
+#!/usr/bin/env julia
+
 include("hlt/halite.jl")
 include("salboai/salboai.jl")
 
