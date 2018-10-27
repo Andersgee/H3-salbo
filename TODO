@@ -1,3 +1,4 @@
+* effektivare warmup så att vi inte får timeout på anders laptop
 * utvärdera två commits mot varandra
 * lägg till go_home(MAX_TURNS) funktion
 * adda motståndarskepps halite till rutorna under dem.
