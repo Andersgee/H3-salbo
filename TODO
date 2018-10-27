@@ -1,4 +1,5 @@
 * effektivare warmup så att vi inte får timeout på anders laptop
+* kör profiling på en turn för att veta hur vi ska få snabbare evaluering
 * utvärdera två commits mot varandra
 * lägg till go_home(MAX_TURNS) funktion
 * adda motståndarskepps halite till rutorna under dem.
