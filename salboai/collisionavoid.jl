@@ -10,11 +10,23 @@ function movep(shipp, move)
 end
 
 
-function avoidcollision(m, ships_p, moves, shipyard)
+function avoidcollision(m, ships_p, moves, shipyard, gameisendings)
     occupied = H.WrappedMatrix(falses(size(m)))
+
+
 
     pickedmove = Char[]
     for i=1:length(ships_p)
+
+        #dont avoid collision on top of shipyard if game is ending (avoid traffic jams)
+        if gameisendings[i]
+            occupied[shipyard] = false
+            if (ships_p[i] == shipyard)
+                push!(pickedmove, H.STAY_STILL)
+                continue
+            end
+        end
+
         foundunoccupied=false
         #newp = ships[i].p
         for move in moves[i]
@@ -27,7 +39,7 @@ function avoidcollision(m, ships_p, moves, shipyard)
             end
         end
         if !foundunoccupied
-            warn("!foundunoccupied !foundunoccupied !foundunoccupied")
+            warn("COULDNT FIND FREE SQUARE TO MOVE TO (inside avoicollision)")
             push!(pickedmove, 'o')
         end
     end

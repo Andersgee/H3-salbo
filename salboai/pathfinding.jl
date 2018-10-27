@@ -118,7 +118,7 @@ function halite_per_turn(m, ship, shipyard)
         hpt[shipyard] = 0
     end
     
-    return hpt, cost1, direction1
+    return hpt, cost1, direction1, mhd1
 end
 
 canmove(ship::H.Ship, halite) = leavecost(halite[ship.p]) <= ship.halite
@@ -149,14 +149,25 @@ end
 
 
 
-function candidate_directions(m, ship, shipyard)
-    hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
-    dir, target = sort_directions(hpt, direction1)
-    if ship.halite == H.MAX_HALITE
-        d = direction1[shipyard]
-        dir = [d; dir[dir.!=d]]
+function candidate_directions(m, ship, shipyard, remainingturns)
+    hpt, cost1, direction1, mhd1 = halite_per_turn(m, ship, shipyard)
+
+    gameisending = remainingturns < (mhd1[shipyard] + 5) #this ship needs to go home, add some extra time
+
+    if !canmove(ship, m)
+        return [H.STAY_STILL], [ship.p], gameisending
     end
-    return dir, target
+    
+    dir, target = sort_directions(hpt, direction1)
+        
+    #special logic priority 1 is go to shipyard if full or if game ending
+    if ship.halite == H.MAX_HALITE || gameisending
+        d = direction1[shipyard]
+        dir = [d; dir[dir.!=d]] #priority 1 go to shipyard
+        #need to make sure target list also changes here..
+    end
+    
+    return dir, target, gameisending
 end
 
 #function go_home(m, ship, shipyard, turn, max_turns)

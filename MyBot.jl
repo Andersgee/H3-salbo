@@ -10,7 +10,7 @@ initwarn(string("warnlog-", now(), '_', me.id, ".txt"))
 
 # warmup
 #select_direction(g.halite, H.Ship(0, 0, CartesianIndex(1,1), 0), me.shipyard)
-Salboai.candidate_directions(g.halite, H.Ship(0, 0, CartesianIndex(1,1), 0), me.shipyard)
+Salboai.candidate_directions(g.halite, H.Ship(0, 0, CartesianIndex(1,1), 0), me.shipyard, 100)
 cmds = String[]
 warn("cmds0: ", cmds)
 warn("me: ", me)
@@ -27,19 +27,19 @@ while true
 	start_t = now()
 	cmds = String[]
 	turn = H.update_frame!(g)
+	remainingturns = max_turns - turn
 	warn("turn ", turn)
 	warn("n ships ", length(me.ships))
 
 	moves = Vector{Char}[]
 	targets = Vector{CartesianIndex}[]
+	gameisendings = Bool[]
 	for s in me.ships
-		if !canmove(s, g.halite)
-			push!(moves, [H.STAY_STILL])
-		else
-			dir, target = Salboai.candidate_directions(g.halite, s, me.shipyard)
-			push!(moves, dir)
-			push!(targets, target)
-		end
+		dir, target, gameisending = Salboai.candidate_directions(g.halite, s, me.shipyard, remainingturns)
+		push!(moves, dir)
+		push!(targets, target)
+		push!(gameisendings, gameisending)
+			
 		#push!(cmds, H.move(s, dir[1]))
 		#=
 		warn("ship ", s.id, " pos=", Tuple(s.p), " halite=", s.halite)
@@ -63,7 +63,7 @@ while true
 	me.ships = me.ships[i]
 
 	ships_p = [s.p for s in me.ships]
-	pickedmove, cangenerate = Salboai.avoidcollision(g.halite, ships_p, moves, me.shipyard)
+	pickedmove, cangenerate = Salboai.avoidcollision(g.halite, ships_p, moves, me.shipyard, gameisendings)
 
 	if (me.halite > 1000) && (cangenerate == true) && (turn < no_more_ship_turn)
 		push!(cmds, H.make_ship())
