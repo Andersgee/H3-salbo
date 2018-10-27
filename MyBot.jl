@@ -9,14 +9,15 @@ me = H.me(g)
 initwarn(string("warnlog-", now(), '_', me.id, ".txt"))
 
 # warmup
-select_direction(g.halite, H.Ship(0, 0, CartesianIndex(1,1), 0), me.shipyard)
+#select_direction(g.halite, H.Ship(0, 0, CartesianIndex(1,1), 0), me.shipyard)
+Salboai.candidate_directions(g.halite, H.Ship(0, 0, CartesianIndex(1,1), 0), me.shipyard)
 cmds = String[]
 warn("cmds0: ", cmds)
 warn("me: ", me)
 warn("me.ships: ", me.ships)
 H.make_ship()
 max_turns = Salboai.max_turns(g)
-no_more_ship_turn = max_turns * 2/3
+no_more_ship_turn = max_turns * 1/2
 warn("size(g.halite): ", size(g.halite))
 warn("no_more_ship_turn: ", no_more_ship_turn)
 H.ready("salboai")

@@ -91,20 +91,24 @@ function halite_per_turn(m, ship, shipyard)
     #nr turns to travel there and then to shipyard
     #equals
     #net halite gained per turn
+
+
     
     mining = ceil.(m .* 0.25)
+    freestorage = 1000-ship.halite
+    mining = min.(mining, freestorage) #means 0 mining if full.
+
     cost1, direction1, mhd1 = travelcost(m, ship.p)
     cost2, direction2, mhd2 = travelcost(m, shipyard)
     cost2 = cost2 + floor.(Int, (m - mining)*0.1)
     
     cost = cost1 + cost2
-    net_gain = (mining - cost) .+ ship.halite
-    net_gain[shipyard] = ship.halite - cost1[shipyard]
-    
     mhd = mhd1 .+ mhd2
-    #hpt = net_gain./mhd
-    
+
+    net_gain = (mining - cost) .+ ship.halite
     hpt = net_gain ./ (mhd.+1) #plus 1 since we mined one turn
+    
+    net_gain[shipyard] = ship.halite - cost1[shipyard]
     hpt[shipyard] = net_gain[shipyard] ./ mhd[shipyard]
     
     if ship.p == shipyard
@@ -194,14 +198,14 @@ end
 
 
 function sort_directions(hpt, dir)
-	#should return all directons with best first and decending 
+	#should return all directons with best first and decending
 	D =Char[]
     target = CartesianIndex[]
 	for _ = 1:5
 		v, i = findmax(hpt)
 		push!(D, dir[i])
         push!(target, i)
-		hpt[dir.==dir[i]] .= -Inf #set all values starting with that direction to zero so its not picked again
+		hpt[dir.==dir[i]] .= -Inf #set all values starting with that direction to very bad so its not picked again
 	end
     return D, target
 end
