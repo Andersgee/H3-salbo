@@ -1,3 +1,4 @@
+* utvärdera två commits mot varandra
 * lägg till go_home(MAX_TURNS) funktion
 * adda motståndarskepps halite till rutorna under dem.
 * mining på inspirerade rutor ska ha bonus
