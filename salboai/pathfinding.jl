@@ -57,7 +57,7 @@ function travelcost_3d(m, o)
     c2,d2 = m |> q2 |> quadrant_travelcost |> expand(iq2)
     c3,d3 = m |> q3 |> quadrant_travelcost |> expand(iq3)
     c4,d4 = m |> q4 |> quadrant_travelcost |> expand(iq4)
-    
+
     #3d
     D3 = cat(d1, d2, d3, d4, dims=3)
     C3 = cat(c1, c2, c3, c4, dims=3)
@@ -68,7 +68,7 @@ end
 
 function travelcost(m,o)
     C3, D3, MHD3 = travelcost_3d(m, o)
-    
+
     #make sure to pick the one with shortest distance in case cheapest cost is same for several.
     C = findmin(C3, dims=3)[1][:,:,1]
     MHD = zeros(Int, size(C))
@@ -91,17 +91,16 @@ function halite_per_turn(m, ship, shipyard)
     #nr turns to travel there and then to shipyard
     #equals
     #net halite gained per turn
+    m = copy(m)
+    m[shipyard] = 0
 
-
-    
-    mining = ceil.(m .* 0.25)
-    freestorage = 1000-ship.halite
-    mining = min.(mining, freestorage) #means 0 mining if full.
-
+    mining = ceil.(Int, m .* 0.25)
+    max_mining = H.MAX_HALITE - ship.halite
+    mining = min.(mining, max_mining) #means 0 mining if full.
     cost1, direction1, mhd1 = travelcost(m, ship.p)
     cost2, direction2, mhd2 = travelcost(m, shipyard)
-    cost2 = cost2 + floor.(Int, (m - mining)*0.1)
-    
+    cost2 = cost2 + leavecost.(m - mining)
+
     cost = cost1 + cost2
     mhd = mhd1 .+ mhd2
 
@@ -117,7 +116,7 @@ function halite_per_turn(m, ship, shipyard)
     if ship.p == shipyard
         hpt[shipyard] = 0
     end
-    
+
     return hpt, cost1, direction1
 end
 
