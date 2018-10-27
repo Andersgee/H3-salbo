@@ -1,6 +1,9 @@
+* lägg till go_home(MAX_TURNS) funktion
+* adda motståndarskepps halite till rutorna under dem.
+* mining på inspirerade rutor ska ha bonus
+
 * !foundunoccupied kan inträffa, det ska inte behövas
 * ta reda på hur många turns som krävs för att få upp 10 skepp för andra på leaderboard
-* ladda upp nånting som faktiskt spelar. lägg till fler skepp och kollision avoid tex move 1, move 2, check if colliding with move 1
 
 * annan ide för pathfinindg
 	steg 2: planera rutten i två halvor:
@@ -10,6 +13,3 @@
 	mininghalvan:
 	välj den väg som ger högst halite/turn om man skulle åka hem därifrån,
 	håll koll på hur mycket halite skeppet har kvar för
-
-
-* kolla när skeppet blir fullt och försök inte gruva mer (dvs 1000 halite) (H.MAX_HALITE?)
