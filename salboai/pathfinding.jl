@@ -105,12 +105,15 @@ function halite_per_turn(m, ship, shipyard)
     cost = cost1 + cost2
     mhd = mhd1 .+ mhd2
 
-    net_gain = (mining - cost) .+ ship.halite
+    #net_gain = (mining - cost) .+ ship.halite
+    net_gain = (mining - cost)
+    #net_gain[shipyard] = ship.halite - cost1[shipyard]
+
+
     hpt = net_gain ./ (mhd.+1) #plus 1 since we mined one turn
-    
-    net_gain[shipyard] = ship.halite - cost1[shipyard]
-    hpt[shipyard] = net_gain[shipyard] ./ mhd[shipyard]
-    
+    #hpt[shipyard] = net_gain[shipyard] ./ mhd[shipyard]
+    #(KOMMENTER: WHAT if net_gain is negative, then dividing by big distance makes the square better instead of worse..)
+
     if ship.p == shipyard
         hpt[shipyard] = 0
     end
@@ -118,73 +121,7 @@ function halite_per_turn(m, ship, shipyard)
     return hpt, cost1, direction1
 end
 
-#=
-function travelcost(m, origin)
-    #Cheapest cost from some point to All Other points,
-    #and what direction to go on First step to take that cheapest path.
-    #south/east/north/west (or stay still)
-    m = shiftorigin(m, origin)
-    expand(f) = x -> f(x...)
-    c1,d1 = m |> q1 |> quadrant_travelcost |> expand(iq1)
-    c2,d2 = m |> q2 |> quadrant_travelcost |> expand(iq2)
-    c3,d3 = m |> q3 |> quadrant_travelcost |> expand(iq3)
-    c4,d4 = m |> q4 |> quadrant_travelcost |> expand(iq4)
-
-    D = cat(d1, d2, d3, d4, dims=3)
-    C = cat(c1, c2, c3, c4, dims=3)
-
-    C = ishiftorigin(C, origin)
-    D = ishiftorigin(D, origin)
-
-    return C, D
-end
-
-
-function halite_per_turn(m, ship, shipyard)
-    #mined halite amount (at some point)
-    #minus
-    #cost (from ship, to some point, and then to shipyard)
-    #divided by
-    #nr turns to travel there and then to shipyard
-    #equals
-    #net halite gained per turn
-
-    m = copy(m)
-    m[shipyard] = 0
-
-    mining = ceil.(Int, m .* 0.25)
-    cost1, direction1 = travelcost(m, ship.p)
-    cost2, direction2 = travelcost(m, shipyard)
-    cost2 = cost2 .+ floor.(Int, (m - mining)*0.1)
-
-    cost = cost1 + cost2
-    net_gain = ship.halite .+ mining .- cost
-
-    mhd1 = manhattandistmatrices(m, ship.p)
-    mhd2 = manhattandistmatrices(m, shipyard)
-    mhd = mhd1 .+ mhd2
-    #hpt = net_gain./mhd
-
-    hpt = net_gain ./ (mhd.+1) #plus 1 since we mined one turn
-    hpt[shipyard, :] = net_gain[shipyard, :] ./ mhd[shipyard, :]
-
-    if ship.p == shipyard
-        hpt[shipyard, :] .= 0.0
-    end
-
-    hpt, i = findmax(hpt, dims=3)
-
-    hpt = hpt[:,:,1]
-    cost1 = cost1[i][:,:,1]
-    cost2 = cost2[i][:,:,1]
-    direction1 = direction1[i][:,:,1]
-
-    return hpt, cost1, direction1, cost2
-end
-=#
-
 canmove(ship::H.Ship, halite) = leavecost(halite[ship.p]) <= ship.halite
-
 
 within_reach(hpt, cost1, ship_halite) = ifelse.(cost1 .<= ship_halite, hpt, -Inf)
 
@@ -211,9 +148,15 @@ function sort_directions(hpt, dir)
 end
 
 
+
 function candidate_directions(m, ship, shipyard)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
-    #hpt = within_reach(hpt, cost1, ship.halite)
     dir, target = sort_directions(hpt, direction1)
+    if ship.halite == H.MAX_HALITE
+        d = direction1[shipyard]
+        dir = [d; dir[dir.!=d]]
+    end
     return dir, target
 end
+
+#function go_home(m, ship, shipyard, turn, max_turns)
