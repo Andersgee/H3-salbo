@@ -73,6 +73,5 @@ function update_halite!(halite::AbstractMatrix{Int}, io::IO)
 end
 
 function sendcommands(cmds::Vector{String}, io::IO=Base.stdout)
-    println(Base.stderr, join(cmds, " "))
     println(io, join(cmds, " "))
 end
