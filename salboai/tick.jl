@@ -19,9 +19,24 @@ function tick(g::H.GameMap, turn::Int)
 
 	moves = Vector{Char}[]
 	targets = Vector{CartesianIndex}[]
-	for s in me.ships
+
+	for (si,s) in enumerate(me.ships)
 		if !canmove(s, g.halite)
 			push!(moves, [H.STAY_STILL])
+		elseif manhattandist(s.p, me.shipyard) + div(length(me.ships), 3) + 1 >= turns_left && s.halite > 0
+			# find alternate direction to take if preferred path is occupied
+			shipyarddir = mod.(Tuple(s.p - me.shipyard) .+ sz, sz) .- div.(sz, 2)
+			shipyardmoves = []
+			if shipyarddir[1] > 0 push!(shipyardmoves, H.EAST) end
+			if shipyarddir[1] < 0 push!(shipyardmoves, H.WEST) end
+			if shipyarddir[2] > 0 push!(shipyardmoves, H.NORTH) end
+			if shipyarddir[2] < 0 push!(shipyardmoves, H.SOUTH) end
+			push!(shipyardmoves, H.STAY_STILL)
+			hpt, cost1, direction1 = halite_per_turn(g.halite, s, me.shipyard)
+			dir1 = direction1[me.shipyard]
+			dir = [dir1; shipyardmoves[shipyardmoves .!= dir1]]
+			push!(moves, dir)
+			push!(targets, fill(me.shipyard, length(dir)))
 		else
 			dir, target = Salboai.candidate_directions(g.halite, s, me.shipyard)
 			push!(moves, dir)
@@ -47,20 +62,22 @@ function tick(g::H.GameMap, turn::Int)
 	is_moving = [m[1] != H.STAY_STILL for m in moves]
 	i = sortperm(is_moving)
 	moves = moves[i]
-	me.ships = me.ships[i]
+	ships = me.ships[i]
 
-	ships_p = [s.p for s in me.ships]
+	if turns_left <= length(ships) + 1 # ignore collisions on dropoff during final collection
+		not_on_dropoff = [s.p != me.shipyard for s in ships]
+		moves = moves[not_on_dropoff]
+		ships = ships[not_on_dropoff]
+	end
 
-	pickedmove, occupied = Salboai.avoidcollision(g.halite, ships_p, moves)
+	pickedmove, occupied = Salboai.avoidcollision(g.halite, [s.p for s in ships], moves)
 	cangenerate = !occupied[me.shipyard]
 
-	cmds = String[]
+	cmds = H.move.(ships, pickedmove)
 
 	if (me.halite > 1000) && (cangenerate == true) && (turn < no_more_ship_turn)
 		push!(cmds, H.make_ship())
 	end
-
-	cmds = [cmds; H.move.(me.ships, pickedmove)]
 
 	warn("cmds: ", cmds)
 	warn("turn ", turn, " took ", now() - start_t)
