@@ -1,7 +1,7 @@
 function warmup()
 	g = dummyGameMap((32, 32))
-	tick(g, 10)
-	tick(g, max_turns(g) - 10)
+	tick(g, 1)
+	tick(g, max_turns(g) - 1)
 end
 
 
