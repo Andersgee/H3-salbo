@@ -10,7 +10,7 @@ function movep(shipp, move)
 end
 
 
-function avoidcollision(m, ships_p, moves, shipyard)
+function avoidcollision(m, ships_p, moves)
     occupied = H.WrappedMatrix(falses(size(m)))
 
     pickedmove = Char[]
@@ -32,10 +32,5 @@ function avoidcollision(m, ships_p, moves, shipyard)
         end
     end
 
-    cangenerate = true
-    if occupied[shipyard] == true
-        cangenerate = false
-    end
-
-    return pickedmove, cangenerate
+    return pickedmove, occupied
 end

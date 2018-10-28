@@ -11,6 +11,8 @@ function tick(g::H.GameMap, turn::Int)
 	me = H.me(g)
 	max_turns = Salboai.max_turns(g)
 	no_more_ship_turn = max_turns * 1/2
+	turns_left = max_turns - turn
+	sz = size(g.halite)
 
 	warn("turn ", turn)
 	warn("n ships ", length(me.ships))
@@ -48,7 +50,9 @@ function tick(g::H.GameMap, turn::Int)
 	me.ships = me.ships[i]
 
 	ships_p = [s.p for s in me.ships]
-	pickedmove, cangenerate = Salboai.avoidcollision(g.halite, ships_p, moves, me.shipyard)
+
+	pickedmove, occupied = Salboai.avoidcollision(g.halite, ships_p, moves)
+	cangenerate = !occupied[me.shipyard]
 
 	cmds = String[]
 

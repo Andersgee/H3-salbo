@@ -26,14 +26,13 @@ moves
 
 
 ships_p = [s.p for s in ships]
-pickedmove, cangenerate = Salboai.avoidcollision(M, ships_p, moves, shipyard)
+pickedmove, occupied = Salboai.avoidcollision(M, ships_p, moves)
 
 @test pickedmove == ['e', 'w', 'n']
-@test cangenerate == true
-
+@test occupied[shipyard] == false
 
 
 shipyard = CartesianIndex(3,4)
-pickedmove, cangenerate = Salboai.avoidcollision(M, ships_p, moves, shipyard)
+pickedmove, occupied = Salboai.avoidcollision(M, ships_p, moves)
 
-@test cangenerate == false
+@test occupied[shipyard] == true
