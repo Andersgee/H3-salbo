@@ -4,6 +4,8 @@ include("../salboai.jl")
 using Test
 using Main.Salboai: splitview
 
+H.setdefaultconstants()
+
 M = [1 2 3
      3 1 2
      2 1 3]
@@ -66,7 +68,7 @@ M2
 @test hpt[3,1]==(-3 + 20*0.25 - 1 -1)/4
 
 @test hpt ≈ [-0.5 0.25 0.0
-  3.0  -3.0   0.333333
+  3.0  -1.5   0.333333
   0.0   0.0   0.166667] atol=1e-6
 
 @test cost1 == [3  3  4
@@ -102,7 +104,7 @@ M2 = [0 0 0 0
 ship = H.Ship(0, 0, CartesianIndex(2,3), 3)
 shipyard = CartesianIndex(2,2)
 d = Salboai.select_direction(M2, ship, shipyard)
-@test d == 'w'
+@test d == 'n'
 
 M2 = [0 70 0 0
       0 0 90 0
@@ -118,9 +120,7 @@ hpt, cost1, direction1 = Salboai.halite_per_turn(M2,ship,shipyard)
  0  0  0  0
  0  0  0  0
  0  5  0  0]
-@test hpt ≈ [0.6   3.2  0.428571  0.6
- 0.6   0.6  4.0       0.6
- 0.6   2.6  0.428571  0.6
- 0.6  -0.4  0.428571  0.75] atol=1e-3
-
- 
+@test hpt ≈ [0.0 2.6 0.0 0.0
+             0.0 0.0 3.4 0.0
+             0.0 2.0 0.0 0.0
+             0.0 -1.0 0.0 0.0] atol=1e-3

@@ -2,7 +2,8 @@ include("../../hlt/halite.jl")
 include("../salboai.jl")
 
 using Test
-using Main.Salboai
+
+H.setdefaultconstants()
 
 M = [0 70 0 0
      0 0 90 0
@@ -15,9 +16,11 @@ ships = [newship(2,2),newship(3,3),newship(4,4)]
 shipyard = CartesianIndex(4,4)
 
 moves = Vector{Char}[]
+targets = Vector{CartesianIndex}[]
 for s in ships
-    dir = Salboai.candidate_directions(M, s, shipyard)
+    dir, target = Salboai.candidate_directions(M, s, shipyard)
     push!(moves, dir)
+    push!(targets, target)
 end
 moves
 
