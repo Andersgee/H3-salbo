@@ -1,4 +1,6 @@
 include("collisionavoid.jl")
+include("dummymap.jl")
 include("manhattan.jl")
 include("pathfinding.jl")
 include("simulate.jl")
+include("tick.jl")

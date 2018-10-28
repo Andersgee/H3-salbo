@@ -10,4 +10,4 @@ fi
 
 mkdir -p replays
 
-$HALITE --no-timeout --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "./MyBot.jl" "./MyBot.jl"
+$HALITE --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "./MyBot.jl" "./MyBot.jl"

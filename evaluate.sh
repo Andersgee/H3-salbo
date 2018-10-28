@@ -30,6 +30,6 @@ for i in `seq 1 $#`; do
   BOTS="$BOTS $TMP/$i/MyBot.jl"
 done
 
-$HALITE --no-timeout --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE $BOTS
+$HALITE --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE $BOTS
 
 rm -rf $TMP
