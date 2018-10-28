@@ -1,5 +1,7 @@
 #!/bin/bash
 
+MAP_SIZE=32
+
 if [ "$(uname)" == "Darwin" ]; then
   HALITE=./halite-osx
 else
@@ -8,4 +10,4 @@ fi
 
 mkdir -p replays
 
-$HALITE --no-timeout --replay-directory replays/ -vvv --width 32 --height 32 "./MyBot.jl" "./MyBot.jl"
+$HALITE --no-timeout --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "./MyBot.jl" "./MyBot.jl"
