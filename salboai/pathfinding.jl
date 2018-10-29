@@ -152,7 +152,7 @@ function candidate_directions(m, ship, shipyard)
     if ship.halite == H.MAX_HALITE
         d = direction1[shipyard]
         dir = [d; dir[dir.!=d]] #priority 1 go to shipyard
-        #need to make sure target list also changes here..
+        target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard
     end
 
     return dir, target
