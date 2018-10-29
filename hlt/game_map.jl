@@ -24,7 +24,7 @@ end
 
 struct GameMap
     my_player_id::Int
-    halite::WrappedMatrix{Int}
+    halite::WrappedMatrix{Int, Matrix{Int}}
     players::Dict{Int,Player}
 end
 

@@ -1,2 +1,2 @@
-include("WrappedMatrix.jl")
+include("WrappedArray.jl")
 include("networking.jl")
