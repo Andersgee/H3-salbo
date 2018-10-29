@@ -24,7 +24,7 @@ function simulate1(m, ship, shipyard)
     end
   end
 
-  ship.p = CartesianIndex(H.mod1.(Tuple(ship.p), size(m)))
+  ship.p = CartesianIndex(mod1.(Tuple(ship.p), size(m)))
   cmd, m, ship, dropoffed_halite
 end
 
