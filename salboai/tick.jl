@@ -66,18 +66,23 @@ function tick(g::H.GameMap, turn::Int)
 	ships = me.ships[i]
 	targets = targets[i]
 
+	cmds = String[]
 	if turns_left <= length(ships) + 1 # ignore collisions on dropoff during final collection
-		dropoff_next = [manhattandist(s.p, me.shipyard) <= 1 for s in ships]
-		keep = .!dropoff_next
-		moves = moves[keep]
-		ships = ships[keep]
-		targets = targets[keep]
+		on_dropoff = [s.p == me.shipyard for s in ships]
+		dropoff_next = [manhattandist(s.p, me.shipyard) == 1 for s in ships]
+		go_dropoff = [m[1] for m in moves[dropoff_next]]
+		append!(cmds, H.move.(ships[dropoff_next], go_dropoff))
+
+		collisioncheck = .!(dropoff_next .| on_dropoff)
+		moves = moves[collisioncheck]
+		ships = ships[collisioncheck]
+		targets = targets[collisioncheck]
 	end
 
 	pickedmove, occupied = Salboai.avoidcollision(g.halite, [s.p for s in ships], moves)
 	cangenerate = !occupied[me.shipyard]
 
-	cmds = H.move.(ships, pickedmove)
+	append!(cmds, H.move.(ships, pickedmove))
 
 	if (me.halite ≥ 1000) && (cangenerate == true) && (turn < no_more_ship_turn)
 		push!(cmds, H.make_ship())
