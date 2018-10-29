@@ -21,15 +21,13 @@ warmuptime = @elapsed Salboai.warmup()
 # time
 println("ticktime 32")
 @btime Salboai.tick(g32, div(Salboai.max_turns(g32), 2))
-@btime Salboai.tick(g32, div(Salboai.max_turns(g32), 2))
 
 println("ticktime 64")
-@btime Salboai.tick(g64, div(Salboai.max_turns(g64), 2))
 @btime Salboai.tick(g64, div(Salboai.max_turns(g64), 2))
 
 #=
 using Profile
-@profile Salboai.tick(g, div(Salboai.max_turns(g), 2))
+@profile Salboai.tick(g64, div(Salboai.max_turns(g64), 2))
 using ProfileView
 ProfileView.view()
 =#

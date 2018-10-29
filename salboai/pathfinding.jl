@@ -70,15 +70,11 @@ function travelcost(m,o)
     C3, D3, MHD3 = travelcost_3d(m, o)
 
     #make sure to pick the one with shortest distance in case cheapest cost is same for several.
-    C = findmin(C3, dims=3)[1][:,:,1]
-    MHD = zeros(Int, size(C))
-    D = fill('ö', size(C))
-    q = collect(1:4) #quartile number
-    for x=1:size(C,2), y=1:size(C,1)
-        i = q[C3[y,x,:] .== C[y,x]] #indexes with same minimum cost
-        MHD[y,x], index = findmin(MHD3[y,x,i]) #pick minimum dist amongst the ones with least cost
-        D[y,x] = D3[y,x,i][index] #pick the direction corresponding to that picked index
-    end
+    _, i = findmin(C3 .+ 1e-6MHD3, dims=3)
+    C = C3[i][:,:]
+    D = D3[i][:,:]
+    MHD = MHD3[i][:,:]
+
     return C, D, MHD
 end
 
