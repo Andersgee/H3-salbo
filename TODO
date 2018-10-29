@@ -1,7 +1,6 @@
 * kolla om en dropoff förbättrar beräknade halites per tick
 * markera vart skepp är på väg för att prioritera ordningen
 * markera att skepp som varit fulla är på väg hem
-* lägg till go_home(MAX_TURNS) funktion
 * adda motståndarskepps halite till rutorna under dem.
 * mining på inspirerade rutor ska ha bonus
 
