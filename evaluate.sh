@@ -2,7 +2,7 @@
 
 set -e
 
-MAP_SIZE=64
+MAP_SIZE=40
 
 if [ "$(uname)" == "Darwin" ]; then
   HALITE=./halite-osx
