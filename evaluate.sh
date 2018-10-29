@@ -31,6 +31,6 @@ for i in `seq 1 $#`; do
   BOTS+=("$TMP/$i/MyBot.jl ${!i}")
 done
 
-$HALITE --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}"
+$HALITE --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}" || true
 
 rm -rf $TMP
