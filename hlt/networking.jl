@@ -48,7 +48,7 @@ end
 
 function parse_dropoff(owner::Int, s::String)
     id, x, y = str2ints(s)
-    Ship(owner, id, parse_xy(x, y))
+    DropOff(owner, id, parse_xy(x, y))
 end
 
 
