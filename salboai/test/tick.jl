@@ -2,24 +2,34 @@ include("../../hlt/halite.jl")
 include("../salboai.jl")
 
 using Test
+using BenchmarkTools
+using Random
 
 H.setdefaultconstants()
 
 Salboai.initwarn(IOBuffer())
 
+Random.seed!(0)
+g32 = Salboai.dummyGameMap((32, 32))
+g64 = Salboai.dummyGameMap((64, 64))
+
 # warmup
 warmuptime = @elapsed Salboai.warmup()
+@show warmuptime
+@test warmuptime > 1
 
 # time
-g = Salboai.dummyGameMap((32, 32))
-ticktime = @elapsed Salboai.tick(g, div(Salboai.max_turns(g), 2))
+println("ticktime 32")
+@btime Salboai.tick(g32, div(Salboai.max_turns(g32), 2))
+@btime Salboai.tick(g32, div(Salboai.max_turns(g32), 2))
 
-@show warmuptime
-@show ticktime
+println("ticktime 64")
+@btime Salboai.tick(g64, div(Salboai.max_turns(g64), 2))
+@btime Salboai.tick(g64, div(Salboai.max_turns(g64), 2))
 
-@test warmuptime > 1
-@test ticktime < 0.2
-
-g = Salboai.dummyGameMap((64, 64))
-ticktime64 = @elapsed Salboai.tick(g, div(Salboai.max_turns(g), 2))
-@test 0.5 < ticktime64 < 1.5
+#=
+using Profile
+@profile Salboai.tick(g, div(Salboai.max_turns(g), 2))
+using ProfileView
+ProfileView.view()
+=#
