@@ -31,6 +31,8 @@ for i in `seq $#`; do
   BOTS+=("$TMP/$i/MyBot.jl ${!i}")
 done
 
+$HALITE --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}"
+
 for i in `seq 30`; do
   $HALITE --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}" 2>&1 | grep "rank 1" || true
 done
