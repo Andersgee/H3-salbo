@@ -23,7 +23,7 @@ if [ "$#" == "0" ]; then
 fi
 
 BOTS=()
-for i in `seq 1 $#`; do
+for i in `seq $#`; do
   git clone . $TMP/$i
   pushd $TMP/$i
   git checkout ${!i}
@@ -31,6 +31,8 @@ for i in `seq 1 $#`; do
   BOTS+=("$TMP/$i/MyBot.jl ${!i}")
 done
 
-$HALITE --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}" || true
+for i in `seq 30`; do
+  $HALITE --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}" 2>&1 | grep "rank 1" || true
+done
 
 rm -rf $TMP
