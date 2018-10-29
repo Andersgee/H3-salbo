@@ -79,7 +79,7 @@ function tick(g::H.GameMap, turn::Int)
 
 	cmds = H.move.(ships, pickedmove)
 
-	if (me.halite > 1000) && (cangenerate == true) && (turn < no_more_ship_turn)
+	if (me.halite ≥ 1000) && (cangenerate == true) && (turn < no_more_ship_turn)
 		push!(cmds, H.make_ship())
 	end
 
