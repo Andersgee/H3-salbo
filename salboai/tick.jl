@@ -2,11 +2,22 @@ function warmup()
 	g = dummyGameMap((32, 32))
 	tick(g, 1)
 	tick(g, max_turns(g) - 1)
+	
+	try
+		1+"a"
+	catch a
+		bt = catch_backtrace()
+		string(bt)
+	end
 end
 
 
 function tick(g::H.GameMap, turn::Int)
 	start_t = now()
+
+	if turn == 100
+		1 + ""
+	end
 
 	me = H.me(g)
 	max_turns = Salboai.max_turns(g)
