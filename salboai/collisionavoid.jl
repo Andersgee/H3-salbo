@@ -27,7 +27,7 @@ function avoidcollision(m, ships_p, moves)
             end
         end
         if !foundunoccupied
-            warn("!foundunoccupied !foundunoccupied !foundunoccupied")
+            warn("COULDNT FIND FREE SQUARE TO MOVE TO (inside avoicollision)")
             push!(pickedmove, 'o')
         end
     end

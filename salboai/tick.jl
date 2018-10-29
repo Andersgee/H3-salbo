@@ -23,6 +23,7 @@ function tick(g::H.GameMap, turn::Int)
 	for (si,s) in enumerate(me.ships)
 		if !canmove(s, g.halite)
 			push!(moves, [H.STAY_STILL])
+			push!(targets, [s.p])
 		elseif manhattandist(s.p, me.shipyard) + div(length(me.ships), 3) + 1 >= turns_left && s.halite > 0
 			# find alternate direction to take if preferred path is occupied
 			shipyarddir = mod.(Tuple(s.p - me.shipyard) .+ sz, sz) .- div.(sz, 2)
@@ -63,11 +64,14 @@ function tick(g::H.GameMap, turn::Int)
 	i = sortperm(is_moving)
 	moves = moves[i]
 	ships = me.ships[i]
+	targets = targets[i]
 
 	if turns_left <= length(ships) + 1 # ignore collisions on dropoff during final collection
-		not_on_dropoff = [s.p != me.shipyard for s in ships]
-		moves = moves[not_on_dropoff]
-		ships = ships[not_on_dropoff]
+		dropoff_next = [manhattandist(s.p, me.shipyard) <= 1 for s in ships]
+		keep = .!dropoff_next
+		moves = moves[keep]
+		ships = ships[keep]
+		targets = targets[keep]
 	end
 
 	pickedmove, occupied = Salboai.avoidcollision(g.halite, [s.p for s in ships], moves)

@@ -147,11 +147,13 @@ end
 function candidate_directions(m, ship, shipyard)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
     dir, target = sort_directions(hpt, direction1)
+
+    #special logic priority 1 is go to shipyard if full
     if ship.halite == H.MAX_HALITE
         d = direction1[shipyard]
-        dir = [d; dir[dir.!=d]]
+        dir = [d; dir[dir.!=d]] #priority 1 go to shipyard
+        #need to make sure target list also changes here..
     end
+
     return dir, target
 end
-
-#function go_home(m, ship, shipyard, turn, max_turns)
