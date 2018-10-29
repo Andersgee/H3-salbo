@@ -28,7 +28,7 @@ for i in `seq $#`; do
   pushd $TMP/$i
   git checkout ${!i}
   popd
-  BOTS+=("$TMP/$i/MyBot.jl ${!i}")
+  BOTS+=("julia $TMP/$i/MyBot.jl ${!i}")
 done
 
 $HALITE --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}"
