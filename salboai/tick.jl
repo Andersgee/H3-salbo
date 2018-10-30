@@ -67,11 +67,7 @@ function tick(g::H.GameMap, turn::Int)
 		=#
 	end
 
-	is_moving = [m[1] != H.STAY_STILL for m in moves]
-	i = sortperm(is_moving)
-	moves = moves[i]
-	ships = me.ships[i]
-	targets = targets[i]
+	ships = me.ships
 
 	cmds = String[]
 	if turns_left <= length(ships) + 1 # ignore collisions on dropoff during final collection

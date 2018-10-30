@@ -21,3 +21,6 @@ w[0, 0:1] = 13
 @test w[:,2] == [2, 6, 10]
 @test w[:,-5] == [3, 7, 11]
 @test w[5,:] == [5, 6, 7, 8]
+
+@test w[CartesianIndex(2,3)] == 7
+@test w[[CartesianIndex(2,3), CartesianIndex(3,2)]] == [7, 10]
