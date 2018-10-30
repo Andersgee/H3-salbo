@@ -41,21 +41,6 @@ function tick(g::H.GameMap, turn::Int)
 			push!(moves, dir)
 			push!(targets, target)
 		end
-		#push!(cmds, H.move(s, dir[1]))
-		#=
-		warn("ship ", s.id, " pos=", Tuple(s.p), " halite=", s.halite)
-		if !canmove(s, g.halite)
-			push!(cmds, H.move(s, H.STAY_STILL))
-			warn("can't move ", Salboai.leavecost(g.halite[s.p]), " > ", s.halite)
-		else
-			dir = select_direction(g.halite, s, me.shipyard)
-			warn(g.halite[s.p[1] .+ (-1:1), s.p[2] .+ (-1:1)])
-
-			#need to add a manhattan distance cost from ship to all map and from shipyard to all map. sum them
-			#and multiply by something to not just walk away.
-			push!(cmds, H.move(s, dir))
-		end
-		=#
 	end
 
 	ships = me.ships
