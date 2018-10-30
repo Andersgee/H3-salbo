@@ -26,27 +26,18 @@ function tick(g::H.GameMap, turn::Int)
 
 	moves = Vector{Char}[]
 	targets = Vector{CartesianIndex}[]
+	go_home_margin = div(length(me.ships), 3) + 1
 
 	for (si,s) in enumerate(me.ships)
 		if !canmove(s, g.halite)
 			push!(moves, [H.STAY_STILL])
 			push!(targets, [s.p])
-		elseif manhattandist(s.p, me.shipyard) + div(length(me.ships), 3) + 1 >= turns_left && s.halite > 0
-			# find alternate direction to take if preferred path is occupied
-			shipyarddir = mod.(Tuple(s.p - me.shipyard) .+ sz, sz) .- div.(sz, 2)
-			shipyardmoves = []
-			if shipyarddir[1] > 0 push!(shipyardmoves, H.EAST) end
-			if shipyarddir[1] < 0 push!(shipyardmoves, H.WEST) end
-			if shipyarddir[2] > 0 push!(shipyardmoves, H.NORTH) end
-			if shipyarddir[2] < 0 push!(shipyardmoves, H.SOUTH) end
-			push!(shipyardmoves, H.STAY_STILL)
-			hpt, cost1, direction1 = halite_per_turn(g.halite, s, me.shipyard)
-			dir1 = direction1[me.shipyard]
-			dir = [dir1; shipyardmoves[shipyardmoves .!= dir1]]
+		elseif manhattandist(s.p, me.shipyard) + go_home_margin >= turns_left && s.halite > 0
+			dir, target = cheapestmoves(g.halite, s, me.shipyard)
 			push!(moves, dir)
-			push!(targets, fill(me.shipyard, length(dir)))
+			push!(targets, target)
 		else
-			dir, target = Salboai.candidate_directions(g.halite, s, me.shipyard)
+			dir, target = candidate_directions(g.halite, s, me.shipyard)
 			push!(moves, dir)
 			push!(targets, target)
 		end
@@ -70,9 +61,9 @@ function tick(g::H.GameMap, turn::Int)
 	ships = me.ships
 
 	cmds = String[]
-	if turns_left <= length(ships) + 1 # ignore collisions on dropoff during final collection
+	if 1 + go_home_margin >= turns_left # ignore collisions on dropoff during final collection
 		on_dropoff = [s.p == me.shipyard for s in ships]
-		dropoff_next = [manhattandist(s.p, me.shipyard) == 1 for s in ships]
+		dropoff_next = [manhattandist(s.p, me.shipyard) == 1 && t[1] == me.shipyard for (s,t) in zip(ships, targets)]
 		go_dropoff = [m[1] for m in moves[dropoff_next]]
 		append!(cmds, H.move.(ships[dropoff_next], go_dropoff))
 
