@@ -36,10 +36,10 @@ iq3(m,d) = q3(m), replace(d, 0 => H.SOUTH, 1 => H.WEST, 4 => H.STAY_STILL)
 iq4(m,d) = q4(m), replace(d, 0 => H.SOUTH, 1 => H.EAST, 4 => H.STAY_STILL)
 =#
 
-iq1(m,d) = q1(m), q1(replace(d, 0 => H.NORTH, 1 => H.EAST, 4 => H.STAY_STILL))
-iq2(m,d) = q2(m), q2(replace(d, 0 => H.NORTH, 1 => H.WEST, 4 => H.STAY_STILL))
-iq3(m,d) = q3(m), q3(replace(d, 0 => H.SOUTH, 1 => H.WEST, 4 => H.STAY_STILL))
-iq4(m,d) = q4(m), q4(replace(d, 0 => H.SOUTH, 1 => H.EAST, 4 => H.STAY_STILL))
+q1d(d) = replace(d, 0 => H.NORTH, 1 => H.EAST, 4 => H.STAY_STILL)
+q2d(d) = replace(d, 0 => H.NORTH, 1 => H.WEST, 4 => H.STAY_STILL)
+q3d(d) = replace(d, 0 => H.SOUTH, 1 => H.WEST, 4 => H.STAY_STILL)
+q4d(d) = replace(d, 0 => H.SOUTH, 1 => H.EAST, 4 => H.STAY_STILL)
 
 shiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(CartesianIndex(1,1) - origin))
 ishiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(origin - CartesianIndex(1,1)))
@@ -53,11 +53,15 @@ function travelcost_3d(m, o)
     #and what direction to go on First step to take that cheapest path.
     #south/east/north/west (in that order 0,1,2,3)
     m = shiftorigin(m, o)
-    expand(f) = x -> f(x...)
-    c1,d1 = m |> q1 |> quadrant_travelcost |> expand(iq1)
-    c2,d2 = m |> q2 |> quadrant_travelcost |> expand(iq2)
-    c3,d3 = m |> q3 |> quadrant_travelcost |> expand(iq3)
-    c4,d4 = m |> q4 |> quadrant_travelcost |> expand(iq4)
+    c1,d1 = m |> q1 |> quadrant_travelcost .|> q1
+    c2,d2 = m |> q2 |> quadrant_travelcost .|> q2
+    c3,d3 = m |> q3 |> quadrant_travelcost .|> q3
+    c4,d4 = m |> q4 |> quadrant_travelcost .|> q4
+
+    d1 = q1d(d1)
+    d2 = q2d(d2)
+    d3 = q3d(d3)
+    d4 = q4d(d4)
 
     #3d
     D3 = cat(d1, d2, d3, d4, dims=3)
@@ -122,7 +126,7 @@ canmove(ship::H.Ship, halite) = leavecost(halite[ship.p]) <= ship.halite
 within_reach(hpt, cost1, ship_halite) = ifelse.(cost1 .<= ship_halite, hpt, -Inf)
 
 
-function select_direction(m, ship, shipyard)
+function select_direction(m, ship, shipyard, turn)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
     hpt_within_reach = within_reach(hpt, cost1, ship.halite)
     dir = direction1[findmax(hpt_within_reach)[2]]

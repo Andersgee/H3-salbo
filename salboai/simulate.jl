@@ -1,9 +1,9 @@
-function simulate1(m, ship, shipyard)
+function simulate1(f, m, ship, shipyard, turn)
   dropoffed_halite = 0
   m = copy(m)
   ship = copy(ship)
 
-  cmd = select_direction(m, ship, shipyard)
+  cmd = f(m, ship, shipyard, turn)
 
   if cmd == H.STAY_STILL
     h = mineamount(m[ship.p])
@@ -27,14 +27,15 @@ function simulate1(m, ship, shipyard)
 end
 
 
-function simulate(m, ship, shipyard, n)
+# f = select_direction
+function simulate(f, m, ship, shipyard, n)
   C = []
   M = []
   S = []
   D = []
 
   for i in 1:n
-    cmd, m, ship, dropoffed_halite = simulate1(m, ship, shipyard)
+    cmd, m, ship, dropoffed_halite = simulate1(f, m, ship, shipyard, i)
     push!(C, cmd)
     push!(M, m)
     push!(S, ship)
