@@ -11,26 +11,42 @@ end
 
 
 function avoidcollision(m, ships_p, moves)
-    occupied = H.WrappedMatrix(falses(size(m)))
+    # it's possible that some ships needs to stay still to avoid collisions, freeze those and start over
+    @assert length(unique(ships_p)) == length(ships_p)
 
-    pickedmove = Char[]
-    for i=1:length(ships_p)
-        foundunoccupied=false
-        #newp = ships[i].p
-        for move in moves[i]
-            newp = movep(ships_p[i], move)
-            if !occupied[newp]
-                occupied[newp] = true
-                push!(pickedmove, move)
-                foundunoccupied = true
-                break
+    freezed_something = true
+    stays_still = [m[1] == H.STAY_STILL for m in moves]
+
+    while freezed_something
+        occupied = H.WrappedMatrix(falses(size(m)))
+        occupied[ships_p[stays_still]] .= true
+        pickedmove = fill(H.STAY_STILL, length(ships_p))
+        freezed_something = false
+
+        for i=1:length(ships_p)
+            if stays_still[i]
+                continue
+            end
+            foundunoccupied=false
+            for move in moves[i]
+                newp = movep(ships_p[i], move)
+                if !occupied[newp]
+                    occupied[newp] = true
+                    pickedmove[i] = move
+                    foundunoccupied = true
+                    break
+                end
+            end
+            if !foundunoccupied
+                stays_still[i] = true
+                freezed_something = true
             end
         end
-        if !foundunoccupied
-            warn("COULDNT FIND FREE SQUARE TO MOVE TO (inside avoicollision)")
-            push!(pickedmove, 'o')
+        if freezed_something
+            continue
+        else
+            return pickedmove, occupied
         end
     end
 
-    return pickedmove, occupied
 end
