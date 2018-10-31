@@ -5,18 +5,16 @@ function simulate1(m, ship, shipyard)
 
   cmd = select_direction(m, ship, shipyard)
 
-  if cmd == 'o'
-    h = ceil(Int, 0.25*m[ship.p])
+  if cmd == H.STAY_STILL
+    h = mineamount(m[ship.p])
     ship.halite += h
     m[ship.p] -= h
+  elseif cmd == H.CONSTRUCT
+    error("Not implemented")
   else
-    c = floor(Int, 0.1*m[ship.p])
+    c = leavecost(m[ship.p])
     ship.halite -= c
-    d = Dict('n' => CartesianIndex(-1, 0),
-             's' => CartesianIndex(1, 0),
-             'w' => CartesianIndex(0, -1),
-             'e' => CartesianIndex(0, 1))
-    ship.p += d[cmd]
+    ship.p += cmd2delta(cmd)
 
     if ship.p == shipyard
       dropoffed_halite = ship.halite
