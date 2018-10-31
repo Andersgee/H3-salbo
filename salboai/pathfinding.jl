@@ -135,24 +135,6 @@ function hpt2targets(hpt, dir)
 end
 
 
-
-function candidate_directions(m, ship, shipyard)
-    hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
-    dir, target, target_hpt = hpt2targets(hpt, direction1)
-    
-    #special rule priority 1 is go to shipyard if full.
-    #=
-    if ship.halite == H.MAX_HALITE
-        full = true
-        d = direction1[shipyard]
-        dir = [d; dir[dir.!=d]] #priority 1 go to shipyard
-        target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard
-    end
-    =#
-
-    return dir, target, target_hpt
-end
-
 function sort_staystill_first!(ships, moves, targets)
     #probably useful to have the ones mining first in the aray
     #so they get priority in avoidcollisions() simply by iterating over them first.
@@ -162,25 +144,52 @@ function sort_staystill_first!(ships, moves, targets)
 end
 
 
-function exclusive_candidate1_targets!(dirs, targets, targets_hpt)
+function candidate_targets(m, ship, shipyard)
+    hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
+    hpt = within_reach(hpt, cost1, ship.halite)
+    dir, target, target_hpt = hpt2targets(hpt, direction1)
+    
+    #make sure shipyard is not exclusive target
+    if ship.halite > (0.9*H.MAX_HALITE)
+        full = true
+        d = direction1[shipyard]
+        dir = [d; dir[dir.!=d]] #priority 1 go to shipyard
+        target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard
+        target_hpt = [Inf; target_hpt[dir.!=d]]
+    end
+    
+
+    return dir, target, target_hpt
+end
+
+
+function exclusive_candidate1_targets!(dirs, targets, targets_hpt, shipyard)
     #changes FIRST candidate target to be exclusive among the ships. (the others are not exclusive)
     #does not change order of targets_hpt
     targets_hpt_matrix=hcat(targets_hpt...)
     targets_matrix = hcat(targets...)
     for _ = 1:length(dirs)
+
         v, ind = findmax(targets_hpt_matrix)
         i = ind[1]
         shipnr = ind[2]
         bestsquare = targets_matrix[ind] #this square has best hpt (among all)
-        
-        #put that direction as first candidate direction and target
-        dirs[shipnr] = [dirs[shipnr][i]; dirs[shipnr][dirs[shipnr].!=dirs[shipnr][i]]]
-        targets[shipnr] = [targets[shipnr][i]; targets[shipnr][ targets[shipnr].!= tuple(targets[shipnr][i]) ]]
-        
-        #remove the picked square and ship from being picked again
-        targets_hpt_matrix[targets_matrix.==tuple(bestsquare)] .= -Inf
-        targets_hpt_matrix[:,shipnr] .= -Inf
+
+        if bestsquare != shipyard #dont mess with target if its the shipyard
+
+            #put that direction as first candidate direction and target
+            dirs[shipnr] = [dirs[shipnr][i]; dirs[shipnr][dirs[shipnr].!=dirs[shipnr][i]]]
+            targets[shipnr] = [targets[shipnr][i]; targets[shipnr][ targets[shipnr].!= tuple(targets[shipnr][i]) ]]
+            
+            #remove the picked square and ship from being picked again
+            targets_hpt_matrix[targets_matrix.==tuple(bestsquare)] .= -Inf
+            targets_hpt_matrix[:,shipnr] .= -Inf
+        end
     end
+
+   
+
+
     return dirs, targets
 end
 

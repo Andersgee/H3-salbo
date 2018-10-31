@@ -29,13 +29,13 @@ function tick(g::H.GameMap, turn::Int)
 	targets = Vector{CartesianIndex}[]
 	targets_hpt = Vector{Float64}[]
 	for ship in ships
-	    dir, target, target_hpt = Salboai.candidate_directions(g.halite, ship, me.shipyard)
+	    dir, target, target_hpt = Salboai.candidate_targets(g.halite, ship, me.shipyard)
 	    push!(dirs, dir)
 	    push!(targets, target)
 	    push!(targets_hpt, target_hpt)
 	end
 
-	dirs, targets = Salboai.exclusive_candidate1_targets!(dirs, targets, targets_hpt)
+	dirs, targets = Salboai.exclusive_candidate1_targets!(dirs, targets, targets_hpt, me.shipyard)
 	ships, dirs, targets = Salboai.sort_staystill_first!(ships, dirs, targets)
 
 	pickedmove, occupied = Salboai.avoidcollision(g.halite, [s.p for s in ships], dirs)
