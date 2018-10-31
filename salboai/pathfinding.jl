@@ -153,13 +153,14 @@ function candidate_directions(m, ship, shipyard)
     return dir, target, target_hpt
 end
 
-function sort_staystill_first!(ships, moves, targets, targets_hpt)
+function sort_staystill_first!(ships, moves, targets)
     #probably useful to have the ones mining first in the aray
     #so they get priority in avoidcollisions() simply by iterating over them first.
     is_moving = [m[1] != H.STAY_STILL for m in moves]
     i = sortperm(is_moving)
-    return ships[i], moves[i], targets[i], targets_hpt[i]
+    return ships[i], moves[i], targets[i]
 end
+
 
 function exclusive_candidate1_targets!(dirs, targets, targets_hpt)
     #changes FIRST candidate target to be exclusive among the ships. (the others are not exclusive)
@@ -182,3 +183,4 @@ function exclusive_candidate1_targets!(dirs, targets, targets_hpt)
     end
     return dirs, targets
 end
+
