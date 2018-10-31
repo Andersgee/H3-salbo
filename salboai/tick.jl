@@ -32,7 +32,7 @@ function tick(g::H.GameMap, turn::Int)
 		if !canmove(s, g.halite)
 			push!(moves, [H.STAY_STILL])
 			push!(targets, [s.p])
-		elseif manhattandist(s.p, me.shipyard) + go_home_margin >= turns_left && s.halite > 0
+		elseif manhattandist(sz, s.p, me.shipyard) + go_home_margin >= turns_left && s.halite > 0
 			dir, target = cheapestmoves(g.halite, s, me.shipyard)
 			push!(moves, dir)
 			push!(targets, target)
@@ -45,17 +45,10 @@ function tick(g::H.GameMap, turn::Int)
 
 	ships = me.ships
 
+
 	cmds = String[]
 	if 1 + go_home_margin >= turns_left # ignore collisions on dropoff during final collection
-		on_dropoff = [s.p == me.shipyard for s in ships]
-		dropoff_next = [manhattandist(s.p, me.shipyard) == 1 && t[1] == me.shipyard for (s,t) in zip(ships, targets)]
-		go_dropoff = [m[1] for m in moves[dropoff_next]]
-		append!(cmds, H.move.(ships[dropoff_next], go_dropoff))
-
-		collisioncheck = .!(dropoff_next .| on_dropoff)
-		moves = moves[collisioncheck]
-		ships = ships[collisioncheck]
-		targets = targets[collisioncheck]
+		ships, moves, targets, cmds = crash_on_dropoffs(sz, ships, moves, targets, [me.shipyard])
 	end
 
 	pickedmove, occupied = Salboai.avoidcollision(g.halite, [s.p for s in ships], moves)

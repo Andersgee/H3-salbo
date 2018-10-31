@@ -24,8 +24,6 @@ for s in ships
     push!(moves, dir)
     push!(targets, target)
 end
-moves
-
 
 ships_p = [s.p for s in ships]
 pickedmove, occupied = Salboai.avoidcollision(M, ships_p, moves)

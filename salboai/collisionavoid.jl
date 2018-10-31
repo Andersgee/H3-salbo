@@ -1,6 +1,6 @@
 winds2cartesian(D) = replace(D, H.NORTH => CartesianIndex(-1,0), H.WEST => CartesianIndex(0,-1), H.SOUTH => CartesianIndex(1,0), H.EAST => CartesianIndex(0,1))
 
-cmd2delta(move) = Dict(
+cmdΔ(move) = Dict(
         H.NORTH => CartesianIndex(-1, 0),
         H.SOUTH => CartesianIndex(1, 0),
         H.WEST => CartesianIndex(0, -1),
@@ -27,7 +27,7 @@ function avoidcollision(m, ships_p, moves)
         for i=1:length(ships_p) if !stays_still(pickedmove[i])
             foundunoccupied=false
             for move in moves[i]
-                newp = ships_p[i] + cmd2delta(move)
+                newp = ships_p[i] + cmdΔ(move)
                 if !occupied[newp]
                     occupied[newp] = true
                     pickedmove[i] = move

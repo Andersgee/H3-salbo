@@ -14,7 +14,7 @@ function simulate1(m, ship, shipyard)
   else
     c = leavecost(m[ship.p])
     ship.halite -= c
-    ship.p += cmd2delta(cmd)
+    ship.p += cmdΔ(cmd)
 
     if ship.p == shipyard
       dropoffed_halite = ship.halite
