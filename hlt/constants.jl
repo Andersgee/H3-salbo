@@ -1,6 +1,6 @@
 SHIP_COST = nothing
 DROPOFF_COST = nothing
-MAX_HALITE = nothing
+MAX_HALITE = 1000
 MAX_TURNS = nothing
 EXTRACT_RATIO = nothing
 MOVE_COST_RATIO = nothing

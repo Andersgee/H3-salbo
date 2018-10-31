@@ -100,18 +100,8 @@ function halite_per_turn(m, ship, shipyard)
     cost = cost1 + cost2
     mhd = mhd1 .+ mhd2
 
-    #net_gain = (mining - cost) .+ ship.halite
-    net_gain = (mining - cost)
-    #net_gain[shipyard] = ship.halite - cost1[shipyard]
-
-
+    net_gain = mining - cost
     hpt = net_gain ./ (mhd.+1) #plus 1 since we mined one turn
-    #hpt[shipyard] = net_gain[shipyard] ./ mhd[shipyard]
-    #(KOMMENTER: WHAT if net_gain is negative, then dividing by big distance makes the square better instead of worse..)
-
-    if ship.p == shipyard
-        hpt[shipyard] = 0
-    end
 
     return hpt, cost1, direction1
 end
@@ -129,31 +119,66 @@ function select_direction(m, ship, shipyard)
 end
 
 
-function sort_directions(hpt, dir)
+function hpt2targets(hpt, dir)
 	#should return all directons with best first and decending
 	D =Char[]
     target = CartesianIndex[]
+    target_hpt = Float64[]
 	for _ = 1:5
 		v, i = findmax(hpt)
 		push!(D, dir[i])
         push!(target, i)
+        push!(target_hpt, hpt[i])
 		hpt[dir.==dir[i]] .= -Inf #set all values starting with that direction to very bad so its not picked again
 	end
-    return D, target
+    return D, target, target_hpt
 end
 
 
 
 function candidate_directions(m, ship, shipyard)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
-    dir, target = sort_directions(hpt, direction1)
-
-    #special logic priority 1 is go to shipyard if full
+    dir, target, target_hpt = hpt2targets(hpt, direction1)
+    
+    #special rule priority 1 is go to shipyard if full.
+    #=
     if ship.halite == H.MAX_HALITE
+        full = true
         d = direction1[shipyard]
         dir = [d; dir[dir.!=d]] #priority 1 go to shipyard
         target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard
     end
+    =#
 
-    return dir, target
+    return dir, target, target_hpt
+end
+
+function sort_staystill_first!(ships, moves, targets, targets_hpt)
+    #probably useful to have the ones mining first in the aray
+    #so they get priority in avoidcollisions() simply by iterating over them first.
+    is_moving = [m[1] != H.STAY_STILL for m in moves]
+    i = sortperm(is_moving)
+    return ships[i], moves[i], targets[i], targets_hpt[i]
+end
+
+function exclusive_candidate1_targets!(dirs, targets, targets_hpt)
+    #changes FIRST candidate target to be exclusive among the ships. (the others are not exclusive)
+    #does not change order of targets_hpt
+    targets_hpt_matrix=hcat(targets_hpt...)
+    targets_matrix = hcat(targets...)
+    for _ = 1:length(dirs)
+        v, ind = findmax(targets_hpt_matrix)
+        i = ind[1]
+        shipnr = ind[2]
+        bestsquare = targets_matrix[ind] #this square has best hpt (among all)
+        
+        #put that direction as first candidate direction and target
+        dirs[shipnr] = [dirs[shipnr][i]; dirs[shipnr][dirs[shipnr].!=dirs[shipnr][i]]]
+        targets[shipnr] = [targets[shipnr][i]; targets[shipnr][ targets[shipnr].!= tuple(targets[shipnr][i]) ]]
+        
+        #remove the picked square and ship from being picked again
+        targets_hpt_matrix[targets_matrix.==tuple(bestsquare)] .= -Inf
+        targets_hpt_matrix[:,shipnr] .= -Inf
+    end
+    return dirs, targets
 end

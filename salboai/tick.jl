@@ -24,12 +24,12 @@ function tick(g::H.GameMap, turn::Int)
 	warn("turn ", turn)
 	warn("n ships ", length(me.ships))
 
-	moves = Vector{Char}[]
+	dirs = Vector{Char}[]
 	targets = Vector{CartesianIndex}[]
 
 	for (si,s) in enumerate(me.ships)
 		if !canmove(s, g.halite)
-			push!(moves, [H.STAY_STILL])
+			push!(dirs, [H.STAY_STILL])
 			push!(targets, [s.p])
 		elseif manhattandist(s.p, me.shipyard) + div(length(me.ships), 3) + 1 >= turns_left && s.halite > 0
 			# find alternate direction to take if preferred path is occupied
@@ -43,50 +43,32 @@ function tick(g::H.GameMap, turn::Int)
 			hpt, cost1, direction1 = halite_per_turn(g.halite, s, me.shipyard)
 			dir1 = direction1[me.shipyard]
 			dir = [dir1; shipyardmoves[shipyardmoves .!= dir1]]
-			push!(moves, dir)
+			push!(dirs, dir)
 			push!(targets, fill(me.shipyard, length(dir)))
 		else
 			dir, target = Salboai.candidate_directions(g.halite, s, me.shipyard)
-			push!(moves, dir)
+			push!(dirs, dir)
 			push!(targets, target)
 		end
-		#push!(cmds, H.move(s, dir[1]))
-		#=
-		warn("ship ", s.id, " pos=", Tuple(s.p), " halite=", s.halite)
-		if !canmove(s, g.halite)
-			push!(cmds, H.move(s, H.STAY_STILL))
-			warn("can't move ", Salboai.leavecost(g.halite[s.p]), " > ", s.halite)
-		else
-			dir = select_direction(g.halite, s, me.shipyard)
-			warn(g.halite[s.p[1] .+ (-1:1), s.p[2] .+ (-1:1)])
-
-			#need to add a manhattan distance cost from ship to all map and from shipyard to all map. sum them
-			#and multiply by something to not just walk away.
-			push!(cmds, H.move(s, dir))
-		end
-		=#
 	end
 
-	is_moving = [m[1] != H.STAY_STILL for m in moves]
-	i = sortperm(is_moving)
-	moves = moves[i]
-	ships = me.ships[i]
-	targets = targets[i]
+	#dirs, targets = exclusive_candidate1_targets!(dirs, targets, targets_hpt)
+	ships, dirs, targets = Salboai.sort_staystill_first!(ships, dirs, targets)
 
 	cmds = String[]
 	if turns_left <= length(ships) + 1 # ignore collisions on dropoff during final collection
 		on_dropoff = [s.p == me.shipyard for s in ships]
 		dropoff_next = [manhattandist(s.p, me.shipyard) == 1 for s in ships]
-		go_dropoff = [m[1] for m in moves[dropoff_next]]
+		go_dropoff = [m[1] for m in dirs[dropoff_next]]
 		append!(cmds, H.move.(ships[dropoff_next], go_dropoff))
 
 		collisioncheck = .!(dropoff_next .| on_dropoff)
-		moves = moves[collisioncheck]
+		dirs = dirs[collisioncheck]
 		ships = ships[collisioncheck]
 		targets = targets[collisioncheck]
 	end
 
-	pickedmove, occupied = Salboai.avoidcollision(g.halite, [s.p for s in ships], moves)
+	pickedmove, occupied = Salboai.avoidcollision(g.halite, [s.p for s in ships], dirs)
 	cangenerate = !occupied[me.shipyard]
 
 	append!(cmds, H.move.(ships, pickedmove))
