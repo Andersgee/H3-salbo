@@ -1,7 +1,9 @@
 function warmup()
+	s = GameState()
 	g = dummyGameMap((32, 32))
-	tick(g, 1)
-	tick(g, max_turns(g) - 1)
+	update_game_state!(s, g, 1)
+	tick(s, g, 1)
+	tick(s, g, max_turns(g) - 1)
 
 	try
 		1+"a"
@@ -9,10 +11,13 @@ function warmup()
 		bt = catch_backtrace()
 		string(bt)
 	end
+
+	return GameState()
 end
 
 
-function tick(g::H.GameMap, turn::Int)
+function tick(S::GameState, g::H.GameMap, turn::Int)
+	update_game_state!(S, g, turn)
 	start_t = now()
 
 	me = H.me(g)
@@ -28,6 +33,7 @@ function tick(g::H.GameMap, turn::Int)
 	targets = Vector{CartesianIndex}[]
 	go_home_margin = div(length(me.ships), 3) + 1
 
+	dropoff_c, dropoff_t, dropoff_d = cheapestdropoff(g.halite, [me.shipyard; [d.p for d in me.dropoffs]])
 	for (si,s) in enumerate(me.ships)
 		if !canmove(s, g.halite)
 			push!(moves, [H.STAY_STILL])
@@ -37,7 +43,8 @@ function tick(g::H.GameMap, turn::Int)
 			push!(moves, dir)
 			push!(targets, target)
 		else
-			dir, target = candidate_directions(g.halite, s, me.shipyard)
+			dir, target = pathfinding2(g.halite, s.p, s.halite, turn - S.ship_dropoff_turn[s.id],
+			 				 dropoff_c, dropoff_t, dropoff_d)
 			push!(moves, dir)
 			push!(targets, target)
 		end
