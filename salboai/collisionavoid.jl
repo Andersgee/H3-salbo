@@ -11,22 +11,20 @@ cmd2delta(move) = Dict(
 
 
 function avoidcollision(m, ships_p, moves)
+    stays_still(m) = m ∈ (H.STAY_STILL, H.CONSTRUCT)
+
     # it's possible that some ships needs to stay still to avoid collisions, freeze those and start over
     @assert length(unique(ships_p)) == length(ships_p)
 
     freezed_something = true
-    stays_still = getindex.(moves, 1) .∈ ((H.STAY_STILL, H.CONSTRUCT),)
+    pickedmove = getindex.(moves, 1)
 
     while freezed_something
         occupied = H.WrappedMatrix(falses(size(m)))
-        occupied[ships_p[stays_still]] .= true
-        pickedmove = getindex.(moves, 1)
+        occupied[ships_p[stays_still.(pickedmove)]] .= true
         freezed_something = false
 
-        for i=1:length(ships_p)
-            if stays_still[i]
-                continue
-            end
+        for i=1:length(ships_p) if !stays_still(pickedmove[i])
             foundunoccupied=false
             for move in moves[i]
                 newp = ships_p[i] + cmd2delta(move)
@@ -38,10 +36,10 @@ function avoidcollision(m, ships_p, moves)
                 end
             end
             if !foundunoccupied
-                stays_still[i] = true
+                pickedmove[i] = H.STAY_STILL
                 freezed_something = true
             end
-        end
+        end end
         if freezed_something
             continue
         else

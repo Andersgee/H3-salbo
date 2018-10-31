@@ -3,6 +3,8 @@ include("../salboai.jl")
 
 using Test
 
+CI(x...) = CartesianIndex(x...)
+
 H.setdefaultconstants()
 
 M = [0 70 0 0
@@ -10,10 +12,10 @@ M = [0 70 0 0
      0 50 0 0
      0 0 0 0]
 
-newship(y,x) = H.Ship(0, 0, CartesianIndex(y,x), 0)
+newship(y,x) = H.Ship(0, 0, CI(y,x), 0)
 
-ships = [newship(2,2),newship(3,3),newship(4,4)]
-shipyard = CartesianIndex(4,4)
+ships = [newship(2,2), newship(3,3), newship(4,4)]
+shipyard = CI(4,4)
 
 moves = Vector{Char}[]
 targets = Vector{CartesianIndex}[]
@@ -32,7 +34,15 @@ pickedmove, occupied = Salboai.avoidcollision(M, ships_p, moves)
 @test occupied[shipyard] == false
 
 
-shipyard = CartesianIndex(3,4)
+shipyard = CI(3,4)
 pickedmove, occupied = Salboai.avoidcollision(M, ships_p, moves)
-
 @test occupied[shipyard] == true
+
+ships_p = [CI(1,3), CI(2,2), CI(1,1), CI(4,2)]
+moves = [[H.WEST], [H.NORTH], [H.EAST], [H.SOUTH]]
+pickedmove, occupied = Salboai.avoidcollision(M, ships_p, moves)
+@test pickedmove == [H.WEST, H.STAY_STILL, H.STAY_STILL, H.STAY_STILL]
+@test occupied == ([1 1 0 0
+                   0 1 0 0
+                   0 0 0 0
+                   0 1 0 0] .> 0)
