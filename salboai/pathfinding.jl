@@ -145,18 +145,23 @@ function sort_staystill_first!(ships, moves, targets)
 end
 
 
-function candidate_targets(m, ship, shipyard)
+function candidate_targets(m, ship, shipyard, gameending)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
     hpt = within_reach(hpt, cost1, ship.halite)
     dir, target, target_hpt = hpt2targets(hpt, direction1)
     
-    #make sure shipyard is not exclusive target
-    if ship.halite > (0.9*H.MAX_HALITE)
-        full = true
+    #make sure shipyard is candidate1 if full or game is ending
+    #if (ship.halite > (0.9*H.MAX_HALITE)) || gameending
+    if ship.halite > (0.9*H.MAX_HALITE) || gameending == true
         d = direction1[shipyard]
+
+        #target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard
+        #target_hpt = [Inf; target_hpt[dir.!=d]]
         dir = [d; dir[dir.!=d]] #priority 1 go to shipyard
-        target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard
-        target_hpt = [Inf; target_hpt[dir.!=d]]
+
+        #dir = [d; d;d;d;d]
+        target = [shipyard; shipyard;shipyard;shipyard;shipyard] #priority 1 go to shipyard
+        target_hpt = [Inf; Inf;Inf;Inf;Inf]
     end
     
 
@@ -193,4 +198,5 @@ function exclusive_candidate1_targets!(dirs, targets, targets_hpt, shipyard)
 
     return dirs, targets
 end
+
 
