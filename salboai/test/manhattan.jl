@@ -28,3 +28,5 @@ d1, d2, d3, d4 = splitview(d, dims=3)
              6 3 4 5
              3 0 1 2
              4 1 2 3]
+
+@test 3 == Salboai.manhattandist((4,4), (1,1), (3,4))

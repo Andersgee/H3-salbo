@@ -16,5 +16,6 @@ include("simulate.jl")
 include("common.jl")
 include("collisionavoid.jl")
 include("tick.jl")
+include("finalcollect.jl")
 
 end

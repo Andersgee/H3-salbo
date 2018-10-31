@@ -44,7 +44,8 @@ iq4(m,d) = q4(m), q4(replace(d, 0 => H.SOUTH, 1 => H.EAST, 4 => H.STAY_STILL))
 shiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(CartesianIndex(1,1) - origin))
 ishiftorigin(m, origin::CartesianIndex) = circshift(m, Tuple(origin - CartesianIndex(1,1)))
 
-leavecost(M) = floor(Int, 0.1M)
+leavecost(m) = div(m, 10)
+mineamount(m) = div(m + 3, 4)
 
 
 function travelcost_3d(m, o)
@@ -90,7 +91,7 @@ function halite_per_turn(m, ship, shipyard)
     m = copy(m)
     m[shipyard] = 0
 
-    mining = ceil.(Int, m .* 0.25)
+    mining = mineamount.(m)
     max_mining = H.MAX_HALITE - ship.halite
     mining = min.(mining, max_mining) #means 0 mining if full.
     cost1, direction1, mhd1 = travelcost(m, ship.p)
