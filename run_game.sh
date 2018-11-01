@@ -1,6 +1,7 @@
 #!/bin/bash
 
 MAP_SIZE=32
+#SEED="--seed 1541078652"
 
 if [ "$(uname)" == "Darwin" ]; then
   HALITE=./halite-osx
@@ -16,4 +17,4 @@ BOTS+=("./MyBot.jl")
 #BOTS+=("./MyBot.jl")
 #BOTS+=("./MyBot.jl")
 
-$HALITE --no-timeout --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}"
+$HALITE $SEED --no-timeout --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}"

@@ -12,12 +12,12 @@ g = H.init()
 me = H.me(g)
 initwarn(string("warnlog-", now(), '_', me.id, ".txt"))
 
-Salboai.warmup()
+S = Salboai.warmup()
 
 H.ready(botname)
 
 while true
 	turn = H.update_frame!(g)
-	cmds = tick(g, turn)
+	cmds = tick(S, g, turn)
 	H.sendcommands(cmds)
 end
