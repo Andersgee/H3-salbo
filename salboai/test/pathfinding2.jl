@@ -6,31 +6,31 @@ using Test
 
 CI(x...) = CartesianIndex(x...)
 
+H.setdefaultconstants()
+
 m = [5 1 2
      0 5 1
      7 0 3]
 
-dropoff_c, dropoff_t, dropoff_d = Salboai.cheapestdropoff(10m, [CI(2,1)])
-@test dropoff_c == [0 3 1
+dropoff = Salboai.cheapestdropoff(10m, [CI(2,1)])
+@test dropoff.C == [0 3 1
                     0 0 0
                     0 4 1]
-@test dropoff_t == [1 3 2
+@test dropoff.T == [1 3 2
                     0 1 1
                     1 3 2]
-@test dropoff_d == ['s'  'e'  'e'
-                    'o'  'w'  'e'
-                    'n'  'e'  'e']
+@test dropoff.P == fill(CI(2,1), size(m))
 
-dropoff_c, dropoff_t, dropoff_d = Salboai.cheapestdropoff(10m, [CI(2,1), CI(3,2)])
-@test dropoff_c == [0 0 1
+dropoff = Salboai.cheapestdropoff(10m, [CI(2,1), CI(3,2)])
+@test dropoff.C == [0 0 1
                     0 0 0
                     0 0 0]
-@test dropoff_t == [1 1 2
+@test dropoff.T == [1 1 2
                     0 1 1
                     1 0 1]
-@test dropoff_d == ['s'  'n'  'e'
-                    'o'  'w'  'e'
-                    'n'  'o'  'w']
+@test dropoff.P == [CI(2,1)  CI(3,2)  CI(2,1)
+                    CI(2,1)  CI(2,1)  CI(2,1)
+                    CI(2,1)  CI(3,2)  CI(3,2)]
 
 
 m,h,t,d = Salboai.quadrant_hpt(10m, 10)
@@ -58,42 +58,54 @@ M = [235 238 204 245 186
      237 232 180 198 155
      175 254 204 157 152]
 
-m,h,t,d = Salboai.onewayhpt(M, CI(3,3), 0)
+oneway = Salboai.onewayhpt(M, CI(3,3), 0, 0)
 
-@test m == [ 235  178  204  245  139
-             275  482  177  173  160
-             231  213    0  141  218
-             237  232  135  198  116
-             131  254  204  117  152]
+@test oneway.M == [ 235  178  204  245  139
+                    275  482  177  173  160
+                    231  213    0  141  218
+                    237  232  135  198  116
+                    131  254  204  117  152]
 
-@test h == [ 42  65  22   1  43
-              0   2  42  25   9
-             27  50   0  33  12
-              4  27  32  14  42
-             35   2  12  43  28 ]
+@test oneway.H == [ 42  65  22   1  43
+                     0   2  42  25   9
+                    27  50   0  33  12
+                     4  27  32  14  42
+                    35   2  12  43  28 ]
 
-@test t == [ 7  6  4  5  7
-             5  4  3  4  5
-             4  3  1  3  4
-             5  4  3  4  6
-             7  5  4  6  7 ]
+@test oneway.T == [ 7  6  4  5  7
+                    5  4  3  4  5
+                    4  3  1  3  4
+                    5  4  3  4  6
+                    7  5  4  6  7 ]
 
-@test d == [ 'n'  'n'  'n'  'n'  'n'
-             'w'  'w'  'n'  'n'  'n'
-             'w'  'w'  'o'  'e'  'e'
-             'w'  'w'  's'  'e'  'e'
-             'w'  'w'  's'  'e'  'e' ]
+@test oneway.D == [ 'n'  'n'  'n'  'n'  'n'
+                    'w'  'w'  'n'  'n'  'n'
+                    'w'  'w'  'o'  'e'  'e'
+                    'w'  'w'  's'  'e'  'e'
+                    'w'  'w'  's'  'e'  'e' ]
 
-dropoff_c, dropoff_t, dropoff_d = Salboai.cheapestdropoff(M, [CI(3,3)])
-dir, hpt, target = Salboai.twowayhpt(m, h, t, d, dropoff_c, dropoff_t)
+dropoff = Salboai.cheapestdropoff(M, [CI(3,3)])
+cand = Salboai.twowayhpt(oneway, dropoff)
 
-@test dir == H.WEST
-@test hpt == 35
-@test target == CI(2,2)
+@test cand[1] == Salboai.MoveCandidate(H.WEST,       35,      CI(2,2))
+@test length(cand) == 5
+@test cand[2] ≈  Salboai.MoveCandidate(H.NORTH,      22.1429, CI(2,3)) atol=1e-4
+@test cand[3] ≈  Salboai.MoveCandidate(H.EAST,       17.8571, CI(3,4)) atol=1e-4
+@test cand[4] == Salboai.MoveCandidate(H.SOUTH,      17,      CI(4,3))
+@test cand[5] == Salboai.MoveCandidate(H.STAY_STILL, 0,       CI(3,3))
 
 
 function simf(M, ship, shipyard, turn)
-    return Salboai.pathfinding2(M, ship.p, ship.halite, turn, dropoff_c, dropoff_t, dropoff_d)[1]
+    if !Salboai.canmove(ship, M)
+        return H.STAY_STILL
+    end
+    oneway = Salboai.onewayhpt(M, ship.p, ship.halite, turn)
+    cands = Salboai.pathfinding2(oneway, dropoff)
+    return cands[1].dir
 end
 
-Salboai.simulate(simf, M, H.Ship(0,0,CI(3,3),0), CI(3,3), 20)
+
+simC, simM, simS, simD = Salboai.simulate(simf, M, H.Ship(0,0,CI(3,3),0), CI(3,3), 12)
+
+@test simD == [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 438, 0]
+@test [s.halite for s in simS] == [0, 71, 50, 171, 262, 330, 310, 369, 414, 447, 0, 0]

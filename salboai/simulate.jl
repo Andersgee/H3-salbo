@@ -13,6 +13,9 @@ function simulate1(f, m, ship, shipyard, turn)
     error("Not implemented")
   else
     c = leavecost(m[ship.p])
+    if ship.halite < c
+      error("Can't afford to move from ", ship.p, " with ", m[ship.p], " halite when ship only has ", ship.halite, " halite.")
+    end
     ship.halite -= c
     ship.p += cmdΔ(cmd)
 

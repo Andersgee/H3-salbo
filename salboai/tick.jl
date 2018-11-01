@@ -31,29 +31,33 @@ function tick(S::GameState, g::H.GameMap, turn::Int)
 
 	moves = Vector{Char}[]
 	targets = Vector{CartesianIndex}[]
-	go_home_margin = div(length(me.ships), 3) + 1
 
-	dropoff_c, dropoff_t, dropoff_d = cheapestdropoff(g.halite, [me.shipyard; [d.p for d in me.dropoffs]])
-	for (si,s) in enumerate(me.ships)
+	dropoffs_p = [me.shipyard; [d.p for d in me.dropoffs]]
+	dropoff = cheapestdropoff(g.halite, dropoffs_p)
+	oneways = [onewayhpt(g.halite, s.p, s.halite, turn - S.ship_dropoff_turn[s.id]) for s in me.ships]
+
+	go_home_margin = div(length(me.ships), 3) + 1
+	go_home = dropoff.T[[s.p for s in me.ships]] .+ go_home_margin .>= turns_left
+
+	for (i,s) in enumerate(me.ships)
 		if !canmove(s, g.halite)
+			# maybe create dropoff?
 			push!(moves, [H.STAY_STILL])
 			push!(targets, [s.p])
-		elseif manhattandist(sz, s.p, me.shipyard) + go_home_margin >= turns_left && s.halite > 0
+		elseif go_home[i]
 			dir, target = cheapestmoves(g.halite, s, me.shipyard)
 			push!(moves, dir)
 			push!(targets, target)
 		else
-			dir, target = pathfinding2(g.halite, s.p, s.halite, turn - S.ship_dropoff_turn[s.id],
-			 				 dropoff_c, dropoff_t, dropoff_d)
-			push!(moves, dir)
-			push!(targets, target)
+			cands = pathfinding2(oneways[i], dropoff)
+			push!(moves, [c.dir for c in cands])
+			push!(targets, [c.target for c in cands])
 		end
 	end
 
 	ships = me.ships
-
-
 	cmds = String[]
+
 	if 1 + go_home_margin >= turns_left # ignore collisions on dropoff during final collection
 		ships, moves, targets, cmds = crash_on_dropoffs(sz, ships, moves, targets, [me.shipyard])
 	end

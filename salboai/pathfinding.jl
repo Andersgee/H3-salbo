@@ -126,7 +126,7 @@ canmove(ship::H.Ship, halite) = leavecost(halite[ship.p]) <= ship.halite
 within_reach(hpt, cost1, ship_halite) = ifelse.(cost1 .<= ship_halite, hpt, -Inf)
 
 
-function select_direction(m, ship, shipyard, turn)
+function select_direction(m, ship, shipyard, turn=0)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
     hpt_within_reach = within_reach(hpt, cost1, ship.halite)
     dir = direction1[findmax(hpt_within_reach)[2]]
