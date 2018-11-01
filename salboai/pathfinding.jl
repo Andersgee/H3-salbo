@@ -183,11 +183,14 @@ function exclusive_candidate1_targets!(dirs, targets, targets_hpt, shipyard)
         if bestsquare != shipyard #dont mess with target if its the shipyard
 
             #put that direction as first candidate direction and target
-            dirs[shipnr] = [dirs[shipnr][i]; dirs[shipnr][dirs[shipnr].!=dirs[shipnr][i]]]
-            targets[shipnr] = [targets[shipnr][i]; targets[shipnr][ targets[shipnr].!= tuple(targets[shipnr][i]) ]]
+            d = dirs[shipnr]
+            dirs[shipnr] = [d[i]; d[d.!=d[i]]]
+
+            t = targets[shipnr]
+            targets[shipnr] = [t[i]; t[ t.!= (t[i],) ]]
             
             #remove the picked square and ship from being picked again
-            targets_hpt_matrix[targets_matrix.==tuple(bestsquare)] .= -Inf
+            targets_hpt_matrix[targets_matrix.==(bestsquare,)] .= -Inf
             targets_hpt_matrix[:,shipnr] .= -Inf
         end
     end
