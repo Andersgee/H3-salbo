@@ -36,7 +36,7 @@ function tick(S::GameState, g::H.GameMap, turn::Int)
 	dropoff = cheapestdropoff(g.halite, dropoffs_p)
 	oneways = [onewayhpt(g.halite, s.p, s.halite, turn - S.ship_dropoff_turn[s.id]) for s in me.ships]
 
-	go_home_margin = div(length(me.ships), 3) + 1
+	go_home_margin = div(length(me.ships), 2) + 1
 	go_home = dropoff.T[[s.p for s in me.ships]] .+ go_home_margin .>= turns_left
 
 	for (i,s) in enumerate(me.ships)
