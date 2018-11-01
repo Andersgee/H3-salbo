@@ -139,7 +139,7 @@ function twowayhpt(ship::OneWayCost, dropoff::DropOffCost)
 	hpt2way = (h .- dropoff.C) ./ (ship.T .+ dropoff.T)
 	hpt_go_home = hpt2way[ship.p]
 	h = h .+ leavecost.(M) # the original leave cost is already deduced from H at each step, put it back
-	for extra_mining_ticks in 1:10 # try mining up to 10 ticks to see if hpt can be increased
+	for extra_mining_ticks in 1:1 # try mining up to 10 ticks to see if hpt can be increased
 		A = mineamount.(M)
 		A = min.(A, H.MAX_HALITE .- h)
 		h = h .+ A
@@ -149,6 +149,21 @@ function twowayhpt(ship::OneWayCost, dropoff::DropOffCost)
 		j = hpt2way .< hpttest
 		if any(j)
 			hpt2way[j] .= hpttest[j]
+		end
+	end
+
+	h = h[ship.p]
+	M = M[ship.p]
+
+	for stay_extra_mining_ticks in 2:10 # try mining up to 10 ticks to see if hpt can be increased
+		A = mineamount(M)
+		A = min(A, H.MAX_HALITE - h)
+		h = h .+ A
+		M = M .- A
+		L = leavecost(M)
+		hpttest = (h - L - dropoff.C[ship.p]) ./ (stay_extra_mining_ticks .+ ship.T[ship.p] .+ dropoff.T[ship.p])
+		if hpt2way[ship.p] < hpttest
+			hpt2way[ship.p] = hpttest
 		else
 			break
 		end

@@ -49,21 +49,21 @@ function tick(S::GameState, g::H.GameMap, turn::Int)
 			push!(dirs, fill(H.STAY_STILL, 5))
 			push!(targets, fill(s.p, 5))
 			push!(targets_hpt, fill(0., 5))
-		#elseif gameendings[i]
-		#	dir, target = cheapestmoves(g.halite, s, me.shipyard)
-		#	push!(dirs, [dir; fill(H.STAY_STILL, 5-length(dir))])
-		#	push!(targets, [target; fill(s.p, 5-length(target))])
-		#	push!(targets_hpt, fill(0.,5))
+		elseif gameendings[i]
+			dir, target = cheapestmoves(g.halite, s, me.shipyard)
+			push!(dirs, [dir; fill(H.STAY_STILL, 5-length(dir))])
+			push!(targets, [target; fill(s.p, 5-length(target))])
+			push!(targets_hpt, fill(0.,5))
 		else
-			dir, target, target_hpt = candidate_targets(g.halite, s, me.shipyard, gameendings[i])
-			push!(dirs, dir)
-			push!(targets, target)
-			push!(targets_hpt, target_hpt)
+			#dir, target, target_hpt = candidate_targets(g.halite, s, me.shipyard, gameendings[i])
+			#push!(dirs, dir)
+			#push!(targets, target)
+			#push!(targets_hpt, target_hpt)
 
-			#cands = pathfinding2(oneways[i], dropoff)
-			#push!(dirs, [c.dir for c in cands])
-			#push!(targets, [c.target for c in cands])
-			#push!(targets_hpt, [c.hpt for c in cands])
+			cands = pathfinding2(oneways[i], dropoff)
+			push!(dirs, [c.dir for c in cands])
+			push!(targets, [c.target for c in cands])
+			push!(targets_hpt, [c.hpt for c in cands])
 		end
 	end
 
