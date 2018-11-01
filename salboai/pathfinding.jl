@@ -105,10 +105,31 @@ function halite_per_turn(m, ship, shipyard)
     cost = cost1 + cost2
     mhd = mhd1 .+ mhd2
 
-    net_gain = mining - cost
-    hpt = net_gain ./ (mhd.+1) #plus 1 since we mined one turn
+    #net_gain = mining - cost
+    #hpt = net_gain ./ (mhd.+1) #plus 1 since we mined one turn
+    net_gain = mining - cost1
+    hpt = net_gain ./ (mhd1.+1)
 
     return hpt, cost1, direction1
+end
+
+function score(m, ship, shipyard)
+    m = copy(m)
+    m[shipyard] = 0
+
+    mining = mineamount.(m)
+    max_mining = H.MAX_HALITE - ship.halite
+    mining = min.(mining, max_mining) #means 0 mining if full.
+    cost1, direction1, mhd1 = travelcost(m, ship.p)
+    cost2, direction2, mhd2 = travelcost(m, shipyard)
+    cost2 = cost2 + leavecost.(m - mining)
+
+    cost = cost1 + cost2
+    mhd = mhd1 .+ mhd2
+
+    score = mining./(mhd.+1) - cost.*1e-6 #mining divided by distance, if same distance pick smallest cost.
+
+    return score, cost1, direction1
 end
 
 canmove(ship::H.Ship, halite) = leavecost(halite[ship.p]) <= ship.halite
@@ -151,12 +172,13 @@ end
 
 function candidate_targets(m, ship, shipyard, gameending)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
+    #hpt, cost1, direction1 = score(m, ship, shipyard)
     hpt = within_reach(hpt, cost1, ship.halite)
     dir, target, target_hpt = hpt2targets(hpt, direction1)
     
     #make sure shipyard is candidate1 if full or game is ending
     #if (ship.halite > (0.9*H.MAX_HALITE)) || gameending
-    if ship.halite > (0.9*H.MAX_HALITE) || gameending == true
+    if ship.halite > (0.95*H.MAX_HALITE) || gameending == true
         d = direction1[shipyard]
 
         #target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard

@@ -3,7 +3,8 @@
 include("hlt/halite.jl")
 include("salboai/salboai.jl")
 
-botname = length(ARGS) == 1 ? ARGS[1] : "salboai"
+#botname = length(ARGS) == 1 ? ARGS[1] : "salboai"
+botname = "salboai"
 
 using Main.Salboai
 using Dates

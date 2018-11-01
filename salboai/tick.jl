@@ -38,40 +38,24 @@ function tick(S::GameState, g::H.GameMap, turn::Int)
 
 	dropoffs_p = [me.shipyard; [d.p for d in me.dropoffs]]
 	dropoff = cheapestdropoff(g.halite, dropoffs_p)
-	oneways = [onewayhpt(g.halite, s.p, s.halite, turn - S.ship_dropoff_turn[s.id]) for s in me.ships]
-
-	go_home_margin = 15
-	gameendings = turns_left .<= dropoff.T[[s.p for s in me.ships]] .+ go_home_margin
+	
+	go_home_margin = 6
+	gameendings = turns_left .<= ( dropoff.T[[s.p for s in me.ships]] .+ go_home_margin )
+	gameending = any(gameendings)
 
 	for (i,s) in enumerate(me.ships)
-		if !canmove(s, g.halite)
-			# maybe create dropoff?
-			push!(dirs, fill(H.STAY_STILL, 5))
-			push!(targets, fill(s.p, 5))
-			push!(targets_hpt, fill(0., 5))
-		elseif gameendings[i]
-			dir, target = cheapestmoves(g.halite, s, me.shipyard)
-			push!(dirs, [dir; fill(H.STAY_STILL, 5-length(dir))])
-			push!(targets, [target; fill(s.p, 5-length(target))])
-			push!(targets_hpt, fill(0.,5))
-		else
-			#dir, target, target_hpt = candidate_targets(g.halite, s, me.shipyard, gameendings[i])
-			#push!(dirs, dir)
-			#push!(targets, target)
-			#push!(targets_hpt, target_hpt)
-
-			cands = pathfinding2(oneways[i], dropoff)
-			push!(dirs, [c.dir for c in cands])
-			push!(targets, [c.target for c in cands])
-			push!(targets_hpt, [c.hpt for c in cands])
-		end
+		#dir, target, target_hpt = candidate_targets(g.halite, s, me.shipyard, gameendings[i])
+		dir, target, target_hpt = candidate_targets(g.halite, s, me.shipyard, gameending)
+		push!(dirs, dir)
+		push!(targets, target)
+		push!(targets_hpt, target_hpt)
 	end
 
     dirs, targets = exclusive_candidate1_targets!(dirs, targets, targets_hpt, me.shipyard)
 
     cmds = String[]
-    #if (sum(gameendings)/length(gameendings)) > 0.5 # if more than half of the ships are on final return home, then start crashing on dropoff
-	if 1 + go_home_margin >= turns_left # ignore collisions on dropoff during final collection
+    #cmds is the ships that will be ignored by collision avoidance, the returned should still avoid collisions
+    if gameending
     	ships, dirs, targets, cmds = crash_on_dropoffs(sz, ships, dirs, targets, [me.shipyard])
     end
 

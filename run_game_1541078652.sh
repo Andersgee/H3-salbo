@@ -17,4 +17,4 @@ BOTS+=("./MyBot.jl")
 #BOTS+=("./MyBot.jl")
 #BOTS+=("./MyBot.jl")
 
-$HALITE $SEED --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}"
+$HALITE $SEED --no-timeout --replay-directory replays/ -vvv --width $MAP_SIZE --height $MAP_SIZE "${BOTS[@]}"
