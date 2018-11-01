@@ -75,7 +75,7 @@ function tick(S::GameState, g::H.GameMap, turn::Int)
     	ships, dirs, targets, cmds = crash_on_dropoffs(sz, ships, dirs, targets, [me.shipyard])
     end
 
-	pickedmove, occupied = avoidcollision(g.halite, [s.p for s in ships], dirs)
+	pickedmove, occupied = avoidcollision(g.halite, ships, dirs)
     cangenerate = !occupied[me.shipyard]
 
     append!(cmds, H.move.(ships, pickedmove))

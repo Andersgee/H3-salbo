@@ -25,20 +25,19 @@ for s in ships
     push!(targets, target)
 end
 
-ships_p = [s.p for s in ships]
-pickedmove, occupied = Salboai.avoidcollision(M, ships_p, moves)
+pickedmove, occupied = Salboai.avoidcollision(M, ships, moves)
 
 @test pickedmove == ['e', 'w', 'n']
 @test occupied[shipyard] == false
 
 
 shipyard = CI(3,4)
-pickedmove, occupied = Salboai.avoidcollision(M, ships_p, moves)
+pickedmove, occupied = Salboai.avoidcollision(M, ships, moves)
 @test occupied[shipyard] == true
 
-ships_p = [CI(1,3), CI(2,2), CI(1,1), CI(4,2)]
+ships = [newship(1,3), newship(2,2), newship(1,1), newship(4,2)]
 moves = [[H.WEST], [H.NORTH], [H.EAST], [H.SOUTH]]
-pickedmove, occupied = Salboai.avoidcollision(M, ships_p, moves)
+pickedmove, occupied = Salboai.avoidcollision(M, ships, moves)
 @test pickedmove == [H.WEST, H.STAY_STILL, H.STAY_STILL, H.STAY_STILL]
 @test occupied == ([1 1 0 0
                    0 1 0 0

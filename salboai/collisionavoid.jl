@@ -10,9 +10,11 @@ cmdΔ(move) = Dict(
     )[move]
 
 
-function avoidcollision(m, ships_p, moves)
+function avoidcollision(m, ships, moves)
     stays_still(m) = m ∈ (H.STAY_STILL, H.CONSTRUCT)
     # it's possible that some ships needs to stay still to avoid collisions, freeze those and start over
+    orderbyhalite = sortperm(ships, by = s-> s.halite, rev = true)
+    ships_p = [s.p for s in ships]
     @assert length(unique(ships_p)) == length(ships_p)
 
     freezed_something = true
@@ -23,7 +25,7 @@ function avoidcollision(m, ships_p, moves)
         occupied[ships_p[stays_still.(pickedmove)]] .= true
         freezed_something = false
 
-        for i=1:length(ships_p)
+        for i=orderbyhalite
             if !stays_still(pickedmove[i])
                 foundunoccupied=false
                 for move in moves[i]
@@ -123,5 +125,3 @@ function avoidcollision2(m, ships_p, moves, gameendings, shipyard)
         end
     end
 end
-
-
