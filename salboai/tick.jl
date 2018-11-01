@@ -43,12 +43,17 @@ function tick(g::H.GameMap, turn::Int)
 
     dirs, targets = Salboai.exclusive_candidate1_targets!(dirs, targets, targets_hpt, me.shipyard)
 
-    #ships, dirs, targets = Salboai.sort_staystill_first!(ships, dirs, targets)
-    #pickedmove, occupied = Salboai.avoidcollision(g.halite, [s.p for s in ships], dirs)
-    pickedmove, occupied = Salboai.avoidcollision2(g.halite, [s.p for s in ships], dirs, gameendings, me.shipyard)
+    cmds = String[]
+    # if more than half of the ships are on final return home, then start crashing on dropoff
+    if (sum(gameendings)/length(gameendings)) > 0.5
+    	ships, dirs, targets, cmds = Salboai.crash_on_dropoffs(sz, ships, dirs, targets, [me.shipyard])
+    end
+	pickedmove, occupied = Salboai.avoidcollision(g.halite, [s.p for s in ships], dirs)
+	#ships, dirs, targets = Salboai.sort_staystill_first!(ships, dirs, targets)
+    #pickedmove, occupied = Salboai.avoidcollision2(g.halite, [s.p for s in ships], dirs, gameendings, me.shipyard)
     cangenerate = !occupied[me.shipyard]
 
-    cmds = String[]
+    
     append!(cmds, H.move.(ships, pickedmove))
 
     if (me.halite ≥ 1000) && (cangenerate == true) && (turn < no_more_ship_turn)

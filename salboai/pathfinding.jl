@@ -157,9 +157,8 @@ function candidate_targets(m, ship, shipyard, gameending)
 
         #target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard
         #target_hpt = [Inf; target_hpt[dir.!=d]]
-        dir = [d; dir[dir.!=d]] #priority 1 go to shipyard
-
-        #dir = [d; d;d;d;d]
+        #dir = [d; dir[dir.!=d]] #priority 1 go to shipyard
+        dir = [direction1[shipyard], H.STAY_STILL,H.STAY_STILL,H.STAY_STILL,H.STAY_STILL]
         target = [shipyard; shipyard;shipyard;shipyard;shipyard] #priority 1 go to shipyard
         target_hpt = [Inf; Inf;Inf;Inf;Inf]
     end
