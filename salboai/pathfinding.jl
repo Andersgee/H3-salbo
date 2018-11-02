@@ -105,8 +105,8 @@ function halite_per_turn(m, ship, shipyard)
     cost = cost1 + cost2
     mhd = mhd1 .+ mhd2
 
-    net_gain = mining - cost
-    hpt = net_gain ./ (mhd.+1) #plus 1 since we mined one turn
+    net_gain = mining - cost1
+    hpt = net_gain ./ (mhd1.+1) #plus 1 since we mined one turn
 
     return hpt, cost1, direction1
 end
@@ -156,7 +156,7 @@ function candidate_targets_inner(m, ship, shipyard)
     dir, target, target_hpt = hpt2targets(hpt, direction1)
 
     #make sure shipyard is candidate1 if full
-    if ship.halite > 0.9*H.MAX_HALITE
+    if ship.halite > 0.95*H.MAX_HALITE
         d = direction1[shipyard]
 
         #target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard
