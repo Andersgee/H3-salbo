@@ -20,7 +20,7 @@ shipyard = CI(4,4)
 moves = Vector{Char}[]
 targets = Vector{CartesianIndex}[]
 for s in ships
-    dir, target = Salboai.candidate_targets(M, s, shipyard, false)
+    dir, target = Salboai.candidate_targets_inner(M, s, shipyard, false)
     push!(moves, dir)
     push!(targets, target)
 end

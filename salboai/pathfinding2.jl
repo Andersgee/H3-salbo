@@ -101,11 +101,6 @@ function onewayhpt(m, ship_pos, ship_halite, ship_ticks)
 end
 
 
-struct DropOffCost
-	C; T; P
-end
-
-
 function cheapestdropoff(m, dropoffs)
 	T = travelcost.((m,), dropoffs) # C, D, MHD
 	C3 = cat(getindex.(T, 1)..., dims=3)
@@ -117,20 +112,11 @@ function cheapestdropoff(m, dropoffs)
 	C = C3[i][:,:]
 	T = T3[i][:,:]
 	P = P3[i][:,:]
-	return DropOffCost(C, T, P)
+	return Back2DropOffCost(C, T, P)
 end
 
 
-struct MoveCandidate
-	dir::Char; hpt::Float64; target::CartesianIndex{2}
-end
-
-
-Base.isless(a::MoveCandidate, b::MoveCandidate) = a.hpt > b.hpt
-Base.isapprox(a::MoveCandidate, b::MoveCandidate; kwargs...) = a.dir == b.dir && a.target == b.target && isapprox(a.hpt, b.hpt; kwargs...)
-
-
-function twowayhpt(ship::OneWayCost, dropoff::DropOffCost)
+function twowayhpt(ship::OneWayCost, dropoff::Back2DropOffCost)
 	# H includes ship_halite
 	# T includes ship_ticks
 	h = ship.H
@@ -176,57 +162,21 @@ function twowayhpt(ship::OneWayCost, dropoff::DropOffCost)
 		dir = ship.D[i]
 		hpt2way[ship.D .== dir] .= -Inf
 		if dir != H.STAY_STILL && !isinf(hpt)
-			push!(z, MoveCandidate(dir, hpt, i))
+			push!(z, CandidateTarget(dir, i, hpt))
 		end
 	end
 
 	if hpt_stay_still > hpt_go_home
-		push!(z, MoveCandidate(H.STAY_STILL, hpt_stay_still, ship.p))
+		push!(z, CandidateTarget(H.STAY_STILL, ship.p, hpt_stay_still))
 	else
 		# select cheapest dropoff for ship position and pick fastest route to that dropoff
 		dropoff_p = dropoff.P[ship.p]
-		push!(z, MoveCandidate(ship.D[dropoff_p], hpt_go_home, dropoff_p))
+		push!(z, CandidateTarget(ship.D[dropoff_p], dropoff_p, hpt_go_home))
 	end
-	return sort!(z)
+	return sort!(z, rev=true)
 end
 
-#=
-function dropoffhpt(ship::OneWayCost, dropoff::DropOffCost)
-	hpt2dropoff = (ship.H[ship.p] - dropoff.C[ship.p]) ./ (ship.T[ship.p] + dropoff.T[ship.p])
-	if dropoff.T[ship.p] == 0
-		hpt2dropoff = -Inf # don't go to dropoff if on a dropoff
-	end
-	dropoff_p = dropoff.P[ship.p]
-	return MoveCandidate(ship.D[dropoff_p], hpt2dropoff, dropoff_p)
+
+function pathfinding2(ship::OneWayCost, dropoff::Back2DropOffCost)
+	return twowayhpt(ship, dropoff)
 end
-=#
-
-# dropoff = cheapestdropoff(m, dropoffs)
-function pathfinding2(ship::OneWayCost, dropoff::DropOffCost)
-	adventures = twowayhpt(ship, dropoff)
-	#dropoffcand = dropoffhpt(ship, dropoff)
-	#return sort!([adventures; dropoffcand])
-	return adventures
-end
-
-#=
-# whether to construct a dropoff should depend on how much halite there is around that point,
-# not how far away other ships happen to be? or?
-# pre-calc good dropoff-points?
-# if a position had a dropoff, how much faster does it get to deliver halite to that point
-function constructdropoffhpt(m, dropoffs, ships::Vector{OneWayCost})
-	dropoff = cheapestdropoff(m, dropoffs]
-	hptbefore = [pathfinding2(s, dropoff)[1].hpt for s in ships]
-
-	[begin
-		dropoff = cheapestdropoff(m, [dropoffs; s.p])]
-		# only consider the hpt of the first MoveCandidate
-		j = [1:i-1; i+1:length(ships)]
-		hptafter = sum(pathfinding2(s2, dropoff)[1].hpt for s2 in ships[j])
-		hpteffect = hptafter - sum(hptbefore[j])
-		constructioncost = H.DROPOFF_COST - m[s.p] - s.h[s.p]
-
-		MoveCandidate(H.CONSTRUCT, hpteffect - constructioncost, s.p)
-	end for (i,s) in enumerate(ships)]
-end
-=#

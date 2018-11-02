@@ -15,15 +15,13 @@ M = [1 2 1
      2 1 1]
 
 makeship(pos, halite=0) = H.Ship(0, 0, pos, halite)
-@test (['n'], [CI(3,1)]) == Salboai.cheapestmoves(M, makeship(CI(1,1), 10), CI(3,1))
+@test ['n'] == Salboai.cheapestmoves(M, makeship(CI(1,1), 10), CI(3,1))
 
 ships = makeship.(CI.([(1,1), (2,2), (3,2), (3,3)]))
-moves = [[H.EAST], [H.SOUTH], [H.SOUTH], [H.WEST]]
-targets = fill([CI(1,2)], 4)
-dropoffs = [CI(1,2)]
-ships, moves, targets, cmds = Salboai.crash_on_dropoffs(size(M), ships, moves, targets, dropoffs)
-
-@test getfield.(ships, :p) == CI.([(2,2), (3,3)])
-@test moves == [[H.SOUTH], [H.WEST]]
-@test targets == fill([CI(1,2)], 2)
-@test cmds == ["m 0 e", "m 0 s"]
+dropoff = Salboai.cheapestdropoff(M, [CI(1,2)])
+cands = Salboai.gameending.((M,), ships, (dropoff,))
+CT = Salboai.CandidateTarget
+@test [[CT('e', CI(1, 2), false)],
+       [CT('n', CI(1, 2), false)],
+       [CT('s', CI(1, 2), false)],
+       [CT('s', CI(1, 2), true), CT('w', CI(1, 2), true)]] == cands

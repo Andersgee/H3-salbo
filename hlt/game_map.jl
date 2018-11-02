@@ -32,3 +32,5 @@ Player(id::Int, shipyard_position::CartesianIndex) = Player(id, shipyard_positio
 GameMap(my_player_id, halite::Matrix{Int}, players::Vector{Player}) = GameMap(my_player_id, WrappedMatrix(halite), Dict(p.id => p for p in players))
 me(g::GameMap) = g.players[g.my_player_id]
 Base.copy(s::Ship) = Ship(s.owner, s.id, CartesianIndex(s.p), s.halite)
+
+dropoffs_p(p::Player) = [p.shipyard; [d.p for d in p.dropoffs]]

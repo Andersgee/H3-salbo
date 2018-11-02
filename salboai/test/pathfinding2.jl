@@ -86,13 +86,14 @@ oneway = Salboai.onewayhpt(M, CI(3,3), 0, 0)
 
 dropoff = Salboai.cheapestdropoff(M, [CI(3,3)])
 cand = Salboai.twowayhpt(oneway, dropoff)
+CT = Salboai.CandidateTarget
 
-@test cand[1] == Salboai.MoveCandidate(H.WEST,       22,   CI(3,2))
+@test cand[1] == CT(H.WEST,       CI(3,2), 22.)
 @test length(cand) == 5
-@test cand[2] == Salboai.MoveCandidate(H.NORTH,      18.2, CI(2,3))
-@test cand[3] == Salboai.MoveCandidate(H.EAST,       14.6, CI(3,4))
-@test cand[4] == Salboai.MoveCandidate(H.SOUTH,      13.8, CI(4,3))
-@test cand[5] == Salboai.MoveCandidate(H.STAY_STILL, 0,    CI(3,3))
+@test cand[2] == CT(H.NORTH,      CI(2,3), 18.2)
+@test cand[3] == CT(H.EAST,       CI(3,4), 14.6)
+@test cand[4] == CT(H.SOUTH,      CI(4,3), 13.8)
+@test cand[5] == CT(H.STAY_STILL, CI(3,3), 0.)
 
 
 function simf(M, ship, shipyard, turn)

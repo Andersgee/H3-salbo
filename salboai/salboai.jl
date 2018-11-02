@@ -9,6 +9,7 @@ export canmove,
 using Main.H
 using Dates
 
+include("structs.jl")
 include("dummymap.jl")
 include("manhattan.jl")
 include("pathfinding.jl")
@@ -19,5 +20,6 @@ include("common.jl")
 include("collisionavoid.jl")
 include("tick.jl")
 include("finalcollect.jl")
+include("candidatetarget.jl")
 
 end

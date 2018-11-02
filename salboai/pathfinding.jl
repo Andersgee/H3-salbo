@@ -149,11 +149,11 @@ function sort_staystill_first!(ships, moves, targets)
 end
 
 
-function candidate_targets(m, ship, shipyard, gameending)
+function candidate_targets_inner(m, ship, shipyard, gameending)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
     hpt = within_reach(hpt, cost1, ship.halite)
     dir, target, target_hpt = hpt2targets(hpt, direction1)
-    
+
     #make sure shipyard is candidate1 if full or game is ending
     #if (ship.halite > (0.9*H.MAX_HALITE)) || gameending
     if ship.halite > (0.9*H.MAX_HALITE) || gameending == true
@@ -166,7 +166,7 @@ function candidate_targets(m, ship, shipyard, gameending)
         target = [shipyard; shipyard;shipyard;shipyard;shipyard] #priority 1 go to shipyard
         target_hpt = [Inf; Inf;Inf;Inf;Inf]
     end
-    
+
 
     return dir, target, target_hpt
 end
@@ -192,17 +192,15 @@ function exclusive_candidate1_targets!(dirs, targets, targets_hpt, shipyard)
 
             t = targets[shipnr]
             targets[shipnr] = [t[i]; t[ t.!= (t[i],) ]]
-            
+
             #remove the picked square and ship from being picked again
             targets_hpt_matrix[targets_matrix.==(bestsquare,)] .= -Inf
             targets_hpt_matrix[:,shipnr] .= -Inf
         end
     end
 
-   
+
 
 
     return dirs, targets
 end
-
-
