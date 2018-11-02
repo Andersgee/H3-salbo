@@ -111,6 +111,7 @@ function halite_per_turn(m, ship, shipyard)
     return hpt, cost1, direction1
 end
 
+
 canmove(ship::H.Ship, halite) = leavecost(halite[ship.p]) <= ship.halite
 
 within_reach(hpt, cost1, ship_halite) = ifelse.(cost1 .<= ship_halite, hpt, -Inf)
@@ -149,14 +150,13 @@ function sort_staystill_first!(ships, moves, targets)
 end
 
 
-function candidate_targets_inner(m, ship, shipyard, gameending)
+function candidate_targets_inner(m, ship, shipyard)
     hpt, cost1, direction1 = halite_per_turn(m, ship, shipyard)
     hpt = within_reach(hpt, cost1, ship.halite)
     dir, target, target_hpt = hpt2targets(hpt, direction1)
 
-    #make sure shipyard is candidate1 if full or game is ending
-    #if (ship.halite > (0.9*H.MAX_HALITE)) || gameending
-    if ship.halite > (0.9*H.MAX_HALITE) || gameending == true
+    #make sure shipyard is candidate1 if full
+    if ship.halite > 0.9*H.MAX_HALITE
         d = direction1[shipyard]
 
         #target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard
