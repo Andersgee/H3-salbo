@@ -1,4 +1,4 @@
-const go_home_margin = 5
+const go_home_margin = 1
 
 function isgameending(turns_left, dropoff_distance)
 	turns_left <= dropoff_distance + go_home_margin

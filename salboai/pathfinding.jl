@@ -155,19 +155,6 @@ function candidate_targets_inner(m, ship, shipyard)
     hpt = within_reach(hpt, cost1, ship.halite)
     dir, target, target_hpt = hpt2targets(hpt, direction1)
 
-    #make sure shipyard is candidate1 if full
-    if ship.halite > 0.95*H.MAX_HALITE
-        d = direction1[shipyard]
-
-        #target = [shipyard; target[dir.!=d]] #priority 1 go to shipyard
-        #target_hpt = [Inf; target_hpt[dir.!=d]]
-        #dir = [d; dir[dir.!=d]] #priority 1 go to shipyard
-        dir = [direction1[shipyard], H.STAY_STILL,H.STAY_STILL,H.STAY_STILL,H.STAY_STILL]
-        target = [shipyard; shipyard;shipyard;shipyard;shipyard] #priority 1 go to shipyard
-        target_hpt = [Inf; Inf;Inf;Inf;Inf]
-    end
-
-
     return dir, target, target_hpt
 end
 
