@@ -87,12 +87,12 @@ oneway = Salboai.onewayhpt(M, CI(3,3), 0, 0)
 dropoff = Salboai.cheapestdropoff(M, [CI(3,3)])
 cand = Salboai.twowayhpt(oneway, dropoff)
 
-@test cand[1] == Salboai.MoveCandidate(H.WEST,       35,      CI(2,2))
+@test cand[1] == Salboai.MoveCandidate(H.WEST,       22,   CI(3,2))
 @test length(cand) == 5
-@test cand[2] ≈  Salboai.MoveCandidate(H.NORTH,      22.1429, CI(2,3)) atol=1e-4
-@test cand[3] ≈  Salboai.MoveCandidate(H.EAST,       17.8571, CI(3,4)) atol=1e-4
-@test cand[4] == Salboai.MoveCandidate(H.SOUTH,      17,      CI(4,3))
-@test cand[5] == Salboai.MoveCandidate(H.STAY_STILL, 0,       CI(3,3))
+@test cand[2] == Salboai.MoveCandidate(H.NORTH,      18.2, CI(2,3))
+@test cand[3] == Salboai.MoveCandidate(H.EAST,       14.6, CI(3,4))
+@test cand[4] == Salboai.MoveCandidate(H.SOUTH,      13.8, CI(4,3))
+@test cand[5] == Salboai.MoveCandidate(H.STAY_STILL, 0,    CI(3,3))
 
 
 function simf(M, ship, shipyard, turn)
@@ -107,5 +107,5 @@ end
 
 simC, simM, simS, simD = Salboai.simulate(simf, M, H.Ship(0,0,CI(3,3),0), CI(3,3), 12)
 
-@test simD == [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 438, 0]
-@test [s.halite for s in simS] == [0, 71, 50, 171, 262, 330, 310, 369, 414, 447, 0, 0]
+@test simD == [0, 0, 0, 0, 0, 0, 212, 0, 0, 0, 0, 0]
+@test [s.halite for s in simS] == [0, 71, 125, 165, 195, 218, 0, 0, 59, 42, 163, 254]
