@@ -25,7 +25,9 @@ function tick(S::GameState, g::H.GameMap, turn::Int)::Vector{String}
 
     no_more_ship_turn = max_turns(g) * 1/2
 
-	shipcands = shipscandidatetargets(S, g, turn)
+    inspired = inspiredsquares(g) #boolean matrix of size g.halite marking inspired squares
+
+	shipcands = shipscandidatetargets(S, g, turn, inspired)
 
 	ships = [sc.ship for sc in shipcands]
 	dirs = [[c.dir for c in sc.cands] for sc in shipcands]
