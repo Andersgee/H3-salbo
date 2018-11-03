@@ -39,7 +39,10 @@ function tick(S::GameState, g::H.GameMap, turn::Int)::Vector{String}
 	checkcollision = [sc.cands[1].checkcollision for sc in shipcands]
 	append!(cmds, H.move.(ships[.!checkcollision], getindex.(dirs[.!checkcollision], 1)))
 
-	pickedmove, occupied = avoidcollision(g.halite, ships[checkcollision], dirs[checkcollision])
+
+	forbidden = forbiddensquares(g) #completely AVOID enemy ships
+	#forbidden = H.WrappedMatrix(falses(size(g.halite))) #completely IGNORE enemy ships
+	pickedmove, occupied = avoidcollision(g.halite, ships[checkcollision], dirs[checkcollision], forbidden)
     cangenerate = !occupied[me.shipyard]
 
     append!(cmds, H.move.(ships[checkcollision], pickedmove))
