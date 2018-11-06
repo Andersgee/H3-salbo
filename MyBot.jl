@@ -12,7 +12,7 @@ g = H.init()
 me = H.me(g)
 initwarn(string("warnlog-", now(), '_', me.id, ".txt"))
 
-S = Salboai.warmup()
+S = Salboai.init(g)
 
 H.ready(botname)
 

@@ -1,9 +1,10 @@
-struct GameState
+mutable struct GameState
+    dropoff_cands::Vector{CartesianIndex{2}}
     ship_dropoff_turn::Dict{Int,Int}
     ships_to_dropoff::Set{Int}
 end
 
-GameState() = GameState(Dict{Int,Int}(), Set{Int}())
+GameState() = GameState(CartesianIndex{2}[], Dict{Int,Int}(), Set{Int}())
 
 function update_game_state!(S::GameState, h::H.GameMap, turn::Int)
     # clear killed ships

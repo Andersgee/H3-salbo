@@ -1,3 +1,13 @@
+function init(g::H.GameMap)
+	warmup()
+	me = H.me(g)
+	S = GameState()
+	S.dropoff_cands = dropoffcands(g.halite, [me.shipyard])
+	warn("S.dropoff_cands: ", Tuple.(S.dropoff_cands))
+	return S
+end
+
+
 function warmup()
 	s = GameState()
 	g = dummyGameMap((32, 32))
@@ -11,8 +21,6 @@ function warmup()
 		bt = catch_backtrace()
 		string(bt)
 	end
-
-	return GameState()
 end
 
 
