@@ -19,7 +19,7 @@ makeship(pos, halite=0) = H.Ship(0, 0, pos, halite)
 
 ships = makeship.(CI.([(1,1), (2,2), (3,2), (3,3)]))
 dropoff = Salboai.cheapestdropoff(M, [CI(1,2)])
-cands = Salboai.gameending.((M,), ships, (dropoff,))
+cands = Salboai.go2dropoff.((M,), ships, (dropoff,), true)
 CT = Salboai.CandidateTarget
 @test [[CT('e', CI(1, 2), false)],
        [CT('n', CI(1, 2), false)],
