@@ -13,7 +13,7 @@ cmdΔ(move) = Dict(
 function avoidcollision(m, ships, moves, forbidden)
     stays_still(m) = m ∈ (H.STAY_STILL, H.CONSTRUCT)
     # it's possible that some ships needs to stay still to avoid collisions, freeze those and start over
-    orderbyhalite = sortperm(ships, by = s-> s.halite, rev = true)
+    orderbyhalite = sortperm(ships, by = s-> s.halite)
     ships_p = [s.p for s in ships]
     @assert length(unique(ships_p)) == length(ships_p)
 
