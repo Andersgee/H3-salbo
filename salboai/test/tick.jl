@@ -14,16 +14,17 @@ g32 = Salboai.dummyGameMap((32, 32))
 g64 = Salboai.dummyGameMap((64, 64))
 
 # warmup
-warmuptime = @elapsed state = Salboai.warmup()
+warmuptime = @elapsed state32 = Salboai.init(g32)
+state64 = Salboai.init(g64)
 @show warmuptime
 @test warmuptime > 1
 
 # time
 println("ticktime 32")
-@btime Salboai.tick(state, g32, div(Salboai.max_turns(g32), 2))
+@btime Salboai.tick(state32, g32, div(Salboai.max_turns(g32), 2))
 
 println("ticktime 64")
-@btime Salboai.tick(state, g64, div(Salboai.max_turns(g64), 2))
+@btime Salboai.tick(state64, g64, div(Salboai.max_turns(g64), 2))
 
 #=
 using Profile

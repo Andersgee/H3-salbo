@@ -24,6 +24,6 @@ function ShipCandidateTargets(ship, cands)
 end
 
 
-struct Back2DropOffCost
+struct Back2DropOff
 	C; T; P
 end

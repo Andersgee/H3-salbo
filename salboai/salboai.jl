@@ -21,5 +21,7 @@ include("collisionavoid.jl")
 include("tick.jl")
 include("finalcollect.jl")
 include("candidatetarget.jl")
+include("diamondfilter.jl")
+include("dropoff.jl")
 
 end

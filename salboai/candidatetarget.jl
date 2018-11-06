@@ -1,9 +1,8 @@
-function shipscandidatetargets(S::GameState, g::H.GameMap, turn::Int, inspired)
+function shipscandidatetargets(S::GameState, g::H.GameMap, dropoff::Back2DropOff, turn::Int, inspired)
 	me = H.me(g)
     ships = me.ships
 	warn("n ships ", length(ships))
 
-	dropoff = cheapestdropoff(g.halite, H.dropoffs_p(me))
 	gameend = any(isgameending.(turns_left(g, turn), dropoff.T[[s.p for s in ships]]))
 	ct = candidatetargets.((S,), (g,), (dropoff,), ships, turn, gameend, (inspired,))
 
@@ -11,9 +10,7 @@ function shipscandidatetargets(S::GameState, g::H.GameMap, turn::Int, inspired)
 end
 
 
-
-
-function candidatetargets(S::GameState, g::H.GameMap, dropoff::Back2DropOffCost, s::H.Ship, turn::Int, gameend, inspired)
+function candidatetargets(S::GameState, g::H.GameMap, dropoff::Back2DropOff, s::H.Ship, turn::Int, gameend, inspired)
 	if s.halite > 0.98*H.MAX_HALITE
 		push!(S.ships_to_dropoff, s.id)
 	end
