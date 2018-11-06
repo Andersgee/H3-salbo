@@ -16,7 +16,7 @@ ready(botname, io::IO=Base.stdout) = sendcommands([botname], io)
 
 make_ship() = "$GENERATE"
 move(s::Ship, dir::Char) = "$MOVE $(s.id) $dir"
-make_dropoff(s::Ship, command::Char) = "$CONSTRUCT $(s.id)"
+make_dropoff(s::Ship) = "$CONSTRUCT $(s.id)"
 stay_still(s::Ship) = move(s, STAY_STILL)
 
-move(s::Ship, dir::Int) = move(s, ['s','e','n','w','o'][dir+1])
+move_or_make_dropoff(s::Ship, cmd::Char) = (cmd == CONSTRUCT ? make_dropoff(s) : move(s, cmd))
