@@ -5,7 +5,7 @@ function isgameending(turns_left, dropoff_distance)
 end
 
 
-function go2dropoff(m, s::H.Ship, dropoff::Back2DropOffCost, crash_on_dropoff::Bool=false)
+function go2dropoff(m, s::H.Ship, dropoff::Back2DropOff, crash_on_dropoff::Bool=false)
 	target = dropoff.P[s.p]
 	dir = cheapestmoves(m, s, target)
 

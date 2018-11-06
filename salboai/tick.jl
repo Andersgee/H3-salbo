@@ -2,8 +2,6 @@ function init(g::H.GameMap)
 	warmup()
 	me = H.me(g)
 	S = GameState()
-	S.dropoff_cands = dropoffcands(g.halite, [me.shipyard])
-	warn("S.dropoff_cands: ", Tuple.(S.dropoff_cands))
 	return S
 end
 
@@ -32,10 +30,12 @@ function tick(S::GameState, g::H.GameMap, turn::Int)::Vector{String}
 	me = H.me(g)
 
     no_more_ship_turn = max_turns(g) * 1/2
+	dropoffs = H.dropoffs_p(me)
 
     inspired = inspiredsquares(g) #boolean matrix of size g.halite marking inspired squares
 
-	shipcands = shipscandidatetargets(S, g, turn, inspired)
+	dropoff = nearestdropoff(g.halite, dropoffs)
+	shipcands = shipscandidatetargets(S, g, dropoff, turn, inspired)
 
 	ships = [sc.ship for sc in shipcands]
 	dirs = [[c.dir for c in sc.cands] for sc in shipcands]

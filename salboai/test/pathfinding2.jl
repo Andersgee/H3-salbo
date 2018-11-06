@@ -12,7 +12,7 @@ m = [5 1 2
      0 5 1
      7 0 3]
 
-dropoff = Salboai.cheapestdropoff(10m, [CI(2,1)])
+dropoff = Salboai.nearestdropoff(10m, [CI(2,1)])
 @test dropoff.C == [0 3 1
                     0 0 0
                     0 4 1]
@@ -21,7 +21,7 @@ dropoff = Salboai.cheapestdropoff(10m, [CI(2,1)])
                     1 3 2]
 @test dropoff.P == fill(CI(2,1), size(m))
 
-dropoff = Salboai.cheapestdropoff(10m, [CI(2,1), CI(3,2)])
+dropoff = Salboai.nearestdropoff(10m, [CI(2,1), CI(3,2)])
 @test dropoff.C == [0 0 1
                     0 0 0
                     0 0 0]
@@ -84,7 +84,7 @@ oneway = Salboai.onewayhpt(M, CI(3,3), 0, 0)
                     'w'  'w'  's'  'e'  'e'
                     'w'  'w'  's'  'e'  'e' ]
 
-dropoff = Salboai.cheapestdropoff(M, [CI(3,3)])
+dropoff = Salboai.nearestdropoff(M, [CI(3,3)])
 cand = Salboai.twowayhpt(oneway, dropoff)
 CT = Salboai.CandidateTarget
 

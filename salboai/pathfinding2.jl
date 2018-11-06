@@ -101,22 +101,22 @@ function onewayhpt(m, ship_pos, ship_halite, ship_ticks)
 end
 
 
-function cheapestdropoff(m, dropoffs)
-	T = travelcost.((m,), dropoffs) # C, D, MHD
-	C3 = cat(getindex.(T, 1)..., dims=3)
+function nearestdropoff(m, dropoffs)
+	TC = travelcost.((m,), dropoffs) # C, D, MHD
+	C3 = cat(getindex.(TC, 1)..., dims=3)
 	LC = leavecost.(m[dropoffs]) # cost of "leaving" dropoff should not be included
 	C3 = C3 .- reshape(LC, (1, 1, length(dropoffs)))
-	T3 = cat(getindex.(T, 3)..., dims=3)
+	T3 = cat(getindex.(TC, 3)..., dims=3)
 	P3 = cat(fill.(dropoffs, (size(m),))..., dims=3)
-	_, i = findmin(C3, dims=3)
+	_, i = findmin(T3 .+ 1e-6C3, dims=3)
 	C = C3[i][:,:]
 	T = T3[i][:,:]
 	P = P3[i][:,:]
-	return Back2DropOffCost(C, T, P)
+	return Back2DropOff(C, T, P)
 end
 
 
-function twowayhpt(ship::OneWayCost, dropoff::Back2DropOffCost)
+function twowayhpt(ship::OneWayCost, dropoff::Back2DropOff)
 	# H includes ship_halite
 	# T includes ship_ticks
 	h = ship.H
@@ -177,6 +177,6 @@ function twowayhpt(ship::OneWayCost, dropoff::Back2DropOffCost)
 end
 
 
-function pathfinding2(ship::OneWayCost, dropoff::Back2DropOffCost)
+function pathfinding2(ship::OneWayCost, dropoff::Back2DropOff)
 	return twowayhpt(ship, dropoff)
 end
