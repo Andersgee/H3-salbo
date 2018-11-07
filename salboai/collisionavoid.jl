@@ -19,14 +19,14 @@ function avoidcollision(m, ships, moves, forbidden)
 
     freezed_something = true
     pickedmove = getindex.(moves, 1)
+    occupied = H.WrappedMatrix(BitArray(undef, size(m)))
 
     while freezed_something
-        #occupied = H.WrappedMatrix(falses(size(m)))
-        occupied = H.WrappedMatrix(copy(forbidden))
+        occupied.a[:] = forbidden
         occupied[ships_p[stays_still.(pickedmove)]] .= true
         freezed_something = false
 
-        for i=orderbyhalite
+        for i in orderbyhalite
             if !stays_still(pickedmove[i])
                 foundunoccupied=false
                 for move in moves[i]
@@ -44,10 +44,7 @@ function avoidcollision(m, ships, moves, forbidden)
                 end
             end
         end
-        if freezed_something
-            continue
-        else
-            return pickedmove, occupied
-        end
     end
+
+    return pickedmove, occupied
 end
