@@ -23,5 +23,6 @@ include("finalcollect.jl")
 include("candidatetarget.jl")
 include("diamondfilter.jl")
 include("dropoff.jl")
+include("inspiration.jl")
 
 end
