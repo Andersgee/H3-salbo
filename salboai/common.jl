@@ -17,10 +17,7 @@ function warn(s...)
 	flush(warn_io)
 end
 
-function initwarn(fn::String)
-	global warn_io
-	warn_io = open(fn, "w")
-end
+initwarn(fn::String) = initwarn(open(fn, "w"))
 
 function initwarn(io::IO)
 	global warn_io
