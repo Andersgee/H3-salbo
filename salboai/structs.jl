@@ -25,5 +25,7 @@ end
 
 
 struct Back2DropOff
-	C; T; P
+	C::Matrix{Int}               # cost to nearest dropoff
+	T::Matrix{Int}               # manhattan distance to nearest dropoff
+	P::Matrix{CartesianIndex{2}} # position of nearest dropoff
 end

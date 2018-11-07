@@ -17,9 +17,10 @@ function dummyPlayer(id, sz)
 end
 
 function dummyGameMap(sz = (32, 32), n_players = 4)
-    halite = H.WrappedMatrix(rand(1:1000, sz))
+    halite = rand(1:1000, sz)
+    player_ids = 100*(1:n_players)
     return H.GameMap(
-        rand(0:n_players-1),
+        rand(player_ids),
         halite,
-        Dict(i-1 => dummyPlayer(i-1, sz) for i in 1:n_players))
+        [dummyPlayer(id, sz) for id in player_ids])
 end

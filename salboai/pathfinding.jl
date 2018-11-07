@@ -151,7 +151,7 @@ end
 
 
 function candidate_targets_inner(m, ship, shipyard, inspired)
-    modified_m = H.WrappedMatrix(m + 2*(m.*inspired))
+    modified_m = m + 2*m.*inspired
     hpt, cost1, direction1 = halite_per_turn(modified_m, ship, shipyard)
     hpt = within_reach(hpt, cost1, ship.halite)
     dir, target, target_hpt = hpt2targets(hpt, direction1)
@@ -160,6 +160,7 @@ function candidate_targets_inner(m, ship, shipyard, inspired)
 end
 
 
+# modifies dirs and targets
 function exclusive_candidate1_targets!(dirs, targets, targets_hpt, p_dropoffs)
     #changes FIRST candidate target to be exclusive among the ships. (the others are not exclusive)
     #does not change order of targets_hpt
@@ -186,9 +187,4 @@ function exclusive_candidate1_targets!(dirs, targets, targets_hpt, p_dropoffs)
             targets_hpt_matrix[:,shipnr] .= -Inf
         end
     end
-
-
-
-
-    return dirs, targets
 end

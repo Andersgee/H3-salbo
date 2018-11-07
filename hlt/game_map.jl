@@ -24,12 +24,12 @@ end
 
 struct GameMap
     my_player_id::Int
-    halite::WrappedMatrix{Int, Matrix{Int}}
+    halite::Matrix{Int}
     players::Dict{Int,Player}
 end
 
 Player(id::Int, shipyard_position::CartesianIndex) = Player(id, shipyard_position, 0, Ship[], DropOff[])
-GameMap(my_player_id, halite::Matrix{Int}, players::Vector{Player}) = GameMap(my_player_id, WrappedMatrix(halite), Dict(p.id => p for p in players))
+GameMap(my_player_id, halite::Matrix{Int}, players::Vector{Player}) = GameMap(my_player_id, halite, Dict(p.id => p for p in players))
 me(g::GameMap) = g.players[g.my_player_id]
 Base.copy(s::Ship) = Ship(s.owner, s.id, CartesianIndex(s.p), s.halite)
 

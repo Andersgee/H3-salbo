@@ -15,12 +15,14 @@ function warmup()
 	tick(s, g, 1)
 	tick(s, g, max_turns(g) - 1)
 
+	#=
 	try
 		1+"a"
 	catch a
 		bt = catch_backtrace()
 		string(bt)
 	end
+	=#
 end
 
 
@@ -49,7 +51,7 @@ function tick(S::GameState, g::H.GameMap, turn::Int)::Vector{String}
 	targets = [[c.target for c in sc.cands] for sc in shipcands]
 	targets_hpt = [[c.hpt for c in sc.cands] for sc in shipcands]
 
-    dirs, targets = exclusive_candidate1_targets!(dirs, targets, targets_hpt, H.dropoffs_p(me))
+    exclusive_candidate1_targets!(dirs, targets, targets_hpt, H.dropoffs_p(me))
 
 	cmds = String[]
 
@@ -67,8 +69,8 @@ function tick(S::GameState, g::H.GameMap, turn::Int)::Vector{String}
     end
 
 	forbidden = forbiddensquares(g) #completely AVOID enemy ships
-	#forbidden = H.WrappedMatrix(falses(size(g.halite))) #completely IGNORE enemy ships
-	
+	#forbidden = falses(size(g.halite)) #completely IGNORE enemy ships
+
     pickedmove, occupied = avoidcollision(g.halite, ships[checkcollision], dirs[checkcollision], forbidden)
 
 	append!(cmds, H.move_or_make_dropoff.(ships[checkcollision], pickedmove))
