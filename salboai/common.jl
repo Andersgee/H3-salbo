@@ -11,6 +11,10 @@ splitview(A; dims=ndims(A)) = view.((A,), (d == dims ? (1:size(A,d)) : (:) for d
 max_turns(g::H.GameMap) = 451 + div((size(g.halite, 1) - 48)*25, 8)
 turns_left(g, turn) = max_turns(g) - turn
 
+warn(s...) = nothing
+initwarn(x) = nothing
+
+#=
 warn_io = Base.stderr
 function warn(s...)
 	println(warn_io, s...)
@@ -23,3 +27,4 @@ function initwarn(io::IO)
 	global warn_io
 	warn_io = io
 end
+=#
