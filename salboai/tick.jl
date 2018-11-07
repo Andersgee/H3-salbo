@@ -15,12 +15,14 @@ function warmup()
 	tick(s, g, 1)
 	tick(s, g, max_turns(g) - 1)
 
+	#=
 	try
 		1+"a"
 	catch a
 		bt = catch_backtrace()
 		string(bt)
 	end
+	=#
 end
 
 
