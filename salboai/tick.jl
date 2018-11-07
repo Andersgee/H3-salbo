@@ -49,7 +49,7 @@ function tick(S::GameState, g::H.GameMap, turn::Int)::Vector{String}
 	targets = [[c.target for c in sc.cands] for sc in shipcands]
 	targets_hpt = [[c.hpt for c in sc.cands] for sc in shipcands]
 
-    dirs, targets = exclusive_candidate1_targets!(dirs, targets, targets_hpt, H.dropoffs_p(me))
+    exclusive_candidate1_targets!(dirs, targets, targets_hpt, H.dropoffs_p(me))
 
 	cmds = String[]
 

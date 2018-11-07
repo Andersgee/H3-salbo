@@ -160,6 +160,7 @@ function candidate_targets_inner(m, ship, shipyard, inspired)
 end
 
 
+# modifies dirs and targets
 function exclusive_candidate1_targets!(dirs, targets, targets_hpt, p_dropoffs)
     #changes FIRST candidate target to be exclusive among the ships. (the others are not exclusive)
     #does not change order of targets_hpt
@@ -186,9 +187,4 @@ function exclusive_candidate1_targets!(dirs, targets, targets_hpt, p_dropoffs)
             targets_hpt_matrix[:,shipnr] .= -Inf
         end
     end
-
-
-
-
-    return dirs, targets
 end
