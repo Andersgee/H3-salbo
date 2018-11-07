@@ -3,30 +3,29 @@ localmaxima2(A) = findall((A .> circshift(A, (1,0))) .&
                           (A .≥ circshift(A, (-1,0))) .&
                           (A .≥ circshift(A, (0,-1))))
 
+function cleardiamond!(a, p, r)
+    h, w = size(a)
+    for x in -r:r
+        y = -r+abs(x):r-abs(x)
+        a[mod1.(p[1] .+ y, h), mod1(p[2] + x, w)] .= 0
+    end
+end
 function dropoffcands(A, dropoffs, r=30)
     if any(r .≥ size(A) .- 1)
         return CartesianIndex{2}[]
-    end
-
-    function cleardiamond(a, p)
-        h, w = size(a)
-        for x in -r:r
-            y = -r+abs(x):r-abs(x)
-            a[mod1.(p[1] .+ y, h), mod1(p[2] + x, w)] .= 0
-        end
     end
 
     a = copy(A)
     for i in 1:r
         a .+= div.(diamondfilter(a, i), diamondelems(i))
     end
-    cleardiamond.((a,), dropoffs)
+    cleardiamond!.((a,), dropoffs, r)
 
     cands = CartesianIndex{2}[]
     for lm in localmaxima2(a)
         if a[lm] == 0 continue end
         push!(cands, lm)
-        cleardiamond(a, lm)
+        cleardiamond!(a, lm, r)
     end
 
     return cands
