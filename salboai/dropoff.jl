@@ -11,11 +11,8 @@ function dropoffcands(A, dropoffs, r=30)
     function cleardiamond(a, p)
         h, w = size(a)
         for x in -r:r
-            for y = -r:r
-                if abs(x) + abs(y) ≤ r
-                    a[mod1(p[1] + y, h), mod1(p[2] + x, w)] = 0
-                end
-            end
+            y = -r+abs(x):r-abs(x)
+            a[mod1.(p[1] .+ y, h), mod1(p[2] + x, w)] .= 0
         end
     end
 
