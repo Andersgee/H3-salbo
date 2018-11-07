@@ -151,7 +151,7 @@ end
 
 
 function candidate_targets_inner(m, ship, shipyard, inspired)
-    modified_m = H.WrappedMatrix(m + 2*(m.*inspired))
+    modified_m = m + 2*m.*inspired
     hpt, cost1, direction1 = halite_per_turn(modified_m, ship, shipyard)
     hpt = within_reach(hpt, cost1, ship.halite)
     dir, target, target_hpt = hpt2targets(hpt, direction1)

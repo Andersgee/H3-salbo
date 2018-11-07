@@ -67,8 +67,8 @@ function tick(S::GameState, g::H.GameMap, turn::Int)::Vector{String}
     end
 
 	forbidden = forbiddensquares(g) #completely AVOID enemy ships
-	#forbidden = H.WrappedMatrix(falses(size(g.halite))) #completely IGNORE enemy ships
-	
+	#forbidden = falses(size(g.halite)) #completely IGNORE enemy ships
+
     pickedmove, occupied = avoidcollision(g.halite, ships[checkcollision], dirs[checkcollision], forbidden)
 
 	append!(cmds, H.move_or_make_dropoff.(ships[checkcollision], pickedmove))

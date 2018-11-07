@@ -8,28 +8,28 @@ function dropoffcands(A, dropoffs, r=30)
         return CartesianIndex{2}[]
     end
 
-    function cleardiamond(w, p)
+    function cleardiamond(a, p)
+        h, w = size(a)
         for x in -r:r
-            for y in -r:r
+            for y = -r:r
                 if abs(x) + abs(y) ≤ r
-                    w[p[1] + y, p[2] + x] = 0
+                    a[mod1(p[1] + y, h), mod1(p[2] + x, w)] = 0
                 end
             end
         end
     end
 
-    a = copy(A.a)
+    a = copy(A)
     for i in 1:r
         a .+= div.(diamondfilter(a, i), diamondelems(i))
     end
-    w = H.WrappedMatrix(a)
-    cleardiamond.((w,), dropoffs)
+    cleardiamond.((a,), dropoffs)
 
     cands = CartesianIndex{2}[]
-    for lm in localmaxima2(w.a)
-        if w.a[lm] == 0 continue end
+    for lm in localmaxima2(a)
+        if a[lm] == 0 continue end
         push!(cands, lm)
-        cleardiamond(w, lm)
+        cleardiamond(a, lm)
     end
 
     return cands
