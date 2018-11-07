@@ -19,25 +19,27 @@ shipyard = CI(4,4)
 
 moves = Vector{Char}[]
 targets = Vector{CartesianIndex}[]
+inspired = zeros(Int, size(M))
 for s in ships
-    dir, target = Salboai.candidate_targets_inner(M, s, shipyard)
+    dir, target = Salboai.candidate_targets_inner(M, s, shipyard, inspired)
     push!(moves, dir)
     push!(targets, target)
 end
 
-pickedmove, occupied = Salboai.avoidcollision(M, ships, moves)
+forbidden = zeros(Int, size(M))
+pickedmove, occupied = Salboai.avoidcollision(M, ships, moves, forbidden)
 
 @test pickedmove == ['e', 'w', 'n']
 @test occupied[shipyard] == false
 
 
 shipyard = CI(3,4)
-pickedmove, occupied = Salboai.avoidcollision(M, ships, moves)
+pickedmove, occupied = Salboai.avoidcollision(M, ships, moves, forbidden)
 @test occupied[shipyard] == true
 
 ships = [newship(1,3), newship(2,2), newship(1,1), newship(4,2)]
 moves = [[H.WEST], [H.NORTH], [H.EAST], [H.SOUTH]]
-pickedmove, occupied = Salboai.avoidcollision(M, ships, moves)
+pickedmove, occupied = Salboai.avoidcollision(M, ships, moves, forbidden)
 @test pickedmove == [H.WEST, H.STAY_STILL, H.STAY_STILL, H.STAY_STILL]
 @test occupied == ([1 1 0 0
                    0 1 0 0
